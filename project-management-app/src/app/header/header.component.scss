@@ -1,0 +1,16 @@
+button.lang {
+  width: 48px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.7;
+  &.en{
+    background-image: url(../../assets/britain.jpg);
+  }
+  &.ru {
+    background-image: url(../../assets/russian.png);
+  }
+  &:hover {
+    opacity: 0.9;
+  }
+}

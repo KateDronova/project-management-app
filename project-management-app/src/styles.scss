@@ -1,1 +1,74 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --green-color: #87cb2c;
+  --green-color-dark: #0e9a28;
+  --orange-color: #f1d03b;
+  --orange-color-dark: #c4a82b;
+  --red-color-light: #f78146;
+  --red-color: #ed4f00;
+  --brown-color-trans: #4f410051;
+  --brown-color: #4f4100;
+  --sky-color: #5990ad;
+  --sky-color-light: #bbdff3;
+  /* new colors here */
+  --sea-color: #14dcc4;
+  --beach-color: #fcc9a9;
+  --dark-sea-color: #09657b;
+  --dark-sea-color-transparent: #09647b83;
+  --middle-sea-color: #3e717c;
+  --light-sea-color: #5ba0aa;
+  --extralight-sea-color: #9ccccc;
+}
+
+html {
+  background-color: var(--light-sea-color);
+  z-index: -2;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  color: var(--dark-sea-color);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: var(--middle-sea-color);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+button {
+  background-color: var(--dark-sea-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: black;
+  font-size: 1.2rem;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 0.8rem;
+  margin: 0.8rem;
+  &:hover {
+    background-color: var(--middle-sea-color);
+    color: white;
+  }
+  &:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: auto;
+  }
+}
+@mixin flexible () {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+app-header, app-footer {
+  @include flexible();
+}
+
+* {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: black;
+}
