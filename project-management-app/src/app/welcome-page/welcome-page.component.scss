@@ -1,0 +1,31 @@
+section {
+  // background-color: var(--sea-color);
+  // background-color: var(--beach-color);
+  background-color: var(--extralight-sea-color);
+  padding: 0.8em;
+  padding-left: 3em;
+  margin-bottom: 1em;
+}
+
+h2, h3 {
+  // color: var(--sea-color);
+  // color: var(--dark-sea-color);
+  // color: var(--light-sea-color);
+  // color: var(--extralight-sea-color);
+  // color: var(--beach-color);
+  color: var(--middle-sea-color);
+}
+
+p {
+  line-height: 0.8em;
+}
+
+div.content {
+  width: 50em;
+}
+
+div.container {
+  width: 280px;
+  height: 140px;
+  border: 1px solid var(--middle-sea-color);
+}

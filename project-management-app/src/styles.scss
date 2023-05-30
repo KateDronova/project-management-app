@@ -64,7 +64,7 @@ button {
   align-items: center;
 }
 
-app-header, app-footer {
+app-header, app-footer, section {
   @include flexible();
 }
 
