@@ -1,0 +1,10 @@
+<h1 routerLink="/welcome">{{title}} </h1>
+<nav>
+  <button type="button" routerLink="/signup">Login</button>
+  <button type="button" routerLink="/signup">Sign up</button>
+  <!-- <button type="button" routerLink="/login" (click)="initLogin()">Login</button>
+  <button type="button" routerLink="/login" (click)="initSignUp()">Sign up</button> -->
+</nav>
+  <nav>
+    <button type="button" class="{{language.code}}-button" *ngFor="let language of languageList" (click)="changeSiteLanguage(language.code)">{{language.code}}</button>
+  </nav>

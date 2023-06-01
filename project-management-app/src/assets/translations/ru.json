@@ -1,0 +1,27 @@
+{
+  "title": "Форма регистрации",
+  "name": {
+    "label": "Имя",
+    "placeholder": "Введите имя"
+  },
+  "surname": {
+    "label": "Фамилия",
+    "placeholder": "Введите фамилию"
+  },
+  "email": {
+    "label": "E-mail",
+    "placeholder": "Введите e-mail"
+  },
+  "password": {
+    "label": "Пароль",
+    "placeholder": "Введите пароль"
+  },
+  "password2": {
+    "label": "Повторите Пароль",
+    "placeholder": "Повторите пароль"
+  },
+  "signup": "Зарегистрироваться",
+  "login": "Авторизироваться",
+  "return": "Назад",
+  "requiredErrorMessage": "Это поле является обязательным."
+}

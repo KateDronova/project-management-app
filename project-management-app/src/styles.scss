@@ -12,6 +12,7 @@
   /* new colors here */
   --sea-color: #14dcc4;
   --beach-color: #fcc9a9;
+  --cranberry-color: #a30505;
   --dark-sea-color: #09657b;
   --dark-sea-color-transparent: #09647b83;
   --middle-sea-color: #3e717c;
@@ -32,13 +33,23 @@ h1 {
   color: var(--dark-sea-color);
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 250%;
+  &:hover{
+    color: var(--middle-sea-color);
+    cursor: pointer;
+  }
 }
+
+h2 {
+  font-size: 190%;
+}
+
 h2, h3 {
   color: var(--middle-sea-color);
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: 0.8rem;
 }
 
-button {
+button, input[type="submit"], input[type="reset"] {
   background-color: var(--dark-sea-color);
   border: none;
   border-radius: 5px;

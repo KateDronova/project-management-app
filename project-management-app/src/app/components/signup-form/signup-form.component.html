@@ -1,0 +1,83 @@
+<form #signUpForm="ngForm" (ngSubmit)="signUpForm.form.valid && saveUser()" novalidate>
+  <fieldset>
+    <h2>{{ "title" | translate}}</h2>
+    <div class="wrapper">
+      <label>{{ "name.label" | translate }}
+        <input type="text"
+        pattern="[a-z,A-Z]{2,15}"
+        [placeholder]="'name.placeholder' | translate"
+        name="name"
+        [(ngModel)]="signupForm.name"
+        #name="ngModel"
+        required>
+      </label>
+      <span translate class="text-danger"
+      *ngIf="(name.touched || signUpForm.submitted) && name.errors?.['required']"
+      >requiredErrorMessage</span>
+    </div>
+    <div class="wrapper">
+      <label>{{ "surname.label" | translate }}
+        <input type="text"
+        pattern="[a-z,A-Z]{3,20}"
+        [placeholder]="'surname.placeholder' | translate"
+        name="surname"
+        [(ngModel)]="signupForm.surname"
+        #surname="ngModel"
+        required>
+      </label>
+      <span translate class="text-danger"
+      *ngIf="(surname.touched || signUpForm.submitted) && surname.errors?.['required']"
+      >requiredErrorMessage</span>
+    </div>
+
+    <div class="wrapper">
+      <label>{{ "email.label" | translate }}
+        <input type="email"
+        [placeholder]="'email.placeholder' | translate"
+        name="email"
+        [(ngModel)]="signupForm.email"
+        #email="ngModel"
+        required>
+      </label>
+      <span translate class="text-danger"
+      *ngIf="(email.touched || signUpForm.submitted) && email.errors?.['required']"
+      >requiredErrorMessage</span>
+    </div>
+    <div class="wrapper">
+      <label>{{ "password.label" | translate }}
+        <div class="secure">
+          <button class="seeThePassword"></button>
+          <input type="password"
+          [placeholder]="'password.placeholder' | translate"
+          name="password"
+          [(ngModel)]="signupForm.password"
+          #password="ngModel"
+          required>
+        </div>
+      </label>
+      <span translate class="text-danger"
+      *ngIf="(password.touched || signUpForm.submitted) && password.errors?.['required']"
+      >requiredErrorMessage</span>
+    </div>
+
+    <div class="wrapper">
+      <label>{{ "password2.label" | translate }}
+        <div class="secure">
+          <button class="seeThePassword"></button>
+          <input type="password"
+          [placeholder]="'password2.placeholder' | translate"
+          name="password2"
+          [(ngModel)]="signupForm.password2"
+          #password2="ngModel"
+          required>
+        </div>
+      </label>
+      <span translate class="text-danger"
+      *ngIf="(password2.touched || signUpForm.submitted) && password2.errors?.['required']"
+      >requiredErrorMessage</span>
+    </div>
+
+    <input type="submit" [value]="'signup' | translate">
+  </fieldset>
+  <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
+</form>

@@ -1,0 +1,27 @@
+{
+  "title": "Signup form",
+  "name": {
+    "label": "Name",
+    "placeholder": "Enter name"
+  },
+  "surname": {
+    "label": "Surname",
+    "placeholder": "Enter surname"
+  },
+  "email": {
+    "label": "E-mail",
+    "placeholder": "Enter e-mail"
+  },
+  "password": {
+    "label": "Password",
+    "placeholder": "Enter password"
+  },
+  "password2": {
+    "label": "Repeat Password",
+    "placeholder": "Repeat password"
+  },
+  "signup": "Sign up",
+  "login": "Login",
+  "return": "Return",
+  "requiredErrorMessage": "This is a required field."
+}
