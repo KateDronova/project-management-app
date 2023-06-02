@@ -1,4 +1,4 @@
-import { Component, Type } from '@angular/core';
+import { Component} from '@angular/core';
 import { Location } from '@angular/common';
 import { SignUpForm } from 'src/app/models/signup';
 import { TranslateService } from '@ngx-translate/core';

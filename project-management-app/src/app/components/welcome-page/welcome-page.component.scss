@@ -1,31 +1,34 @@
 section {
-  // background-color: var(--sea-color);
-  // background-color: var(--beach-color);
+  box-sizing: border-box;
   background-color: var(--extralight-sea-color);
-  padding: 0.8em;
-  padding-left: 3em;
+  padding: 0.4em 370px 0.4rem 2vw;
   margin-top: 1em;
-}
-
-h2, h3 {
-  // color: var(--sea-color);
-  // color: var(--dark-sea-color);
-  // color: var(--light-sea-color);
-  // color: var(--extralight-sea-color);
-  // color: var(--beach-color);
-  color: var(--middle-sea-color);
-}
-
-p {
-  line-height: 0.6em;
+  position: relative;
 }
 
 div.content {
-  width: 50em;
+  min-height: 120px;
+  width: 590px;
+  text-align: left;
+  margin: auto;
+  opacity: 1;
+  z-index: 2;
 }
 
-div.container {
-  width: 280px;
-  height: 140px;
-  border: 1px solid var(--middle-sea-color);
+@each $back in 1, 2, 3 {
+  .welcome#{$back} {
+    background: url(../../../assets/welcome#{$back}.jpg) no-repeat center center;
+    background-size: cover;
+    position: absolute;
+    right: 2vw;
+    top: 5px;
+    bottom: 5px;
+    border-radius: 5px;
+    width: 320px;
+    opacity: 0.8;
+  }
+}
+
+h2, h3 {
+  color: var(--middle-sea-color);
 }

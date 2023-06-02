@@ -74,12 +74,22 @@ button, input[type="submit"], input[type="reset"] {
   justify-content: space-evenly;
   align-items: center;
 }
-
-app-header, app-footer, section {
+.wrapperGlobal, section {
   @include flexible();
+  max-width: 1440px;
+  margin: auto;
 }
 
 * {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: black;
+}
+
+@media (width < 640px) {
+  h1 {
+    font-size: 220%;
+  }
+  h2 {
+    font-size: 150%;
+  }
 }

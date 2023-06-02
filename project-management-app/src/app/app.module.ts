@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { NgxTranslateModule } from './translate/translate.module';
+import { DecipherDirective } from './decipher.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NgxTranslateModule } from './translate/translate.module';
     HeaderComponent,
     FooterComponent,
     WelcomePageComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    DecipherDirective
   ],
   imports: [
     BrowserModule,

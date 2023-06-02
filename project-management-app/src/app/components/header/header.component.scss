@@ -1,3 +1,7 @@
+.wrapper {
+
+}
+
 @each $lang in en, ru, es {
   .#{$lang}-button {
       background-image: url("../../../assets/#{$lang}.png");
@@ -19,30 +23,3 @@
       }
   };
 }
-
-// button.lang {
-  // width: 48px;
-  // height: 30px;
-  // padding: 0;
-  // margin: 0.4rem;
-  // color: transparent;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // opacity: 0.8;
-  // &.ru {
-  //   background-image: url(../../../assets/ru.png);
-  // }
-  // &.en{
-  //   background-image: url(../../../assets/en.jpg);
-  // }
-  // &.es{
-  //   background-image: url(../../../assets/es.png);
-  // }
-//   &:hover {
-//     opacity: 1;
-//     transition:all 0.3s;
-//     color: white;
-//     text-shadow: 0px 0px 10px var(--dark-sea-color-transparent);
-//     box-shadow: inset 0px 0px 30px 1px var(--dark-sea-color-transparent);
-//   }
-// }

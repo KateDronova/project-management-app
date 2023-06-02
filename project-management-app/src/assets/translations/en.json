@@ -23,5 +23,19 @@
   "signup": "Sign up",
   "login": "Login",
   "return": "Return",
-  "requiredErrorMessage": "This is a required field."
+  "requiredErrorMessage": "This is a required field.",
+
+  "welcome":"Welcome to the app!",
+  "ifYouAsk":"If you asked me where is the power, I would answer: 'In a team work'.",
+  "functionality":"Functionality",
+  "youWillBe":"You will be able to work online together with your mates via ",
+  "colorfulBoards":"colorful boards",
+  "or":"or",
+  "orderedLists":"ordered lists",
+  "comments":"Comments",
+  "toEachProject":"to each project item are included",
+  "aboutTheAuthor":"About the author",
+  "thisAppWas":"This app was made with Angular & SCSS.",
+  "ekaterinaDronova":"Ekaterina Dronova, a front-end developer from Istanbul created it during really cool heavy online course UpskillMe Front_End from EPAM company collaborated with RS school.",
+  "consultingMentor":"Consulting mentor - Andrei Milashevich."
 }

@@ -23,5 +23,19 @@
   "signup": "Registrate",
   "login": "Iniciar sesión",
   "return": "Regrese",
-  "requiredErrorMessage": "Este campo es obligatorio."
+  "requiredErrorMessage": "Este campo es obligatorio.",
+
+  "welcome":"Bienvenido a la aplicación!",
+  "ifYouAsk":"Si me preguntaran dónde está el poder, respondería: 'En un trabajo en equipo'.",
+  "functionality":"Funcionalidad",
+  "youWillBe":"Podrás trabajar online junto a tus compañeros a través de ",
+  "colorfulBoards":"tableros de colores",
+  "or":"o",
+  "orderedLists":"listas ordenadas",
+  "comments":"Comentarios",
+  "toEachProject":"a cada elemento del proyecto se incluyen",
+  "aboutTheAuthor":"Sobre la autora",
+  "thisAppWas":"Esta aplicación fue hecha con Angular y SCSS.",
+  "ekaterinaDronova":"Ekaterina Dronova, una desarrolladora de front-end en Estambul, lo creó durante el curso en línea realmente genial UpskillMe Front_End de la compañía EPAM en colaboración con la escuela RS.",
+  "consultingMentor":"Mentor consultor - Andrei Milashevich."
 }
