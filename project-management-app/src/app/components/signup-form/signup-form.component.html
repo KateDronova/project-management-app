@@ -46,13 +46,13 @@
     <div class="wrapper">
       <label>{{ "password.label" | translate }}
         <div class="secure">
-          <button class="seeThePassword"></button>
           <input type="password"
           [placeholder]="'password.placeholder' | translate"
           name="password"
           [(ngModel)]="signupForm.password"
           #password="ngModel"
           required>
+          <button class="seeThePassword"></button>
         </div>
       </label>
       <span translate class="text-danger"
@@ -63,13 +63,13 @@
     <div class="wrapper">
       <label>{{ "password2.label" | translate }}
         <div class="secure">
-          <button class="seeThePassword"></button>
           <input type="password"
           [placeholder]="'password2.placeholder' | translate"
           name="password2"
           [(ngModel)]="signupForm.password2"
           #password2="ngModel"
           required>
+          <button class="seeThePassword"></button>
         </div>
       </label>
       <span translate class="text-danger"

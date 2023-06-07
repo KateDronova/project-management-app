@@ -1,0 +1,36 @@
+<form [formGroup] ="user" novalidate>
+  <fieldset>
+    <h2>{{ "title" | translate}}</h2>
+
+    <div class="wrapper">
+      <label>{{ "email.label" | translate }}
+        <input type="email"
+        [formControlName]="email"
+        [placeholder]="'email.placeholder' | translate"
+        required>
+      </label>
+      <span translate class="text-danger"
+      *ngIf="(email.touched || signUpForm.submitted) && email.errors?.['required']"
+      >requiredErrorMessage</span>
+    </div>
+
+    <div class="wrapper">
+      <label>{{ "password.label" | translate }}
+        <div class="secure">
+          <input type="password"
+          [placeholder]="'password.placeholder' | translate"
+          [formControlName]="password"
+          required>
+          <button class="seeThePassword"></button>
+        </div>
+      </label>
+      <span translate class="text-danger"
+      *ngIf="(password.touched || signUpForm.submitted) && password.errors?.['required']"
+      >requiredErrorMessage</span>
+    </div>
+
+    <input type="submit" [value]="'signup' | translate">
+  </fieldset>
+  <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
+</form>
+

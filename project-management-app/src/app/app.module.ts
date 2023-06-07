@@ -10,6 +10,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { NgxTranslateModule } from './translate/translate.module';
 import { DecipherDirective } from './decipher.directive';
+import { LoginReactiveFormComponent } from './components/login-reactive-form/login-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DecipherDirective } from './decipher.directive';
     FooterComponent,
     WelcomePageComponent,
     SignupFormComponent,
-    DecipherDirective
+    DecipherDirective,
+    LoginReactiveFormComponent
   ],
   imports: [
     BrowserModule,
