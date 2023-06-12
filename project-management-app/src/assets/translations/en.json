@@ -1,5 +1,6 @@
 {
-  "title": "Signup form",
+  "signUpForm": "Signup form",
+  "logInForm": "Login form",
   "name": {
     "label": "Name",
     "placeholder": "Enter name"
@@ -24,6 +25,8 @@
   "login": "Login",
   "return": "Return",
   "requiredErrorMessage": "This is a required field.",
+  "lengthErrorMessage": "It is too short.",
+  "emailErrorMessage": "E-mail is not correct.",
 
   "welcome":"Welcome to the app!",
   "ifYouAsk":"If you asked me where is the power, I would answer: 'In a team work'.",

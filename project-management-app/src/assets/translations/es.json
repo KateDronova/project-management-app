@@ -1,5 +1,6 @@
 {
-  "title": "Registro de cuenta",
+  "signUpForm": "Registrate",
+  "logInForm": "Iniciar sesión",
   "name": {
     "label": "Nombre",
     "placeholder": "Introduce nombre"
@@ -24,6 +25,8 @@
   "login": "Iniciar sesión",
   "return": "Regrese",
   "requiredErrorMessage": "Este campo es obligatorio.",
+  "lengthErrorMessage": "Es demasiado corto.",
+  "emailErrorMessage": "El correo electrónico no es correcto.",
 
   "welcome":"Bienvenido a la aplicación!",
   "ifYouAsk":"Si me preguntaran dónde está el poder, respondería: 'En un trabajo en equipo'.",

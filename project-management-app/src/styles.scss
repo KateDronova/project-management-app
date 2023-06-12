@@ -85,6 +85,81 @@ button, input[type="submit"], input[type="reset"] {
   color: black;
 }
 
+@mixin formSetting () {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1rem;
+  max-width: 310px;
+  // max-width: max-content;
+  justify-content: space-between;
+  overflow-y: hidden;
+}
+
+form {
+  @include formSetting();
+  & div.submitting {
+    @include flexible()
+  }
+  & fieldset {
+    background-color: var(--extralight-sea-color);
+    margin-bottom: 1rem;
+  }
+  & .wrapper {
+    margin: 0.6rem 0 -0.2rem;
+  }
+  & input {
+    background-color: var(--light-sea-color);
+    border-radius: 5px;
+    margin-left: 0.5rem;
+    width: 12rem
+  }
+  & label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  & input {
+    padding: 0.2rem;
+    padding-left: 1rem;
+    &::placeholder {
+      color: var(--extralight-sea-color);
+    }
+  }
+  & input[type="submit"], button {
+    margin: 0.5rem auto 0.5rem;
+    width: max-content
+  }
+}
+
+.text-danger {
+  font-size: 0.7rem;
+  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  height: 16px;
+  & span {
+    color: var(--cranberry-color);
+  }
+}
+
+.seeThePassword {
+  background-image: url("../src/assets/eye.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: var(--light-sea-color);
+  border: 2px solid var(--middle-sea-color);
+  margin: 0 auto;
+  opacity: 0.7;
+  &:hover{
+    background-color: var(--sea-color);
+  }
+}
+
+.secure {
+  display: flex;
+  align-items: center;
+}
+
 @media (width < 640px) {
   h1 {
     font-size: 220%;
