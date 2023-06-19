@@ -1,0 +1,46 @@
+<!-- <div class="overlay visuallyHidden" NEED stopPropagation -->
+<div class="overlay" (click)="removeModalWindow()">
+  <div class="modal" role="dialog"
+    aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <h2 id="modalTitle">{{ "newProject" | translate }}</h2>
+    <button class="close" aria-label="'close' | translate" (click)="removeModalWindow()">&#10006;</button>
+    <form [formGroup]="boardForm" action="" (submit)="onSubmit">
+      <fieldset>
+        <label for="background">{{ "background" | translate }}</label>
+
+        <div class="wrapper">
+          <div *ngFor="let item of backgrounds">
+            <label for="{{ item.id }}">
+              <img class="small" (click)="onChooseBack(item.value)"
+                [class.selected]="item.value === selectedBack"
+                src="{{ item.src }}" alt="{{ item.alt | translate }}">
+              <input id="{{ item.id }}" type="radio" [checked]="true" formControlName="background" name="background" value="{{ item.value }}">
+              <span>&#10004;</span>
+            </label>
+          </div>
+        </div>
+
+        <label for="title">{{ "title" | translate }}</label>
+        <input id="title" type="text" formControlName="title" name="title">
+        <div translate class="text-danger">
+          <div *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+            <span *ngIf="title?.errors?.['required']">
+              {{ "requiredErrorMessage" | translate }}
+            </span>
+          </div>
+        </div>
+
+        <!-- <label for="access">{{ "access" | translate }}</label>
+        <select id="access" >
+          <option value="private">{{ "private" | translate }}</option>
+          <option value="public">{{ "public" | translate }}</option>
+        </select> -->
+
+      </fieldset>
+      <div class="submButtons">
+        <button class="cancel" type="text" (click)="removeModalWindow()">{{ "cancel" | translate }}</button>
+        <button type="submit">{{ "continue" | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

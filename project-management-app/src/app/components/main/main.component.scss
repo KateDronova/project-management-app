@@ -1,0 +1,18 @@
+.wrapperGlobal {
+  flex-direction: column;
+}
+
+header, nav {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: auto;
+}
+
+nav {
+  justify-content: flex-start;
+}
+
+form {
+  width: min-content
+}

@@ -1,0 +1,21 @@
+<div class="wrapperGlobal">
+  <header>
+    <h2>{{ "yourBoardsLive" | translate }}</h2>
+    <form action="" [formGroup]="searchGroup">
+      <label>{{ "search" | translate }}
+        <input type="text" name="search" formControlName="search">
+      </label>
+    </form>
+  </header>
+  <nav>
+    <button (click)="openModalWindow()">{{ "createNewBoard" | translate }} <br>+</button>
+    <!-- [modalhidden]="modalVisibility" (modalhiddenChange)="modalVisibility=$event" -->
+    <!-- <app-modal-window (addBoard)="onAddBoard($event)" [(modalhidden)]="modalVisibility" *ngIf="!modalhidden">
+    </app-modal-window> -->
+    <app-modal-window (addBoard)="onAddBoard($event)"
+      [modalVisibility]="modalVisibility" (removeModal)="onRemoveModalWindow()"
+      *ngIf="modalVisibility">
+    </app-modal-window>
+    <app-board-list [boardList]="boardsList"></app-board-list>
+  </nav>
+</div>

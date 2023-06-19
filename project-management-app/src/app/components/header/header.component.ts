@@ -26,16 +26,5 @@ export class HeaderComponent {
       this.translate.use(localeCode);
     }
     const currentLanguage = this.translate.currentLang;
-    console.log('currentLanguage', currentLanguage);
   }
-
-  // kindOfEnter?: "login" | "signup";
-
-  // initLogin() {
-  //   this.kindOfEnter = "login";
-  // }
-
-  // initSignUp() {
-  //   this.kindOfEnter = "signup";
-  // }
 }

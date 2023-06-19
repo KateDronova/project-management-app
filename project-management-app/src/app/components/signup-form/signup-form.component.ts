@@ -11,22 +11,24 @@ import { SignUpForm } from 'src/app/models/signup';
 })
 export class SignupFormComponent {
   signupForm = new SignUpForm();
-  showPassword = false;
-
-  // @ContentChild(IonInput) input: IonInput;
+  show: boolean = false;
+  show2: boolean = false;
 
   constructor(private location: Location, private translate: TranslateService) {}
 
   saveUser() {
-    if (true) {
-      this.location.go("/welcome")
-      this.location.historyGo(0)
-    }
+    // if (true) {
+    //   this.location.go("/welcome")
+    //   this.location.historyGo(0)
+    // }
   }
 
-  toggleShow() {
-    this.showPassword = !this.showPassword;
-    // this.input.type = this.showPassword ? 'text' : 'password';
+  togglePassword() {
+    this.show = !this.show;
+  }
+
+  togglePassword2() {
+    this.show2 = !this.show2;
   }
 
   goBack(): void {

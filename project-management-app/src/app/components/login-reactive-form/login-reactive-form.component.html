@@ -1,42 +1,52 @@
-<form [formGroup] ="loginForm" (ngSubmit)="onEnter()" novalidate>
+<!-- <form [formGroup] ="loginForm" (ngSubmit)="onEnter()" novalidate> -->
+<form [formGroup] ="loginForm" novalidate>
   <fieldset>
     <h2>{{ "logInForm" | translate}}</h2>
 
 
     <div class="wrapper">
       <label for="email">{{ "email.label" | translate }}</label>
-      <input type="email" formControlName="email"
+      <input id="email" type="email" formControlName="email"
         [placeholder]="'email.placeholder' | translate">
     </div>
-    <!-- <div translate class="text-danger">requiredErrorMessage</div> -->
     <div translate class="text-danger">
-      <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)"> -->
-        <!-- <span *ngIf="email.errors?.['required']"> -->
-          requiredErrorMessage
-        <!-- </span> -->
-        <!-- <span *ngIf="email.errors?.['email']">
-          emailErrorMessage
+      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+        <span *ngIf="email?.errors?.['required']">
+          {{ "requiredErrorMessage" | translate }}
         </span>
-      </div> -->
+        <span *ngIf="email?.errors?.['email']">
+          {{ "emailErrorMessage" | translate }}
+        </span>
+      </div>
     </div>
 
 
     <div class="wrapper">
       <label for="password">{{ "password.label" | translate }}</label>
       <div class="secure">
-        <input type="password" id="password" [placeholder]="'password.placeholder' | translate"
+        <input [type]="show ? 'text' : 'password'" id="password"
+        [placeholder]="'password.placeholder' | translate"
         formControlName="password">
-        <button class="seeThePassword"></button>
+        <button class="seeThePassword" (click)="togglePassword()" [ngClass]="show ? 'closed' : 'opened'"></button>
       </div>
     </div>
-    <div translate class="text-danger">requiredErrorMessage</div>
-
-
-    <div class="wrapper">
-      <input type="submit" [value]="'login' | translate">
+    <div translate class="text-danger">
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+        <span *ngIf="password?.errors?.['required']">
+          {{ "requiredErrorMessage" | translate }}
+        </span>
+        <span *ngIf="password?.errors?.['minlength']">
+          {{ "passwordErrorMessage" | translate }}
+        </span>
+      </div>
     </div>
 
-    <!-- <input type="submit" [value]="'login' | translate" [disabled]="!loginForm.valid"> -->
+
+    <div class="wrapper submitting">
+      <input type="submit" [value]="'login' | translate" routerLink="/main" (click)="onEnter()"
+      [disabled]="!loginForm.valid">
+    </div>
+
   </fieldset>
   <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
 </form>

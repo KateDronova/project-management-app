@@ -25,8 +25,10 @@
   "login": "Login",
   "return": "Return",
   "requiredErrorMessage": "This is a required field.",
-  "lengthErrorMessage": "It is too short.",
   "emailErrorMessage": "E-mail is not correct.",
+  "passwordErrorMessage": "Password is too short.",
+  "nameErrorMessage": "Name is not correct.",
+  "surnameErrorMessage": "Surname is not correct.",
 
   "welcome":"Welcome to the app!",
   "ifYouAsk":"If you asked me where is the power, I would answer: 'In a team work'.",
@@ -40,5 +42,26 @@
   "aboutTheAuthor":"About the author",
   "thisAppWas":"This app was made with Angular & SCSS.",
   "ekaterinaDronova":"Ekaterina Dronova, a front-end developer from Istanbul created it during really cool heavy online course UpskillMe Front_End from EPAM company collaborated with RS school.",
-  "consultingMentor":"Consulting mentor - Andrei Milashevich."
+  "consultingMentor":"Consulting mentor - Andrei Milashevich.",
+
+
+  "logout": "Logout",
+  "search":"Search",
+  "yourBoardsLive":"Your Boards live here",
+  "createNewBoard":"Create new Board",
+  "deleteBoard":"Delete the board",
+  "areYouSure":"Are you sure?",
+
+  "close":"close",
+  "newProject":"New Project",
+  "background":"Background",
+  "title":"Title",
+  "access":"Access",
+  "continue":"Continue",
+  "cancel":"Cancel",
+
+  "editProfile":"Edit the Profile",
+  "deleteUser":"Delete the User",
+  "private":"Private (seen by invited only)",
+  "public":"Public (seen by all teams)"
 }

@@ -1,17 +1,6 @@
 :root {
-  --green-color: #87cb2c;
-  --green-color-dark: #0e9a28;
-  --orange-color: #f1d03b;
-  --orange-color-dark: #c4a82b;
-  --red-color-light: #f78146;
-  --red-color: #ed4f00;
-  --brown-color-trans: #4f410051;
-  --brown-color: #4f4100;
-  --sky-color: #5990ad;
-  --sky-color-light: #bbdff3;
-  /* new colors here */
   --sea-color: #14dcc4;
-  --beach-color: #fcc9a9;
+  --beach-color: #ffd786;
   --cranberry-color: #a30505;
   --dark-sea-color: #09657b;
   --dark-sea-color-transparent: #09647b83;
@@ -51,7 +40,6 @@ h2, h3 {
 
 button, input[type="submit"], input[type="reset"] {
   background-color: var(--dark-sea-color);
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   color: black;
@@ -69,6 +57,7 @@ button, input[type="submit"], input[type="reset"] {
     cursor: auto;
   }
 }
+
 @mixin flexible () {
   display: flex;
   justify-content: space-evenly;
@@ -91,13 +80,26 @@ button, input[type="submit"], input[type="reset"] {
   margin: auto;
   padding: 1rem;
   max-width: 310px;
-  // max-width: max-content;
   justify-content: space-between;
   overflow-y: hidden;
 }
 
+@mixin inputting () {
+  border-radius: 5px;
+  margin-left: 0.5rem;
+  width: 12rem;
+  padding: 0.2rem;
+  padding-left: 1rem;
+  &::placeholder {
+    color: var(--middle-sea-color);
+  }
+  background-color: #eee;;
+}
+
 form {
   @include formSetting();
+  // transition:all 0.5s;
+  // transform: translateY(50px);
   & div.submitting {
     @include flexible()
   }
@@ -108,27 +110,24 @@ form {
   & .wrapper {
     margin: 0.6rem 0 -0.2rem;
   }
-  & input {
-    background-color: var(--light-sea-color);
-    border-radius: 5px;
-    margin-left: 0.5rem;
-    width: 12rem
-  }
   & label {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
   }
+  & select {
+    @include inputting();
+    width: 13.5rem;
+  }
   & input {
-    padding: 0.2rem;
-    padding-left: 1rem;
-    &::placeholder {
-      color: var(--extralight-sea-color);
-    }
+    @include inputting();
   }
   & input[type="submit"], button {
     margin: 0.5rem auto 0.5rem;
-    width: max-content
+    width: max-content;
+  }
+  & .submButtons {
+    display: flex;
   }
 }
 
@@ -143,7 +142,6 @@ form {
 }
 
 .seeThePassword {
-  background-image: url("../src/assets/eye.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: var(--light-sea-color);
@@ -151,7 +149,13 @@ form {
   margin: 0 auto;
   opacity: 0.7;
   &:hover{
-    background-color: var(--sea-color);
+    background-color: var(--extralight-sea-color);
+  }
+  &.opened{
+    background-image: url("../src/assets/icons/eye.png");
+  }
+  &.closed{
+    background-image: url("../src/assets/icons/closed_eye.png");
   }
 }
 
@@ -159,6 +163,61 @@ form {
   display: flex;
   align-items: center;
 }
+
+@mixin hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position:absolute;
+  white-space: nowrap;
+}
+
+.visuallyHidden {
+  @include hidden()
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 1, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  @include formSetting();
+  background-color:#eee;
+  overflow: auto;
+  position: relative;
+  & [type="radio"] {
+    @include hidden()
+  }
+  & h2 {
+    color: #888;
+  }
+  & button.close {
+    background-color: transparent;
+    position: absolute;
+    border: none;
+    right: 2px;
+    padding: 2px 5px;
+    font-size: 1.4rem;
+    color: #888;
+  }
+  & .cancel {
+    background-color: var(--light-sea-color);
+  }
+}
+
 
 @media (width < 640px) {
   h1 {

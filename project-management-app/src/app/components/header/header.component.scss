@@ -1,10 +1,6 @@
-.wrapper {
-
-}
-
 @each $lang in en, ru, es {
   .#{$lang}-button {
-      background-image: url("../../../assets/#{$lang}.png");
+      background-image: url("../../../assets/icons/#{$lang}.png");
       width: 48px;
       height: 30px;
       border: 1px solid var(--dark-sea-color-transparent);

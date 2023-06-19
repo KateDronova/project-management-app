@@ -25,8 +25,10 @@
   "login": "Iniciar sesión",
   "return": "Regrese",
   "requiredErrorMessage": "Este campo es obligatorio.",
-  "lengthErrorMessage": "Es demasiado corto.",
   "emailErrorMessage": "El correo electrónico no es correcto.",
+  "passwordErrorMessage": "Contraseña es demasiado corta.",
+  "nameErrorMessage": "Nombre no es correcto.",
+  "surnameErrorMessage": "Apellido no es correcto.",
 
   "welcome":"Bienvenido a la aplicación!",
   "ifYouAsk":"Si me preguntaran dónde está el poder, respondería: 'En un trabajo en equipo'.",
@@ -40,5 +42,26 @@
   "aboutTheAuthor":"Sobre la autora",
   "thisAppWas":"Esta aplicación fue hecha con Angular y SCSS.",
   "ekaterinaDronova":"Ekaterina Dronova, una desarrolladora de front-end en Estambul, lo creó durante el curso en línea realmente genial UpskillMe Front_End de la compañía EPAM en colaboración con la escuela RS.",
-  "consultingMentor":"Mentor consultor - Andrei Milashevich."
+  "consultingMentor":"Mentor consultor - Andrei Milashevich.",
+
+
+  "logout": "Cerrar sesión",
+  "search":"Buscar",
+  "yourBoardsLive":"Tus tableros viven aquí",
+  "createNewBoard":"Crear nuevo tablero",
+  "deleteBoard":"Eliminar el tablero",
+  "areYou Sure":"Estás seguro?",
+
+  "close":"cerrar",
+  "newProject":"Nuevo Proyecto",
+  "background":"Fondo",
+  "title":"Título",
+  "access":"Acceso",
+  "continue":"Continuar",
+  "cancel":"Cancelar",
+
+  "editProfile":"Editar el Perfil",
+  "deleteUser":"Eliminar el Perfil",
+  "private":"Privado (visto solo por invitados)",
+  "public":"Público (visto por todos los equipos)"
 }

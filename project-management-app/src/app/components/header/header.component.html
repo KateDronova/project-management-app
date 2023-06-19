@@ -1,8 +1,10 @@
 <div class="wrapperGlobal">
   <h1 routerLink="/welcome">{{title}} </h1>
   <nav>
-    <button type="button" routerLink="/login">{{ "login" | translate }}</button>
-    <button type="button" routerLink="/signup">{{ "signup" | translate }}</button>
+    <button *ngIf="true" type="button" routerLink="/login">&#10140; {{ "login" | translate }}</button>
+    <button *ngIf="true" type="button" routerLink="/signup">{{ "signup" | translate }} &#10009;</button>
+    <button *ngIf="true" type="button">&#10006; {{ "logout" | translate }}</button>
+    <button *ngIf="true" type="button" routerLink="/editProfile">{{ "editProfile" | translate }} &#9998;</button>
   </nav>
   <nav>
     <button type="button" class="{{language.code}}-button" *ngFor="let language of languageList" (click)="changeSiteLanguage(language.code)">{{language.code}}</button>
