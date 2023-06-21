@@ -14,6 +14,7 @@ export class HeaderComponent {
     { code: 'ru', label: 'Russian' },
     { code: 'es', label: 'Spainish' },
   ];
+  pageFor: string = 'undefinedUser'
 
   constructor(private translate: TranslateService) { }
 

@@ -1,4 +1,4 @@
-<form #signUpForm="ngForm" novalidate>
+<form #signUpForm="ngForm" novalidate ngClass="initial" [class.smoothAppear]="loaded">
   <fieldset>
 
     <h2>{{ "signUpForm" | translate}}</h2>

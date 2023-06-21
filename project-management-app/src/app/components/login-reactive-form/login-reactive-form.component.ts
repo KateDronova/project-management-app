@@ -21,16 +21,20 @@ export class LoginReactiveFormComponent {
     ]),
   })
 
-  show: boolean = false;
-
   constructor(private location: Location, private translate: TranslateService) {}
-
-  togglePassword() {
-    this.show = !this.show;
-  }
 
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
+
+  loaded: boolean = false;
+  appearSmoothly = setTimeout(() =>
+    this.loaded = true, 100
+  )
+
+  show: boolean = false;
+  togglePassword() {
+    this.show = !this.show;
+  }
 
   goBack(): void {
     this.location.back();
@@ -42,9 +46,6 @@ export class LoginReactiveFormComponent {
 
   onEnter(): void {
     // console.warn(this.loginForm.value);
-    // if (true) {
-    //   this.location.go("/main")
-    //   this.location.historyGo(0)
-    // }
+    // pageFor = 'definedUser'
   }
 }

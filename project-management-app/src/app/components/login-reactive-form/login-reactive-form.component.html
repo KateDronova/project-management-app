@@ -1,5 +1,4 @@
-<!-- <form [formGroup] ="loginForm" (ngSubmit)="onEnter()" novalidate> -->
-<form [formGroup] ="loginForm" novalidate>
+<form [formGroup] ="loginForm" novalidate ngClass="initial" [class.smoothAppear]="loaded">
   <fieldset>
     <h2>{{ "logInForm" | translate}}</h2>
 

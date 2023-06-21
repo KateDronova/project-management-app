@@ -15,6 +15,8 @@ import { MainComponent } from './components/main/main.component';
 import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { BoardItemComponent } from './components/board-item/board-item.component';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { BoardItemComponent } from './components/board-item/board-item.component
     MainComponent,
     ModalWindowComponent,
     BoardListComponent,
-    BoardItemComponent
+    BoardItemComponent,
+    ClickOutsideDirective,
+    ConfirmationComponent
   ],
   imports: [
     BrowserModule,

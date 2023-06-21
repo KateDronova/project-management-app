@@ -1,14 +1,14 @@
-<!-- <div class="overlay visuallyHidden" NEED stopPropagation -->
-<div class="overlay" (click)="removeModalWindow()">
-  <div class="modal" role="dialog"
-    aria-labelledby="modalTitle" aria-describedby="modalDesc">
+<div class="overlay">
+  <!-- <div class="modal" role="dialog" aria-labelledby="modalTitle" ngClass="initial" [class.smoothAppear]="loaded"> -->
+  <div class="modal" role="dialog" aria-labelledby="modalTitle"
+  ngClass="initial" [class.smoothAppear]="loaded">
     <h2 id="modalTitle">{{ "newProject" | translate }}</h2>
     <button class="close" aria-label="'close' | translate" (click)="removeModalWindow()">&#10006;</button>
-    <form [formGroup]="boardForm" action="" (submit)="onSubmit">
+    <form [formGroup]="boardForm" action="" (submit)="onSubmit()" novalidate>
       <fieldset>
         <label for="background">{{ "background" | translate }}</label>
 
-        <div class="wrapper">
+        <div class="wrapper flex">
           <div *ngFor="let item of backgrounds">
             <label for="{{ item.id }}">
               <img class="small" (click)="onChooseBack(item.value)"
@@ -30,6 +30,9 @@
           </div>
         </div>
 
+        <label for="description">{{ "description" | translate }}</label>
+        <textarea rows="5" id="description" type="text" formControlName="description" name="description"></textarea>
+
         <!-- <label for="access">{{ "access" | translate }}</label>
         <select id="access" >
           <option value="private">{{ "private" | translate }}</option>
@@ -38,8 +41,8 @@
 
       </fieldset>
       <div class="submButtons">
-        <button class="cancel" type="text" (click)="removeModalWindow()">{{ "cancel" | translate }}</button>
-        <button type="submit">{{ "continue" | translate }}</button>
+        <button type="button" class="cancel"(click)="removeModalWindow()">{{ "cancel" | translate }}</button>
+        <button type="submit" [disabled]="!boardForm.valid">{{ "continue" | translate }}</button>
       </div>
     </form>
   </div>

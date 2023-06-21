@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Board } from 'src/app/models/board';
 
 
@@ -7,8 +7,13 @@ import { Board } from 'src/app/models/board';
   templateUrl: './board-list.component.html',
   styleUrls: ['./board-list.component.scss']
 })
-export class BoardListComponent {
-
+export class BoardListComponent implements OnChanges{
   @Input() boardList: Board[] = [];
+
+  constructor() {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+
+  }
 
 }

@@ -1,0 +1,18 @@
+.boardPreview {
+  box-sizing: border-box;
+  width: 260px;
+  height: 180px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-image: url('../../../assets/images/ICON_Clouds\ 2\ \(1920x1080\).jpg');
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+button {
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  background-color: var(--light-sea-color);
+}

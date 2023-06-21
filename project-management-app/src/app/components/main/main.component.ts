@@ -14,8 +14,9 @@ export class MainComponent {
   searchGroup = new FormGroup({
     search: new FormControl("")
   })
-  modalVisibility: boolean = false;
-  boardsList: Board[] = []
+  modalVisibility: boolean = false
+  boardList: Board[] = []
+  loaded: boolean = false
 
   constructor(private translate: TranslateService) { }
 
@@ -23,12 +24,12 @@ export class MainComponent {
     this.modalVisibility = true;
   }
 
-  onRemoveModalWindow() {
-    // this.modalVisibility = !this.modalVisibility;
-    // console.log(this.modalVisibility)
+  onAddBoard(item: Board) {
+    this.boardList.push(item);
+    console.log(this.boardList)
   }
 
-  onAddBoard(item: Board) {
-    this.boardsList.push(item);
+  appearSmoothly () {
+    this.loaded = true
   }
 }

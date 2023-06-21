@@ -98,8 +98,6 @@ button, input[type="submit"], input[type="reset"] {
 
 form {
   @include formSetting();
-  // transition:all 0.5s;
-  // transform: translateY(50px);
   & div.submitting {
     @include flexible()
   }
@@ -118,6 +116,9 @@ form {
   & select {
     @include inputting();
     width: 13.5rem;
+  }
+  & textarea {
+    @include inputting();
   }
   & input {
     @include inputting();
@@ -178,7 +179,7 @@ form {
 }
 
 .visuallyHidden {
-  @include hidden()
+  @include hidden();
 }
 
 .overlay {
@@ -187,7 +188,7 @@ form {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 1, 0.7);
+  background-color: rgba(0, 0, 1, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -218,6 +219,16 @@ form {
   }
 }
 
+.initial {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.smoothAppear {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.4s cubic-bezier(0, 0, 0.6, 1.0);
+}
 
 @media (width < 640px) {
   h1 {

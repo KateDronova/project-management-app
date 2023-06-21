@@ -16,6 +16,11 @@ export class SignupFormComponent {
 
   constructor(private location: Location, private translate: TranslateService) {}
 
+  loaded: boolean = false;
+  appearSmoothly = setTimeout(() =>
+    this.loaded = true, 100
+  )
+
   saveUser() {
     // if (true) {
     //   this.location.go("/welcome")
