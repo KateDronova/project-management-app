@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Input, Output, EventEmitter } from '@angular/core';
 
 import { backgrounds } from 'src/app/models/backgrounds';
 import { Board } from 'src/app/models/board';
+import { BoardClass } from 'src/app/models/board-class';
 
 @Component({
   selector: 'app-modal-window',
@@ -19,23 +19,32 @@ export class ModalWindowComponent {
   @Output() loadedChange = new EventEmitter<boolean>;
   @Output() addBoard = new EventEmitter<Board>;
 
-  backgrounds = [...backgrounds];
-  idCounter = 0
-  boardName = ''
-  background = ''
-  description = ''
+  boardForm = new BoardClass();
 
-  boardForm = new FormGroup({
-    background: new FormControl(""),
-    title: new FormControl("", Validators.required),
-    description: new FormControl("")
-  })
+  idCounter = 0
+  boardName: string = ''
+  backgroundName: string = ''
+  descriptionName: string = ''
+
+  backgrounds = [...backgrounds]
 
   selectedBack?: string
 
   constructor(private transtate: TranslateService) {}
 
-  get title() { return this.boardForm.get('title');}
+  onSubmit() {
+    this.addBoard.emit({
+      id: this.idCounter,
+      title: this.boardName,
+      background: this?.backgroundName,
+      description: this?.descriptionName
+    });
+    this.idCounter++;
+    this.boardName = '';
+    this.backgroundName = '';
+    this.descriptionName = '';
+    this.removeModalWindow()
+  }
 
   onChooseBack(back: string): void {
     this.selectedBack = back;
@@ -48,21 +57,5 @@ export class ModalWindowComponent {
     this.loadedChange.emit(
       this.loaded = false
     )
-  }
-
-  onSubmit() {
-    this.addBoard.emit({
-      id: this.idCounter,
-      title: this.boardName,
-      background: this.background,
-      description: this.description
-    });
-    console.log(this.title?.value);
-    console.log(this.background);
-    this.idCounter++;
-    this.boardName = '';
-    this.background = '';
-    this.description = '';
-    this.removeModalWindow()
   }
 }

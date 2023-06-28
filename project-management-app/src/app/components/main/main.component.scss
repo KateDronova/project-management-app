@@ -2,6 +2,20 @@
   flex-direction: column;
 }
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  & button {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.9rem;
+    background-color: var(--light-sea-color);
+    &:hover {
+      color: #000;
+      background-color: var(--extralight-sea-color);
+    }
+  }
+}
+
 header {
   display: flex;
   justify-content: space-evenly;

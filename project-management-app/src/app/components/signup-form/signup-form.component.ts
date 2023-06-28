@@ -2,7 +2,6 @@ import { Component, ContentChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { SignUpForm } from 'src/app/models/signup';
-// import { IonInput } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup-form',
@@ -11,6 +10,7 @@ import { SignUpForm } from 'src/app/models/signup';
 })
 export class SignupFormComponent {
   signupForm = new SignUpForm();
+
   show: boolean = false;
   show2: boolean = false;
 

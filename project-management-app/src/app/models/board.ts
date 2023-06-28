@@ -1,6 +1,6 @@
 export interface Board {
   id: number,
   title: string,
-  description: string,
-  background: string
+  background: string,
+  description: string
 }

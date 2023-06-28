@@ -2,9 +2,11 @@
   <header>
     <h2>{{ "yourBoardsLive" | translate }}</h2>
     <form action="" [formGroup]="searchGroup">
-      <label>{{ "search" | translate }}
-        <input type="text" name="search" formControlName="search">
-      </label>
+      <div class="wrapper">
+        <button type="button" (click)="filterResults(filter.value)">{{ "search" | translate }}</button>
+        <input type="text" name="search" formControlName="search"
+        placeholder="I want to find..." #filter>
+      </div>
     </form>
   </header>
   <nav>
@@ -12,6 +14,6 @@
     <app-modal-window (addBoard)="onAddBoard($event)"
       [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
     </app-modal-window>
-    <app-board-list [boardList]="boardList"></app-board-list>
+    <app-board-list [boardList]="boardList" [filteredBoardList]="filteredBoardList"></app-board-list>
   </nav>
 </div>

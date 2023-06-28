@@ -14,11 +14,14 @@ export class MainComponent {
   searchGroup = new FormGroup({
     search: new FormControl("")
   })
-  modalVisibility: boolean = false
   boardList: Board[] = []
+  filteredBoardList: Board[] = []
+  modalVisibility: boolean = false
   loaded: boolean = false
 
-  constructor(private translate: TranslateService) { }
+  constructor(private translate: TranslateService) {
+    this.filteredBoardList = this.boardList;
+  }
 
   openModalWindow() {
     this.modalVisibility = true;
@@ -31,5 +34,17 @@ export class MainComponent {
 
   appearSmoothly () {
     this.loaded = true
+  }
+
+  filterResults(text: string) {
+    if (!text) {
+      this.filteredBoardList = this.boardList;
+    }
+
+    this.filteredBoardList = this.boardList.filter(
+      board => board?.description.toLowerCase().includes(text.toLowerCase())
+      || board?.title.toLowerCase().includes(text.toLowerCase())
+      || board?.id.toString().includes(text)
+    );
   }
 }

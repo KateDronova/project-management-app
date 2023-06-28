@@ -9,6 +9,7 @@ import { Board } from 'src/app/models/board';
 })
 export class BoardListComponent implements OnChanges{
   @Input() boardList: Board[] = [];
+  @Input() filteredBoardList: Board[] = [];
 
   constructor() {}
 
