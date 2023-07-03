@@ -10,7 +10,8 @@
     </form>
   </header>
   <nav>
-    <button (click)="openModalWindow()" (click)="appearSmoothly()">{{ "createNewBoard" | translate }} <br>+</button>
+    <button (click)="openModalWindow()" (click)="appearSmoothly()">
+      {{ "createNewBoard" | translate }} <br>+</button>
     <app-modal-window (addBoard)="onAddBoard($event)"
       [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
     </app-modal-window>

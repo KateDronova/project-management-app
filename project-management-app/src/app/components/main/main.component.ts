@@ -29,7 +29,7 @@ export class MainComponent {
 
   onAddBoard(item: Board) {
     this.boardList.push(item);
-    console.log(this.boardList)
+    console.log(this.boardList)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   }
 
   appearSmoothly () {

@@ -11,7 +11,7 @@ export class ConfirmService {
   constructor() { }
 
   setConfirm(confirmation: ConfirmationInterface): void {
-    this.confirm$.next(confirmation );
+    this.confirm$.next(confirmation);
   }
 
   getConfirm(): Observable<ConfirmationInterface> {

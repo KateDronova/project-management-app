@@ -43,6 +43,7 @@ export class ModalWindowComponent {
     this.boardName = '';
     this.backgroundName = '';
     this.descriptionName = '';
+    this.selectedBack = '';
     this.removeModalWindow()
   }
 

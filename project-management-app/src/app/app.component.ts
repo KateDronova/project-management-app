@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-// import { ConfirmService } from './services/confirm.service';
-// import { ConfirmationType } from './models/confirmation-type';
+import { ConfirmService } from './services/confirm.service';
+import { ConfirmationType } from './models/confirmation-type';
+import { RouterOutlet } from '@angular/router';
+import { ConfirmationComponent } from './components/confirmation/confirmation.component';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,7 @@ export class AppComponent {
   // showConfirmation(type: ConfirmationType) {
   //   this.confirmService.setConfirm({
   //     type,
-  //     text: 'Are ypo sure to delete ...?'
+  //     // question: 'Are ypo sure to delete ...?'
   //   });
   // }
 }

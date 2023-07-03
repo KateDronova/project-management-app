@@ -1,4 +1,9 @@
-<div [ngClass]="confirmation" *ngIf="confirmation">{{ confirmation.question }}
-  <button>{{ "cancel" | translate }}</button>
-  <button>{{ "continue" | translate }}</button>
+<div class="overlay" *ngIf="confirmation">
+  <div [ngClass]="confirmation" class="modal">
+    <h2>{{ "areYouSure" | translate }}</h2>
+    <div>
+      <button (click)="closeConfirmation()">{{ "cancel" | translate }}</button>
+      <button class="delete" (click)="deleteBoard()">{{ "deleteBoard" | translate }}</button>
+    </div>
+  </div>
 </div>

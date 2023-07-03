@@ -17,6 +17,7 @@ import { BoardListComponent } from './components/board-list/board-list.component
 import { BoardItemComponent } from './components/board-item/board-item.component';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
+import { BoardRouteComponent } from './components/board-route/board-route.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ConfirmationComponent } from './components/confirmation/confirmation.co
     BoardListComponent,
     BoardItemComponent,
     ClickOutsideDirective,
-    ConfirmationComponent
+    ConfirmationComponent,
+    BoardRouteComponent
   ],
   imports: [
     BrowserModule,

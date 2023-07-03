@@ -1,6 +1,23 @@
-.confirmation {
-  border-radius: 5px;
-  margin: auto;
-  padding: 1rem;
-  max-width: 310px;
+div.modal {
+  outline: 2px solid #000;
+  border: 3px solid var(--extralight-sea-color);
+  border-radius: 8px;
+  align-items: center;
+  background-color: #aaa;
+  box-shadow: inset 0px 0px 25px 10px var(--dark-sea-color-transparent);
+  // box-shadow: 0px 0px 40px 40px var(--cranberry-color);
+  & h2 {
+    color: #fff;
+    text-shadow: 2px 1px 5px #000;
+  }
+  & button {
+    margin: 0.6rem;
+  }
+  & .delete {
+    background-color: var(--beach-color);
+    box-shadow: inset 0px 0px 40px 10px var(--cranberry-color);
+    &:hover {
+      background-color: var(--cranberry-color);
+    }
+  }
 }

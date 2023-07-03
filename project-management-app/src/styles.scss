@@ -1,6 +1,6 @@
 :root {
   --sea-color: #14dcc4;
-  --beach-color: #ffd786;
+  --beach-color: #d7aa22;
   --cranberry-color: #a30505;
   --dark-sea-color: #09657b;
   --dark-sea-color-transparent: #09647b83;
@@ -192,6 +192,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 4;
 }
 
 .modal {
@@ -199,6 +200,7 @@ form {
   background-color:#eee;
   overflow: auto;
   position: relative;
+  z-index: 5;
   & [type="radio"] {
     @include hidden()
   }
