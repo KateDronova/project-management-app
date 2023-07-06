@@ -1,27 +1,113 @@
-# ProjectManagementApp
+# Manager App BackEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.3.
+## Prerequisites
 
-## Development server
+- MongoDB: 
+1) Register on mongodb.com and create Shared Claster. 
+2) Create a user for database (userName & password)
+3) IP Access List - add 0.0.0.0
+4) Click "Connect" button and select "Connetct your application"
+5) Copy claster info from connection string. By default - "claster0.xxxxxx"
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Downloading
 
-## Code scaffolding
+```bash
+git clone {repository URL}
+cd back-manager-app
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Connect to your DataBase on MongoDB
+- open src/index.ts. In mongoose.connect method replace ${} by userName, Password and ClasterInfo from Prerequisites
 
-## Build
+## Run Xeroku
+Run commands
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+git switch source
+heroku create --region eu
+heroku git:remote -a <YOUR_APP_NAME>
+git push heroku source:master
+```
 
-## Running unit tests
+# REST service docs
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Endpoints:
 
-## Running end-to-end tests
+- `Swagger Docs` (`/api-docs` route)
+- `Auth` (`auth/` route)
+  - `POST /signup` - new user registration
+  - `POST /signin` - user authorization
+- `User` (`users/` route)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  - `GET /` - get all users
+  - `GET /:userId` - get the user by id (ex. “/users/123”)
+  - `PUT /:userId` - update user
+  - `DELETE /:userId` - delete user
 
-## Further help
+- `Board` (`/boards` route)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  - `GET /` - get all boards
+  - `GET /:boardId` - get the board by id
+  - `POST /` - create board
+  - `PUT /:boardId` - update board
+  - `DELETE /:boardId` - delete board
+- `Boards` (`/boardsSet` route)
+  - `GET /` - Get Boards by list of boardId
+  - `GET /:userId` - Get Boards where user is owner or one of invited
+
+- `Column` (`boards/:boardId/columns` route)
+
+  - `GET /` - get all columns
+  - `GET /:columnsId` - get the column by id
+  - `POST /:columnsId` - create column
+  - `PUT /:columnsId` - update column
+  - `DELETE /:columnsId` - delete column
+- `Columns` (`/columnsSet` route)
+  - `GET /` - Get Columns by list of columnId or in Boards where user is owner or one of invited
+  - `PATCH /` - Change oreder of list of columns
+  - `POST /` - Create set of Columns
+
+
+* `Task` (`boards/:boardId/columns/:columnsId/tasks` route)
+
+  - `GET /` - get all tasks
+  - `GET /:taskId` - get the task by id
+  - `POST /` - create task
+  - `PUT /:taskId` - update task
+  - `DELETE /:taskId` - delete task
+  - 
+- `Tasks` (`/tasksSet` route)
+  - `GET /` - Get Tasks by list of taskId or in Boards where user is owner or one of invited, or by search request
+  - `PATCH /` - Change oreder and column of list of tasks
+  - `GET /:boardId` - Get Tasks in selected Board
+
+* `File` (`file/` route)
+  - `GET /` - Get Files by list of taskId or in Boards where user is owner or one of invited, or by TaskId
+  - `POST /` - upload file `multipart/form-data`
+  - `GET /:boardId` - Get files by BoardId
+  - `DELETE /:fileId` - delete file
+  - 
+* `Point` (`points/` route)
+  - `GET /` - Get Points by list of pointId or in Boards where user is owner or one of invited
+  - `POST /` - Create a new point
+  - `GET /:taskId` - Get Points by TaskId
+  - `PACTH /:pointId` - Change title and done
+  - `PACTH /` - Change done filed in set of points
+  - `DELETE /:pointId` - delete point
+
+# Advanced
+
+## Socket Events
+- events: "users", "boards", "columns", "tasks", "files", "points"
+Listen events on backend deploy main route (soket = io('https://xxx.herokuapp.com'))
+- socket payload: 
+```bash
+{
+  action: 'add' | 'update' | 'delete' // Тип изменения в базе
+  users: string[] // Список id юзеров, которые имеют доступ к данным об обновлении чего-то в базе(Например, при изменении колонки здесь будет список из владельца доски и приглашенных на нее пользователей)
+  ids: string[] // Список id созданных/измененных/удаленных записей в базе
+  guid: string // Уникальный код запроса (Присваивается в хэддере Guid запроса на бэкенд)
+  notify: boolean // Нужно ли уведомлять текущего пользователя об изменениях в базе
+  initUser: string // id пользователя, инициировавшего изменения в базе (Присваивается в хэддере initUser запроса на бэкенд) 
+}
+```

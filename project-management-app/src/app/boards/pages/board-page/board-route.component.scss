@@ -1,0 +1,10 @@
+.wrapperGlobal {
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  & h2 {
+    margin: auto;
+  }
+}

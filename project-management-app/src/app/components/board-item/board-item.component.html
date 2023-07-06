@@ -1,8 +1,0 @@
-<div class="wrapper" style="background-image: url('../../../assets/images/{{board?.background}}_ICON.jpg')">
-  <div class="boardPreview">
-    <h3>{{ board?.title | titlecase | slice : 0 : 20}}</h3>
-    <p>{{ board?.description | slice : 0 : 30 }}</p>
-    <p class="id">{{ board?.id }}</p>
-    <button (click)="showConfirmation(confirmTypes.deleteBoard)">{{ "deleteBoard" | translate }}</button>
-  </div>
-</div>

@@ -1,0 +1,15 @@
+<div class="wrapperGlobal">
+  <header>
+    <h2>Name of Board!</h2>
+    <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
+  </header>
+  <nav class="wrapper">
+    <button (click)="openModalWindow()" (click)="appearSmoothly()">
+      {{ "craeteNewColumn" | translate }} <br>+</button>
+    <!-- <app-modal-window (addBoard)="onAddColumn($event)" -->
+    <app-modal-window
+      [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
+    </app-modal-window>
+    <app-columns-list></app-columns-list>
+  </nav>
+</div>

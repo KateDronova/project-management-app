@@ -47,6 +47,7 @@
 
   "logout": "Logout",
   "search":"Search",
+  "iWantToFind":"I want to find...",
   "yourBoardsLive":"Your Boards live here",
   "createNewBoard":"Create new Board",
   "deleteBoard":"Delete the board",
@@ -60,6 +61,11 @@
   "access":"Access",
   "continue":"Continue",
   "cancel":"Cancel",
+
+  "craeteNewColumn":"Create new Column",
+  "craeteNewTask":"Create new Task",
+  "deleteColumn":"Delete the column",
+  "deleteTask":"Delete the task",
 
   "editProfile":"Edit the Profile",
   "deleteUser":"Delete the User",

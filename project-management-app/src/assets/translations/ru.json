@@ -47,6 +47,7 @@
 
   "logout": "Выйти",
   "search":"Поиск",
+  "iWantToFind":"Я хочу найти...",
   "yourBoardsLive":"Ваши доски живут здесь",
   "createNewBoard":"Создать новую Доску",
   "deleteBoard":"Удалить доску",
@@ -60,6 +61,11 @@
   "access":"Доступ",
   "continue":"Продолжить",
   "cancel":"Отмена",
+
+  "craeteNewColumn":"Создать новую колонку",
+  "craeteNewTask":"Создать новую задачу",
+  "deleteColumn":"Удалить колонку",
+  "deleteTask":"Удалить задачу",
 
   "editProfile":"Редактировать Профиль",
   "deleteUser":"Удалить Профиль",

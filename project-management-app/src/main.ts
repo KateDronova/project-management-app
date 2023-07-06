@@ -2,33 +2,31 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 
+// import mongoose from 'mongoose';
+// import { PORT } from './constants';
+
+// import * as serverService from './services/server.service';
+
 
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
 
 
-// const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://katedronova96:<yYujTxv9s$jMwK#>@cluster0.sozh3oq.mongodb.net/?retryWrites=true&w=majority";
-
-// // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-// const client = new MongoClient(uri, {
-//   serverApi: {
-//     version: ServerApiVersion.v1,
-//     strict: true,
-//     deprecationErrors: true,
-//   }
-// });
-
-// async function run() {
+// (async () => {
 //   try {
-//     // Connect the client to the server	(optional starting in v4.7)
-//     await client.connect();
-//     // Send a ping to confirm a successful connection
-//     await client.db("admin").command({ ping: 1 });
-//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//   } finally {
-//     // Ensures that the client will close when you finish/error
-//     await client.close();
+//     await mongoose.connect('mongodb+srv://katedronova96:<yYujTxv9s$jMwK#>@cluster0.sozh3oq.mongodb.net/managerApp');
+//     // await mongoose.connect('mongodb+srv://katedronova96:<yYujTxv9s$jMwK#>@cluster0.sozh3oq.mongodb.net/?retryWrites=true&w=majority');
+//     serverService.server.listen(process.env.PORT || PORT, function () {
+//       console.log('Сервер ожидает подключения...');
+//     })
+//   } catch (error) {
+//     console.log(error);
 //   }
-// }
-// run().catch(console.dir);
+// })();
+
+
+
+// process.on('SIGINT', async () => {
+//   await mongoose.disconnect();
+//   process.exit();
+// });

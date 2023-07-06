@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
-import { SignupFormComponent } from './components/signup-form/signup-form.component';
-import { LoginReactiveFormComponent } from './components/login-reactive-form/login-reactive-form.component';
-import { MainComponent } from './components/main/main.component';
+import { WelcomePageComponent } from './boards/pages/welcome-page/welcome-page.component';
+import { SignupFormComponent } from './boards/pages/signup-form/signup-form.component';
+import { LoginReactiveFormComponent } from './boards/pages/login-reactive-form/login-reactive-form.component';
+import { MainComponent } from './boards/pages/main-page/main.component';
+import { BoardRouteComponent } from './boards/pages/board-page/board-route.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'welcome', pathMatch: 'full'},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupFormComponent},
   {path: 'login', component: LoginReactiveFormComponent},
   {path: 'main', component: MainComponent},
+  {path: 'board', component: BoardRouteComponent}
 ];
 
 @NgModule({

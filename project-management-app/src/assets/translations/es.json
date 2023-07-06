@@ -47,6 +47,7 @@
 
   "logout": "Cerrar sesión",
   "search":"Buscar",
+  "iWantToFind":"Quiero encontrar...",
   "yourBoardsLive":"Tus tableros viven aquí",
   "createNewBoard":"Crear nuevo tablero",
   "deleteBoard":"Eliminar el tablero",
@@ -60,6 +61,11 @@
   "access":"Acceso",
   "continue":"Continuar",
   "cancel":"Cancelar",
+
+  "craeteNewColumn":"Crear nueva columna",
+  "craeteNewTask":"Crear nueva tarea",
+  "deleteColumn":"Eliminar la columna",
+  "deleteTask":"Eliminar la tarea",
 
   "editProfile":"Editar el Perfil",
   "deleteUser":"Eliminar el Perfil",
