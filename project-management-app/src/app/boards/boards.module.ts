@@ -18,6 +18,7 @@ import { ColumnsListComponent } from './components/columns-list/columns-list.com
 import { ColumnsItemComponent } from './components/columns-item/columns-item.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { BoardsService } from '../core/services/boards.service';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,9 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     FormsModule,
     ReactiveFormsModule,
     NgxTranslateModule
+  ],
+  providers: [
+    BoardsService
   ]
 })
 export class BoardsModule { }

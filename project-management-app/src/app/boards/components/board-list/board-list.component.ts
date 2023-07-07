@@ -13,8 +13,6 @@ export class BoardListComponent implements OnChanges{
 
   constructor() {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-
-  }
+  ngOnChanges(changes: SimpleChanges): void { }
 
 }

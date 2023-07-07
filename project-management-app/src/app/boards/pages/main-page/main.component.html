@@ -3,7 +3,7 @@
     <h2>{{ "yourBoardsLive" | translate }}</h2>
     <form action="" [formGroup]="searchGroup">
       <div class="wrapper">
-        <button type="button" (click)="filterResults(filter.value)">{{ "search" | translate }}</button>
+        <button type="button" (click)="onFilterResults(filter.value)">{{ "search" | translate }}</button>
         <input type="text" name="search" formControlName="search"
         [placeholder]="'iWantToFind' | translate" #filter>
       </div>
