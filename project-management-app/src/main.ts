@@ -25,7 +25,6 @@ platformBrowserDynamic().bootstrapModule(AppModule)
 // })();
 
 
-
 // process.on('SIGINT', async () => {
 //   await mongoose.disconnect();
 //   process.exit();

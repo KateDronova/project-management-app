@@ -5,15 +5,17 @@
     "node": "16.x"
   },
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "build1": "tsc",
+    "start1": "node dist/src/main.js",
+
     "build": "ng build",
     "dev": "ts-node-dev --respawn src/index.ts",
-    "start1": "node dist/index.js",
-    "start": "ng serve --open",
     "test": "test",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "start": "ng serve --open",
+    "start:server": "json-server --watch db.json"
   },
   "author": "Andrew Troitskiy, Kate Dronova",
   "license": "ISC",

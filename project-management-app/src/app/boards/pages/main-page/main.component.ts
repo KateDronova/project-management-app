@@ -21,29 +21,27 @@ export class MainComponent implements OnInit {
 
   constructor(private translate: TranslateService,
     private boardsService: BoardsService) {
-    // this.filteredBoardList = this.boardList;
+    this.filteredBoardList = this.boardList;
   }
 
   ngOnInit(): void {
-    this.getBoards();
+    this.getFilteredBoards('');
   }
 
   onAddBoard(item: Board) {
-    this.boardsService.addBoard(item);
-    this.getBoards();
+    this.boardsService.addBoard(item).subscribe(() => {
+      this.getFilteredBoards('');
+    });
   }
 
   onFilterResults(text: string) {
-    this.boardsService.filterResults(text);
-    this.getFilteredBoards();
+    this.getFilteredBoards(text);
   }
 
-  private getBoards() {
-    this.boardList = this.boardsService.getBoards();
-  }
-
-  private getFilteredBoards() {
-    this.boardList = this.boardsService.getFilteredBoards();
+  private getFilteredBoards(text: string) {
+    this.boardsService.getFilteredBoards(text).subscribe((filteredBoardList) => {
+      this.filteredBoardList = filteredBoardList;
+    })
   }
 
   openModalWindow() {
