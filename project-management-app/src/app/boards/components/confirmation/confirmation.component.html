@@ -3,7 +3,10 @@
     <h2>{{ "areYouSure" | translate }}</h2>
     <div>
       <button (click)="closeConfirmation()">{{ "cancel" | translate }}</button>
-      <button class="delete" (click)="deleteBoard()">{{ "deleteBoard" | translate }}</button>
+      <button *ngIf="confirmation.type === 'deleteBoard'" class="delete" (click)="onDeleteBoard()">{{ "deleteBoard" | translate }}</button>
+      <button *ngIf="confirmation.type === 'deleteColumn'" class="delete" (click)="onDeleteColumn()">{{ "deleteColumn" | translate }}</button>
+      <button *ngIf="confirmation.type === 'deleteTask'" class="delete" (click)="onDeleteTask()">{{ "deleteTask" | translate }}</button>
+      <button *ngIf="confirmation.type === 'deleteUser'" class="delete" (click)="onDeleteUser()">{{ "deleteUser" | translate }}</button>
     </div>
   </div>
 </div>

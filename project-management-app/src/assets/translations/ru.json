@@ -50,7 +50,7 @@
   "iWantToFind":"Я хочу найти...",
   "yourBoardsLive":"Ваши доски живут здесь",
   "createNewBoard":"Создать новую Доску",
-  "deleteBoard":"Удалить доску",
+  "deleteBoard":"Удалить Доску",
   "areYouSure":"Вы уверены?",
 
   "close":"закрыть",
@@ -62,10 +62,10 @@
   "continue":"Продолжить",
   "cancel":"Отмена",
 
-  "craeteNewColumn":"Создать новую колонку",
-  "craeteNewTask":"Создать новую задачу",
-  "deleteColumn":"Удалить колонку",
-  "deleteTask":"Удалить задачу",
+  "craeteNewColumn":"Создать новую Колонку",
+  "craeteNewTask":"Создать новую Задачу",
+  "deleteColumn":"Удалить Колонку",
+  "deleteTask":"Удалить Задачу",
 
   "editProfile":"Редактировать Профиль",
   "deleteUser":"Удалить Профиль",

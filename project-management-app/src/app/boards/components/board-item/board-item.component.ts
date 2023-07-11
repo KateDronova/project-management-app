@@ -17,10 +17,8 @@ export class BoardItemComponent implements OnInit{
 
   constructor(private confirmService: ConfirmService) {}
 
-  showConfirmation(type: ConfirmationType) {
-    this.confirmService.setConfirm({
-      type
-    });
+  showConfirmation(type: ConfirmationType, id: number) {
+    this.confirmService.setConfirm({type}, id);
   }
   ngOnInit(): void {
 

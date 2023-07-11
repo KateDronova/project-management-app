@@ -7,11 +7,13 @@ import { ConfirmationInterface } from '../../boards/models/confirmation-interfac
 })
 export class ConfirmService {
   private confirm$ = new Subject<ConfirmationInterface>
+  public idToDelete = 0
 
   constructor() { }
 
-  setConfirm(confirmation: ConfirmationInterface): void {
+  setConfirm(confirmation: ConfirmationInterface, id: number): void {
     this.confirm$.next(confirmation);
+    this.idToDelete = id;
   }
 
   getConfirm(): Observable<ConfirmationInterface> {

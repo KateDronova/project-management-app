@@ -1,45 +1,21 @@
 {
   "boards": [
     {
-      "id": 0,
-      "title": "main page",
-      "background": "ice",
-      "description": "making a page"
-    },
-    {
-      "id": 1,
-      "title": "header",
-      "background": "leaves",
-      "description": "making a header"
-    },
-    {
       "id": 2,
-      "title": "footer",
-      "background": "sea",
-      "description": "making a footer"
+      "title": "aa",
+      "background": "winter",
+      "description": "xa"
     },
     {
       "id": 3,
-      "title": "goods' list",
-      "background": "beach",
-      "description": "making a list"
+      "title": "w",
+      "background": "sky",
+      "description": ""
     },
     {
       "id": 4,
-      "title": "wswsw",
+      "title": "aaa",
       "background": "beach",
-      "description": "wsw"
-    },
-    {
-      "id": 5,
-      "title": "dadad",
-      "background": "winter",
-      "description": "adad"
-    },
-    {
-      "id": 6,
-      "title": "x",
-      "background": "sea",
       "description": ""
     }
   ]

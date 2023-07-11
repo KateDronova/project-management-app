@@ -1,4 +1,6 @@
 export enum ConfirmationType {
-  deleteUser = 'deleteUser',
-  deleteBoard = 'deleteBoard'
+  deleteBoard = 'deleteBoard',
+  deleteColumn = 'deleteColumn',
+  deleteTask = 'deleteTask',
+  deleteUser = 'deleteUser'
 }

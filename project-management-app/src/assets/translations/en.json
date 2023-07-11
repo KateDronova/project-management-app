@@ -50,7 +50,7 @@
   "iWantToFind":"I want to find...",
   "yourBoardsLive":"Your Boards live here",
   "createNewBoard":"Create new Board",
-  "deleteBoard":"Delete the board",
+  "deleteBoard":"Delete the Board",
   "areYouSure":"Are you sure?",
 
   "close":"close",
@@ -64,8 +64,8 @@
 
   "craeteNewColumn":"Create new Column",
   "craeteNewTask":"Create new Task",
-  "deleteColumn":"Delete the column",
-  "deleteTask":"Delete the task",
+  "deleteColumn":"Delete the Column",
+  "deleteTask":"Delete the Task",
 
   "editProfile":"Edit the Profile",
   "deleteUser":"Delete the User",
