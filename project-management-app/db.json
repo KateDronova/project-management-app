@@ -1,22 +1,54 @@
 {
-  "boards": [
+  "users": [
+    {
+      "id": 1,
+      "name": "Clark",
+      "surname": "Kent",
+      "e-mail": "super@gmail.com",
+      "password": "12345superM@N"
+    },
     {
       "id": 2,
-      "title": "aa",
+      "name": "Mary",
+      "surname": "Green",
+      "e-mail": "mary1990@gmail.com",
+      "password": "00054321"
+    },
+    {
+      "name": "Fanit",
+      "surname": "Green",
+      "email": "shnyfel-zai@inbox.ru",
+      "password": "qaqaqaq",
+      "password2": "aqaqaqa",
+      "id": 3
+    },
+    {
+      "name": "dedede",
+      "surname": "dedede",
+      "email": "nikitakalachev18@gmail.com",
+      "password": "dededed",
+      "password2": "edededed",
+      "id": 4
+    }
+  ],
+  "boards": [
+    {
+      "id": 1,
+      "boardTitle": "Super1",
       "background": "winter",
-      "description": "xa"
+      "boardDescription": "Save the planet"
+    },
+    {
+      "id": 2,
+      "boardTitle": "Game",
+      "background": "winter",
+      "boardDescription": "Save the world"
     },
     {
       "id": 3,
-      "title": "w",
+      "boardTitle": "Store",
       "background": "sky",
-      "description": ""
-    },
-    {
-      "id": 4,
-      "title": "aaa",
-      "background": "beach",
-      "description": ""
+      "boardDescription": "Save the city"
     }
   ]
 }

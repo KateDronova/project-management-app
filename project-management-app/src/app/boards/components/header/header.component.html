@@ -1,12 +1,16 @@
 <div class="wrapperGlobal">
-  <h1 routerLink="/welcome">{{title}} </h1>
+  <h1 routerLink="pma">{{title}} </h1>
   <nav>
-    <button *ngIf="pageFor==='undefinedUser'" type="button" routerLink="/login">&#10140; {{ "login" | translate }}</button>
-    <button *ngIf="pageFor==='undefinedUser'" type="button" routerLink="/signup">{{ "signup" | translate }} &#10009;</button>
+    <button *ngIf="pageFor==='undefinedUser'" type="button" routerLink="pma/login">
+      &#10140; {{ "login" | translate }}</button>
+    <button *ngIf="pageFor==='undefinedUser'" type="button" routerLink="pma/signup">
+      {{ "signup" | translate }} &#10009;</button>
     <button *ngIf="pageFor==='definedUser'" type="button">&#10006; {{ "logout" | translate }}</button>
-    <button *ngIf="pageFor==='definedUser'" type="button" routerLink="/editProfile">{{ "editProfile" | translate }} &#9998;</button>
+    <button *ngIf="pageFor==='definedUser'" type="button" routerLink="pma/editProfile">
+      {{ "editProfile" | translate }} &#9998;</button>
   </nav>
   <nav>
-    <button type="button" class="{{language.code}}-button" *ngFor="let language of languageList" (click)="changeSiteLanguage(language.code)">{{language.code}}</button>
+    <button type="button" class="{{language.code}}-button" *ngFor="let language of languageList"
+    (click)="changeSiteLanguage(language.code)">{{language.code}}</button>
   </nav>
 </div>

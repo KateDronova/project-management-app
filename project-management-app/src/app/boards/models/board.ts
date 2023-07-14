@@ -1,6 +1,15 @@
 export interface Board {
   id: number,
-  title: string,
+  boardTitle: string,
   background: string,
-  description: string
+  boardDescription: string,
+  columns?: {
+    columnTitle: string,
+    tasks: {
+      taskTitle: string,
+      taskDescription: string,
+      assignees: string[],
+      comments: string[]
+    }[]
+  }[]
 }

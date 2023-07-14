@@ -35,9 +35,9 @@ export class ModalWindowComponent {
   onSubmit() {
     this.addBoard.emit({
       id: this.idCounter,
-      title: this.boardName,
+      boardTitle: this.boardName,
       background: this?.backgroundName,
-      description: this?.descriptionName
+      boardDescription: this?.descriptionName
     });
     this.idCounter++;
     this.boardName = '';

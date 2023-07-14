@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SignUpForm } from '../../models/signup';
+import { UsersService } from 'src/app/core/services/users.service';
+import { UserInterface } from '../../models/user-interface';
 
 @Component({
   selector: 'app-signup-form',
@@ -9,24 +11,36 @@ import { SignUpForm } from '../../models/signup';
   styleUrls: ['./signup-form.component.scss'],
 })
 export class SignupFormComponent {
-  signupForm = new SignUpForm();
+  signupForm = new SignUpForm()
 
-  show: boolean = false;
-  show2: boolean = false;
+  show: boolean = false
+  show2: boolean = false
 
-  constructor(private location: Location, private translate: TranslateService) {}
+  idCounter = 0
+  name: string = ''
+  surname: string = ''
+  email: string = ''
+  password: string = ''
+
+  constructor(private location: Location, public route: ActivatedRoute,
+    private router: Router, private userService: UsersService) {}
 
   loaded: boolean = false;
   appearSmoothly = setTimeout(() =>
     this.loaded = true, 100
   )
 
-  saveUser() {
-    // if (true) {
-    //   this.location.go("/welcome")
-    //   this.location.historyGo(0)
-    // }
+  onAddUser(item: UserInterface) {
+    this.userService.addUser(item).subscribe(() => {
+      this.router.navigate(['pma/welcome'])
+    });
   }
+    // this.route.params.subscribe((params) => {
+    //   this.userName = params.name;
+    // })
+    // this.signupForm.value;
+    // this.signupForm.reset();
+
 
   togglePassword() {
     this.show = !this.show;

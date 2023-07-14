@@ -12,7 +12,7 @@ export class BoardListComponent{
   @Input() boardList: Board[] = [];
   @Input() filteredBoardList: Board[] = [];
 
-  constructor(private boardsService: BoardsService) {}
+  constructor() {}
 
   // private getFilteredBoards(text: string) {
   //   this.boardsService.getFilteredBoards(text).subscribe((filteredBoardList) => {

@@ -8,7 +8,7 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
 import { HeaderComponent } from '../boards/components/header/header.component';
 import { SignupFormComponent } from './pages/signup-form/signup-form.component';
 import { LoginReactiveFormComponent } from './pages/login-reactive-form/login-reactive-form.component';
-import { MainComponent } from './pages/main-page/main.component';
+import { UserComponent } from './pages/user-page/user.component';
 import { ModalWindowComponent } from './components/modal-window/modal-window.component';
 import { BoardListComponent } from './components/board-list/board-list.component';
 import { BoardItemComponent } from './components/board-item/board-item.component';
@@ -19,6 +19,7 @@ import { ColumnsItemComponent } from './components/columns-item/columns-item.com
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { BoardsService } from '../core/services/boards.service';
+import { BoardsRoutingModule } from './boards-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { BoardsService } from '../core/services/boards.service';
     HeaderComponent,
     SignupFormComponent,
     LoginReactiveFormComponent,
-    MainComponent,
+    UserComponent,
     ModalWindowComponent,
     BoardListComponent,
     BoardItemComponent,
@@ -42,7 +43,7 @@ import { BoardsService } from '../core/services/boards.service';
     HeaderComponent,
     SignupFormComponent,
     LoginReactiveFormComponent,
-    MainComponent,
+    UserComponent,
     ModalWindowComponent,
     BoardListComponent,
     BoardItemComponent,
@@ -57,7 +58,8 @@ import { BoardsService } from '../core/services/boards.service';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgxTranslateModule
+    NgxTranslateModule,
+    BoardsRoutingModule
   ],
   providers: [
     BoardsService

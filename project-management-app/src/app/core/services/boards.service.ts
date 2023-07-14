@@ -10,8 +10,7 @@ import { ConfirmService } from './confirm.service';
 export class BoardsService {
   boardList: Board[] = []
   filteredBoardList: Board[] = []
-  private url = 'http://localhost:3000/boards'
-  private id: number = 0
+  private url = `http://localhost:3000/boards`
 
   constructor( private httpClient: HttpClient, private confirm: ConfirmService ) {
     this.filteredBoardList = this.boardList;

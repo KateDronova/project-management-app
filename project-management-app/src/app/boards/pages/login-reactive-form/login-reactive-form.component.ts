@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-reactive-form',
@@ -9,6 +10,7 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./login-reactive-form.component.scss']
 })
 export class LoginReactiveFormComponent {
+  userId: number = 0;
 
   loginForm = new FormGroup({
     email: new FormControl("", [
@@ -21,7 +23,8 @@ export class LoginReactiveFormComponent {
     ]),
   })
 
-  constructor(private location: Location, private translate: TranslateService) {}
+  constructor(private location: Location, private translate: TranslateService,
+    private router: Router) {}
 
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
@@ -40,12 +43,8 @@ export class LoginReactiveFormComponent {
     this.location.back();
   }
 
-  // onReset(): void {
-  //   this.loginForm.reset();
+  // onEnter(): void {
+  //   const obtainedUserId: number = 1;
+  //   this.router.navigate(['pma/main', obtainedUserId])
   // }
-
-  onEnter(): void {
-    // console.warn(this.loginForm.value);
-    // pageFor = 'definedUser'
-  }
 }

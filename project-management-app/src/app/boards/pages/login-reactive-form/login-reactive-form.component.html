@@ -26,7 +26,8 @@
         <input [type]="show ? 'text' : 'password'" id="password"
         [placeholder]="'password.placeholder' | translate"
         formControlName="password">
-        <button class="seeThePassword" (click)="togglePassword()" [ngClass]="show ? 'closed' : 'opened'"></button>
+        <button class="seeThePassword" (click)="togglePassword()"
+        [ngClass]="show ? 'closed' : 'opened'"></button>
       </div>
     </div>
     <div translate class="text-danger">
@@ -42,8 +43,12 @@
 
 
     <div class="wrapper submitting">
-      <input type="submit" [value]="'login' | translate" routerLink="/main" (click)="onEnter()"
+      <!-- <input type="submit" [value]="'login' | translate" [routerLink]="['/pma/main', 1]"
+      [disabled]="!loginForm.valid"> -->
+      <input type="submit" [value]="'login' | translate" [routerLink]="['/pma/main', userId]"
       [disabled]="!loginForm.valid">
+      <!-- <input type="submit" [value]="'login' | translate" (click)="onEnter()"
+      [disabled]="!loginForm.valid"> -->
     </div>
 
   </fieldset>
