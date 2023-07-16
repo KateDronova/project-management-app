@@ -21,6 +21,7 @@ export class SignupFormComponent {
   surname: string = ''
   email: string = ''
   password: string = ''
+  successfulRegistration = false
 
   constructor(private location: Location, public route: ActivatedRoute,
     private router: Router, private userService: UsersService) {}
@@ -31,16 +32,12 @@ export class SignupFormComponent {
   )
 
   onAddUser(item: UserInterface) {
+    this.successfulRegistration = true;
     this.userService.addUser(item).subscribe(() => {
-      this.router.navigate(['pma/welcome'])
+      setTimeout(() => this.router.navigate(['pma/welcome']), 3000)
     });
+    this.successfulRegistration = false;
   }
-    // this.route.params.subscribe((params) => {
-    //   this.userName = params.name;
-    // })
-    // this.signupForm.value;
-    // this.signupForm.reset();
-
 
   togglePassword() {
     this.show = !this.show;

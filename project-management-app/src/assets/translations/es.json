@@ -18,17 +18,20 @@
     "placeholder": "Introduce contraseña"
   },
   "password2": {
-    "label": "Repetir Contraseña",
-    "placeholder": "Repetir contraseña"
+    "label": "Confirmar Contraseña",
+    "placeholder": "Confirmar contraseña"
   },
   "signup": "Registrate",
   "login": "Iniciar sesión",
   "return": "Regrese",
   "requiredErrorMessage": "Este campo es obligatorio.",
   "emailErrorMessage": "El correo electrónico no es correcto.",
+  "emailErrorMessage2": "¡El Email ya existe!",
   "passwordErrorMessage": "Contraseña es demasiado corta.",
+  "password2ErrorMessage": "Las contraseñas no coinciden.",
   "nameErrorMessage": "Nombre no es correcto.",
   "surnameErrorMessage": "Apellido no es correcto.",
+  "youAreRegistered": "Tu perfil ha sido registrado con éxito!",
 
   "welcome":"Bienvenido a la aplicación!",
   "ifYouAsk":"Si me preguntaran dónde está el poder, respondería: 'En un trabajo en equipo'.",
@@ -48,6 +51,7 @@
   "logout": "Cerrar sesión",
   "search":"Buscar",
   "iWantToFind":"Quiero encontrar...",
+  "hello":"Hola",
   "yourBoardsLive":"Tus tableros viven aquí",
   "createNewBoard":"Crear nuevo tablero",
   "deleteBoard":"Eliminar el Tablero",

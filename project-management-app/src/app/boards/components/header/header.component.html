@@ -6,7 +6,7 @@
     <button *ngIf="pageFor==='undefinedUser'" type="button" routerLink="pma/signup">
       {{ "signup" | translate }} &#10009;</button>
     <button *ngIf="pageFor==='definedUser'" type="button">&#10006; {{ "logout" | translate }}</button>
-    <button *ngIf="pageFor==='definedUser'" type="button" routerLink="pma/editProfile">
+    <button *ngIf="pageFor==='definedUser'" type="button" routerLink="pma/main/{{user.id}}/editProfile">
       {{ "editProfile" | translate }} &#9998;</button>
   </nav>
   <nav>

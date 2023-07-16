@@ -18,17 +18,20 @@
     "placeholder": "Enter password"
   },
   "password2": {
-    "label": "Repeat Password",
-    "placeholder": "Repeat password"
+    "label": "Confirm Password",
+    "placeholder": "Confirm password"
   },
   "signup": "Sign up",
   "login": "Login",
   "return": "Return",
   "requiredErrorMessage": "This is a required field.",
   "emailErrorMessage": "E-mail is not correct.",
+  "emailErrorMessage2": "E-mail is already exists!",
   "passwordErrorMessage": "Password is too short.",
+  "password2ErrorMessage": "Passwords do not match.",
   "nameErrorMessage": "Name is not correct.",
   "surnameErrorMessage": "Surname is not correct.",
+  "youAreRegistered": "Your profile has been registered successfully!",
 
   "welcome":"Welcome to the app!",
   "ifYouAsk":"If you asked me where is the power, I would answer: 'In a team work'.",
@@ -48,6 +51,7 @@
   "logout": "Logout",
   "search":"Search",
   "iWantToFind":"I want to find...",
+  "hello":"Hi",
   "yourBoardsLive":"Your Boards live here",
   "createNewBoard":"Create new Board",
   "deleteBoard":"Delete the Board",

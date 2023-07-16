@@ -18,17 +18,20 @@
     "placeholder": "Введите пароль"
   },
   "password2": {
-    "label": "Повторите Пароль",
-    "placeholder": "Повторите пароль"
+    "label": "Подтвердите Пароль",
+    "placeholder": "Подтвердите пароль"
   },
   "signup": "Зарегистрироваться",
   "login": "Авторизироваться",
   "return": "Назад",
   "requiredErrorMessage": "Это поле является обязательным.",
   "emailErrorMessage": "Введён некорректный e-mail.",
+  "emailErrorMessage2": "E-mail уже существует!",
   "passwordErrorMessage": "Пароль слишком короткий.",
+  "password2ErrorMessage": "Пароли не совпадают.",
   "nameErrorMessage": "Введено некорректное имя.",
   "surnameErrorMessage": "Введена некорректная фамилия.",
+  "youAreRegistered": "Ваш профиль успешно зарегистрирован!",
 
   "welcome":"Добро пожаловать в приложение!",
   "ifYouAsk":"Если вы спросите меня, в чём сила, я отвечу: 'В командной работе'.",
@@ -48,6 +51,7 @@
   "logout": "Выйти",
   "search":"Поиск",
   "iWantToFind":"Я хочу найти...",
+  "hello":"Привет",
   "yourBoardsLive":"Ваши доски живут здесь",
   "createNewBoard":"Создать новую Доску",
   "deleteBoard":"Удалить Доску",

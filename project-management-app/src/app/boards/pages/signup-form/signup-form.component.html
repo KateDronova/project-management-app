@@ -8,7 +8,7 @@
       <input id="name" type="text"
       [placeholder]="'name.placeholder' | translate"
       name="name"
-      [(ngModel)]="signupForm.name"
+      [(ngModel)]="signupForm.name" [ngModelOptions]="{ updateOn: 'blur' }"
       #name="ngModel"
       pattern="[а-яА-Яa-zA-Z -]{2,20}" required>
     </div>
@@ -29,7 +29,7 @@
       <input id="surname" type="text"
       [placeholder]="'surname.placeholder' | translate"
       name="surname"
-      [(ngModel)]="signupForm.surname"
+      [(ngModel)]="signupForm.surname" [ngModelOptions]="{ updateOn: 'blur' }"
       #surname="ngModel"
       pattern="[а-яА-Яa-zA-Z -]{2,20}" required>
     </div>
@@ -50,9 +50,8 @@
       <input id="email" type="email"
       [placeholder]="'email.placeholder' | translate"
       name="email"
-      [(ngModel)]="signupForm.email"
-      #email="ngModel"
-      email required>
+      [(ngModel)]="signupForm.email" [ngModelOptions]="{ updateOn: 'blur' }"
+      #email="ngModel" appEmailExists required>
     </div>
     <div translate class="text-danger">
       <div *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -61,6 +60,9 @@
         </span>
         <span translate *ngIf="email.errors?.['email']">
           emailErrorMessage
+        </span>
+        <span translate *ngIf="email.errors?.emailExists">
+          emailErrorMessage2
         </span>
       </div>
     </div>
@@ -72,7 +74,7 @@
         <input id="password" [type]="show ? 'text' : 'password'"
         [placeholder]="'password.placeholder' | translate"
         name="password"
-        [(ngModel)]="signupForm.password"
+        [(ngModel)]="signupForm.password" [ngModelOptions]="{ updateOn: 'blur' }"
         #password="ngModel"
         minlength="6" required>
         <button class="seeThePassword" (click)="togglePassword()" [ngClass]="show ? 'closed' : 'opened'"></button>
@@ -96,9 +98,9 @@
         <input id="password2" [type]="show2 ? 'text' : 'password'"
         [placeholder]="'password2.placeholder' | translate"
         name="password2"
-        [(ngModel)]="signupForm.password2"
-        #password2="ngModel"
-        minlength="6" required>
+        [(ngModel)]="signupForm.password2" [ngModelOptions]="{ updateOn: 'blur' }"
+        #password2="ngModel" [appPasswordsEqual]="'password'"
+        required>
         <button class="seeThePassword" (click)="togglePassword2()" [ngClass]="show2 ? 'closed' : 'opened'"></button>
       </div>
     </div>
@@ -107,8 +109,8 @@
         <span translate *ngIf="password2.errors?.['required']">
           requiredErrorMessage
         </span>
-        <span translate *ngIf="password2.errors?.['minlength']">
-          passwordErrorMessage
+        <span translate *ngIf="password2.errors?.passwordMismatch">
+          password2ErrorMessage
         </span>
       </div>
     </div>
@@ -120,3 +122,4 @@
   </fieldset>
   <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
 </form>
+<div *ngIf="successfulRegistration">{{ "youAreRegistered" | translate }}</div>

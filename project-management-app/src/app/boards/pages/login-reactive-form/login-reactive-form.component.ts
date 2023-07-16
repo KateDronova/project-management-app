@@ -13,14 +13,20 @@ export class LoginReactiveFormComponent {
   userId: number = 0;
 
   loginForm = new FormGroup({
-    email: new FormControl("", [
-      Validators.required,
-      Validators.email
-    ]),
-    password: new FormControl("", [
-      Validators.required,
-      Validators.minLength(6)
-    ]),
+    email: new FormControl("", {
+      updateOn: 'blur',
+      validators: [
+        Validators.required,
+        Validators.email
+      ]
+    }),
+    password: new FormControl("", {
+      updateOn: 'blur',
+      validators: [
+        Validators.required,
+        Validators.minLength(6)
+      ]
+    }),
   })
 
   constructor(private location: Location, private translate: TranslateService,

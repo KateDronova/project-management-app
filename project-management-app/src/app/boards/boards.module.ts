@@ -20,6 +20,8 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
 import { BoardsService } from '../core/services/boards.service';
 import { BoardsRoutingModule } from './boards-routing.module';
+import { PasswordsEqualDirective } from './validators/passwords-equal.directive';
+import { EmailExistsDirective } from './validators/user-exists.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { BoardsRoutingModule } from './boards-routing.module';
     ColumnsListComponent,
     ColumnsItemComponent,
     TaskListComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    PasswordsEqualDirective,
+    EmailExistsDirective
   ],
   exports: [
     WelcomePageComponent,

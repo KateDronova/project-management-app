@@ -1,18 +1,20 @@
 {
   "users": [
     {
-      "id": 1,
       "name": "Clark",
       "surname": "Kent",
-      "e-mail": "super@gmail.com",
-      "password": "12345superM@N"
+      "email": "super@gmail.com",
+      "password": "12345superM@N",
+      "password2": "12345superM@N",
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Mary",
       "surname": "Green",
-      "e-mail": "mary1990@gmail.com",
-      "password": "00054321"
+      "email": "mary1990@gmail.com",
+      "password": "00054321",
+      "password2": "00054321",
+      "id": 2
     },
     {
       "name": "Fanit",
