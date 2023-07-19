@@ -11,16 +11,18 @@ import { matchingGuardFunction } from '../guards/matching.guard';
 import { dataResolver } from '../resolvers/data.resolver';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'welcome', component: WelcomePageComponent},
   { path: 'signup', component: SignupFormComponent },
   { path: 'login', component: LoginReactiveFormComponent },
-  { path: 'main/:id', component: UserComponent,
-  canActivate: [authGuardFunction], canMatch: [matchingGuardFunction],
-  resolve: { user: dataResolver }, data: {  },
-  children: [
-    { path: 'board/:id', component: BoardRouteComponent },
-  ] }
+  { path: 'main', component: UserComponent,
+    canActivate: [authGuardFunction], canMatch: [matchingGuardFunction],
+    // resolve: { user: dataResolver }, data: {  }
+  },
+  { path: 'board/:id', component: BoardRouteComponent },
+  // children: [
+  //   { path: 'board/:id', component: BoardRouteComponent },
+  // ] }
 ];
 
 @NgModule({

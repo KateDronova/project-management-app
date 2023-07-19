@@ -1,24 +1,16 @@
-import { CanActivateFn, UrlTree, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { CanActivateFn, UrlTree, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { Inject } from '@angular/core';
+import { UsersService } from '../core/services/users.service';
 
-
-@Injectable()
-class UserToken { }
-
-@Injectable()
-class PermissionsService {
-  canActivate(currentUser: UserToken, userId: string): boolean {
-    return true;
-  }
-  canMatch(currentUser: UserToken): boolean {
-    return true;
-  }
-}
 
 export const authGuardFunction: CanActivateFn = (route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot) => {
-  // return inject(PermissionsService).canActivate(inject(UserToken), route.params.id);
-  return true;
-};
+  state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> => {
+  // const isLoggedIn = UsersService.isLoggedIn(); // Replace with your actual authentication service logic
+  // if (isLoggedIn) {
+  //   // User is authorized, allow activation
+    // return true;
+  // } else {
+    // router.navigate(['/pma/welcome']);
+    return true;
+// }
+}

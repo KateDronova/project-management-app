@@ -16,6 +16,9 @@
         <span *ngIf="email?.errors?.['email']">
           {{ "emailErrorMessage" | translate }}
         </span>
+        <span *ngIf="email?.errors?.emailNotExists">
+          {{ "emailErrorMessage3" | translate }}
+        </span>
       </div>
     </div>
 
@@ -35,20 +38,18 @@
         <span *ngIf="password?.errors?.['required']">
           {{ "requiredErrorMessage" | translate }}
         </span>
-        <span *ngIf="password?.errors?.['minlength']">
-          {{ "passwordErrorMessage" | translate }}
+        <span *ngIf="password?.errors?.passwordIsCorrect">
+          {{ "passwordErrorMessage3" | translate }}
         </span>
       </div>
     </div>
 
 
     <div class="wrapper submitting">
-      <!-- <input type="submit" [value]="'login' | translate" [routerLink]="['/pma/main', 1]"
+      <!-- <input type="submit" [value]="'login' | translate" routerLink="/pma/main"
       [disabled]="!loginForm.valid"> -->
-      <input type="submit" [value]="'login' | translate" [routerLink]="['/pma/main', userId]"
+      <input type="submit" [value]="'login' | translate" (click)="onEnter()"
       [disabled]="!loginForm.valid">
-      <!-- <input type="submit" [value]="'login' | translate" (click)="onEnter()"
-      [disabled]="!loginForm.valid"> -->
     </div>
 
   </fieldset>

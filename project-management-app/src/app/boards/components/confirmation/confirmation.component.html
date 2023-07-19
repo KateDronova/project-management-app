@@ -1,5 +1,6 @@
 <div class="overlay" *ngIf="confirmation">
-  <div [ngClass]="confirmation" class="modal">
+  <div class="modal">
+  <!-- <div [ngClass]="confirmation" class="modal"> -->
     <h2>{{ "areYouSure" | translate }}</h2>
     <div>
       <button (click)="closeConfirmation()">{{ "cancel" | translate }}</button>

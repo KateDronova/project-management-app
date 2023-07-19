@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, defaultUrlMatcher } from '@angular/router';
 import { UrlSegment, UrlSegmentGroup } from '@angular/router';
@@ -17,13 +18,13 @@ export class HeaderComponent implements OnInit {
     { code: 'es', label: 'Spainish' },
   ];
   pageFor: string = 'undefinedUser'
+  public href: string = window.location.href;
 
-  constructor(private translate: TranslateService, private router: Router) { }
-  // public href: string = this.router.url;
-  public href1: string = window.location.href;
+  // constructor(private translate: TranslateService, private cdr: ChangeDetectorRef) {}
+  constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    if (this.urlMatcher(this.href1)) {
+    if (this.urlMatcher(this.href)) {
       this.pageFor = 'definedUser';
       console.log('definedUser!');
     } else {
@@ -32,6 +33,7 @@ export class HeaderComponent implements OnInit {
     }
   }
   urlMatcher(url: string) {
+    // this.cdr.markForCheck();
     return url.includes('main') ? ({consumed: url}) : null;
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SignUpForm } from '../../models/signup';
@@ -10,6 +10,7 @@ import { UserInterface } from '../../models/user-interface';
   templateUrl: './signup-form.component.html',
   styleUrls: ['./signup-form.component.scss'],
 })
+
 export class SignupFormComponent {
   signupForm = new SignUpForm()
 
@@ -21,10 +22,13 @@ export class SignupFormComponent {
   surname: string = ''
   email: string = ''
   password: string = ''
-  successfulRegistration = false
+
+  successfulRegistration: boolean = false;
+
 
   constructor(private location: Location, public route: ActivatedRoute,
-    private router: Router, private userService: UsersService) {}
+    private router: Router, private userService: UsersService, private cdr: ChangeDetectorRef) {}
+
 
   loaded: boolean = false;
   appearSmoothly = setTimeout(() =>
@@ -32,11 +36,14 @@ export class SignupFormComponent {
   )
 
   onAddUser(item: UserInterface) {
+    this.userService.addUser(item).subscribe();
     this.successfulRegistration = true;
-    this.userService.addUser(item).subscribe(() => {
-      setTimeout(() => this.router.navigate(['pma/welcome']), 3000)
-    });
-    this.successfulRegistration = false;
+    this.cdr.markForCheck();
+    setTimeout(() => {
+      this.successfulRegistration = false;
+      this.router.navigate(['pma/login'])
+    }, 3000)
+    this.cdr.markForCheck();
   }
 
   togglePassword() {

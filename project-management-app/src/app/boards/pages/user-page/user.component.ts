@@ -19,7 +19,7 @@ export class UserComponent implements OnInit {
   filteredBoardList: Board[] = []
   modalVisibility: boolean = false
   loaded: boolean = false
-  userName: string = ''
+  userName: string = 'User'
 
   constructor(private translate: TranslateService,
     private boardsService: BoardsService, public route: ActivatedRoute) {
@@ -28,7 +28,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFilteredBoards('');
-    console.log(this.route.snapshot.data)
+    // console.log(this.route.snapshot.data)
   }
 
   onAddBoard(item: Board) {

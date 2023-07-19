@@ -74,7 +74,7 @@
         <input id="password" [type]="show ? 'text' : 'password'"
         [placeholder]="'password.placeholder' | translate"
         name="password"
-        [(ngModel)]="signupForm.password" [ngModelOptions]="{ updateOn: 'blur' }"
+        [(ngModel)]="signupForm.password"
         #password="ngModel"
         minlength="6" required>
         <button class="seeThePassword" (click)="togglePassword()" [ngClass]="show ? 'closed' : 'opened'"></button>
@@ -98,7 +98,7 @@
         <input id="password2" [type]="show2 ? 'text' : 'password'"
         [placeholder]="'password2.placeholder' | translate"
         name="password2"
-        [(ngModel)]="signupForm.password2" [ngModelOptions]="{ updateOn: 'blur' }"
+        [(ngModel)]="signupForm.password2"
         #password2="ngModel" [appPasswordsEqual]="'password'"
         required>
         <button class="seeThePassword" (click)="togglePassword2()" [ngClass]="show2 ? 'closed' : 'opened'"></button>
@@ -110,16 +110,21 @@
           requiredErrorMessage
         </span>
         <span translate *ngIf="password2.errors?.passwordMismatch">
-          password2ErrorMessage
+          passwordErrorMessage2
         </span>
       </div>
     </div>
 
     <div class="wrapper submitting">
       <input type="submit" [value]="'signup' | translate" (click)="onAddUser(signUpForm.value)"
-      [disabled]="!signUpForm.valid">
+      [disabled]="!signUpForm.valid" >
     </div>
   </fieldset>
   <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
 </form>
-<div *ngIf="successfulRegistration">{{ "youAreRegistered" | translate }}</div>
+<div class="overlay" *ngIf="successfulRegistration">
+  <div class="modal">
+    <h2>{{ "success" | translate }}</h2>
+    {{ "youAreRegistered" | translate }}
+  </div>
+</div>

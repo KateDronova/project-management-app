@@ -17,10 +17,6 @@ export class PasswordsEqualDirective implements Validator {
     const password = control.value;
     const confirmPassword = control.root.get(this.passwordToMatch)?.value;
 
-    if (password === confirmPassword) {
-      return null; // Validation successful, passwords match
-    }
-
-    return { passwordMismatch: true }; // Validation failed, passwords don't match
+    return (password === confirmPassword)? null : { passwordMismatch: true };
   }
 }

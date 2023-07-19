@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
-import { TranslateService } from '@ngx-translate/core';
-import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { Validators, FormGroup, FormControl} from '@angular/forms';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/core/services/users.service';
+import { emailExistsValidator } from '../../validators/user-not-registered';
+import { correctPasswordValidator } from '../../validators/correct-password';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-login-reactive-form',
@@ -18,18 +21,22 @@ export class LoginReactiveFormComponent {
       validators: [
         Validators.required,
         Validators.email
+      ],
+      asyncValidators: [
+        emailExistsValidator(this.userService)
       ]
     }),
     password: new FormControl("", {
-      updateOn: 'blur',
       validators: [
         Validators.required,
-        Validators.minLength(6)
+      ],
+      asyncValidators: [
+        correctPasswordValidator(this.userService)
       ]
     }),
   })
 
-  constructor(private location: Location, private translate: TranslateService,
+  constructor(private location: Location, private userService: UsersService,
     private router: Router) {}
 
   get email() { return this.loginForm.get('email'); }
@@ -49,8 +56,8 @@ export class LoginReactiveFormComponent {
     this.location.back();
   }
 
-  // onEnter(): void {
-  //   const obtainedUserId: number = 1;
-  //   this.router.navigate(['pma/main', obtainedUserId])
-  // }
+  onEnter(): void {
+    this.router.navigate(['pma/main']);
+    // loggedIn = true;
+  }
 }

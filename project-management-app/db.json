@@ -31,6 +31,30 @@
       "password": "dededed",
       "password2": "edededed",
       "id": 4
+    },
+    {
+      "name": "Fanit",
+      "surname": "Green",
+      "email": "qsqsqs@mail.ru",
+      "password": "eeeeeee",
+      "password2": "eeeeeee",
+      "id": 5
+    },
+    {
+      "name": "sdsdd",
+      "surname": "sdsds",
+      "email": "sdsd@inbox.ru",
+      "password": "sdsdsdsdsd",
+      "password2": "sdsdsdsdsd",
+      "id": 6
+    },
+    {
+      "name": "Fanit",
+      "surname": "Green",
+      "email": "shnyfaaaael-zai@inbox.ru",
+      "password": "555555",
+      "password2": "555555",
+      "id": 7
     }
   ],
   "boards": [

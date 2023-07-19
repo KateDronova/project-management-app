@@ -1,3 +1,23 @@
 fieldset {
   height: 33rem;
 }
+// .overlay {
+//   opacity: 0.9
+// }
+
+div.modal {
+  padding: 2rem;
+  padding-top: 1rem;
+  outline: 1px solid #000;
+  border: 3px solid var(--extralight-sea-color);
+  border-radius: 8px;
+  align-items: center;
+  background-color: var(--light-sea-color);
+  box-shadow: inset 0px 0px 25px 10px var(--dark-sea-color-transparent);
+  color: #fff;
+  text-shadow: 3px 4px 9px #000;
+  & h2 {
+    color: #fff;
+    text-shadow: 3px 4px 9px #000;
+  }
+}
