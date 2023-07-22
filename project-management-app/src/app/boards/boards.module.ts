@@ -22,6 +22,7 @@ import { BoardsService } from '../core/services/boards.service';
 import { BoardsRoutingModule } from './boards-routing.module';
 import { PasswordsEqualDirective } from './validators/passwords-equal.directive';
 import { EmailExistsDirective } from './validators/user-exists.directive';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EmailExistsDirective } from './validators/user-exists.directive';
     TaskListComponent,
     TaskItemComponent,
     PasswordsEqualDirective,
-    EmailExistsDirective
+    EmailExistsDirective,
+    EditProfileComponent
   ],
   exports: [
     WelcomePageComponent,

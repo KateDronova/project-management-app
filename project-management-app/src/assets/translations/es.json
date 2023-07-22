@@ -76,6 +76,9 @@
   "deleteTask":"Eliminar la Tarea",
 
   "editProfile":"Editar el Perfil",
+  "profileEditing":"Edición de perfil",
+  "saveChanges":"Guardar cambios",
+  "changesAreSaved":"¡Сambios se guardan!",
   "deleteUser":"Eliminar el Perfil",
   "private":"Privado (visto solo por invitados)",
   "public":"Público (visto por todos los equipos)"

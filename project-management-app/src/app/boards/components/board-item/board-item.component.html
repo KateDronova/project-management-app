@@ -5,6 +5,6 @@
       <p>{{ board?.boardDescription | slice : 0 : 30 }}</p>
       <p class="id">{{ board?.id }}</p>
     </div>
-    <button (click)="showConfirmation(confirmTypes.deleteBoard, board?.id)">{{ "deleteBoard" | translate }}</button>
+    <button type="button" (click)="showConfirmation(confirmTypes.deleteBoard, board?.id)">{{ "deleteBoard" | translate }}</button>
   </div>
 </div>

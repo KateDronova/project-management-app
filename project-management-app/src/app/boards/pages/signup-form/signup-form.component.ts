@@ -27,7 +27,8 @@ export class SignupFormComponent {
 
 
   constructor(private location: Location, public route: ActivatedRoute,
-    private router: Router, private userService: UsersService, private cdr: ChangeDetectorRef) {}
+    private router: Router, private userService: UsersService,
+    private cdr: ChangeDetectorRef) {}
 
 
   loaded: boolean = false;

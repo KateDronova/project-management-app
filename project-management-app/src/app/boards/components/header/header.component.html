@@ -1,13 +1,21 @@
 <div class="wrapperGlobal">
-  <h1 routerLink="pma">{{title}} </h1>
+  <h1 routerLink="pma">{{title}}</h1>
   <nav>
-    <button *ngIf="pageFor==='undefinedUser'" type="button" routerLink="pma/login">
+    <!-- <button type="button" routerLink="pma/login">
       &#10140; {{ "login" | translate }}</button>
-    <button *ngIf="pageFor==='undefinedUser'" type="button" routerLink="pma/signup">
+    <button type="button" routerLink="pma/signup">
       {{ "signup" | translate }} &#10009;</button>
-    <button *ngIf="pageFor==='definedUser'" type="button" routerLink="pma/welcome">
+    <button type="button" routerLink="pma/welcome">
       &#10006; {{ "logout" | translate }}</button>
-    <button *ngIf="pageFor==='definedUser'" type="button" routerLink="pma/main/editProfile">
+    <button type="button" routerLink="pma/main/editProfile">
+      {{ "editProfile" | translate }} &#9998;</button> -->
+    <button *ngIf="!loggedIn" type="button" routerLink="pma/login">
+      &#10140; {{ "login" | translate }}</button>
+    <button *ngIf="!loggedIn" type="button" routerLink="pma/signup">
+      {{ "signup" | translate }} &#10009;</button>
+    <button *ngIf="!loggedIn" type="button" routerLink="pma/welcome" (click)="onLogOut()">
+      &#10006; {{ "logout" | translate }}</button>
+    <button *ngIf="!loggedIn" type="button" routerLink="pma/edit-profile">
       {{ "editProfile" | translate }} &#9998;</button>
   </nav>
   <nav>

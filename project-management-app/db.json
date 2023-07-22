@@ -2,59 +2,35 @@
   "users": [
     {
       "name": "Clark",
-      "surname": "Kent",
+      "surname": "Kentuki",
       "email": "super@gmail.com",
-      "password": "12345superM@N",
-      "password2": "12345superM@N",
+      "password": "12345superMAN",
+      "password2": "12345superMAN",
       "id": 1
     },
     {
-      "name": "Mary",
-      "surname": "Green",
-      "email": "mary1990@gmail.com",
-      "password": "00054321",
-      "password2": "00054321",
+      "name": "Rose",
+      "surname": "Bingley",
+      "email": "roza@mail.com",
+      "password": "dededed",
+      "password2": "dededed",
       "id": 2
     },
     {
-      "name": "Fanit",
-      "surname": "Green",
-      "email": "shnyfel-zai@inbox.ru",
-      "password": "qaqaqaq",
-      "password2": "aqaqaqa",
+      "name": "Nikifor",
+      "surname": "Koshkin",
+      "email": "nik@gmail.com",
+      "password": "dededed",
+      "password2": "dededed",
       "id": 3
     },
     {
-      "name": "dedede",
-      "surname": "dedede",
-      "email": "nikitakalachev18@gmail.com",
-      "password": "dededed",
-      "password2": "edededed",
+      "name": "Sonya",
+      "surname": "Lukoshkina",
+      "email": "brown@gmail.com",
+      "password": "zzzzzzz1",
+      "password2": "zzzzzzz1",
       "id": 4
-    },
-    {
-      "name": "Fanit",
-      "surname": "Green",
-      "email": "qsqsqs@mail.ru",
-      "password": "eeeeeee",
-      "password2": "eeeeeee",
-      "id": 5
-    },
-    {
-      "name": "sdsdd",
-      "surname": "sdsds",
-      "email": "sdsd@inbox.ru",
-      "password": "sdsdsdsdsd",
-      "password2": "sdsdsdsdsd",
-      "id": 6
-    },
-    {
-      "name": "Fanit",
-      "surname": "Green",
-      "email": "shnyfaaaael-zai@inbox.ru",
-      "password": "555555",
-      "password2": "555555",
-      "id": 7
     }
   ],
   "boards": [

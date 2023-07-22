@@ -1,5 +1,24 @@
 .wrapperGlobal {
+  background-image: url('../../../../assets/images/sky.jpg');
+  box-sizing: border-box;
+  margin: 10px;
   flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  border-width: 3px;
+  border-style: outset;
+  border-radius: 8px;
+  // box-shadow: inset 0px 0px 70px 70px var(--dark-sea-color-transparent);
+  z-index: 1;
+  text-align: center;
+  border: 1px solid black;
+  & h2, p {
+    color: white;
+    text-shadow: 1px 1px 10px #000;
+  }
+  & h2 {
+    font-size: 1.5rem;
+  }
 }
 
 header {
@@ -8,3 +27,10 @@ header {
     margin: auto;
   }
 }
+
+.deleting {
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  background-color: var(--light-sea-color);
+}
+

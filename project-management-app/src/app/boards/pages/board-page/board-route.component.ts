@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Location } from '@angular/common';
+import { ConfirmService } from '../../../core/services/confirm.service';
+import { ConfirmationType } from '../../models/confirmation-type';
+import { ConfirmationInterface } from '../../models/confirmation-interface';
+// import { Board } from '../../models/board';
 
 @Component({
   selector: 'app-board-route',
@@ -7,12 +11,15 @@ import { Location } from '@angular/common';
   styleUrls: ['./board-route.component.scss']
 })
 export class BoardRouteComponent {
+  // board: Board | null = null;
 
   loaded: boolean = false
   modalVisibility: boolean = false
   columnList: string[] = []
+  confirmTypes = ConfirmationType
+  confirmation?: ConfirmationInterface
 
-  constructor(private location: Location) {}
+  constructor(private location: Location, private confirmService: ConfirmService) {}
 
   goBack() {
     this.location.back()

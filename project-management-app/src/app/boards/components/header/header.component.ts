@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-// import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { Router, defaultUrlMatcher } from '@angular/router';
-import { UrlSegment, UrlSegmentGroup } from '@angular/router';
+import { UserInterface } from '../../models/user-interface';
+import { AuthService } from 'src/app/core/services/auth.service';
+import { UsersService } from 'src/app/core/services/users.service';
 
 @Component({
   selector: 'app-header',
@@ -17,24 +17,36 @@ export class HeaderComponent implements OnInit {
     { code: 'ru', label: 'Russian' },
     { code: 'es', label: 'Spainish' },
   ];
-  pageFor: string = 'undefinedUser'
-  public href: string = window.location.href;
+  public href: string = window.location.href
+  loggedIn: boolean = this.authService.loggedIn
+  currentUser: UserInterface = {
+    id: 0,
+    name: '',
+    surname: '',
+    email: '',
+    password: ''
+  }
 
-  // constructor(private translate: TranslateService, private cdr: ChangeDetectorRef) {}
-  constructor(private translate: TranslateService) {}
+
+  constructor(private translate: TranslateService, private cdr: ChangeDetectorRef,
+    private authService: AuthService, private userService: UsersService) {}
+
 
   ngOnInit(): void {
-    if (this.urlMatcher(this.href)) {
-      this.pageFor = 'definedUser';
-      console.log('definedUser!');
-    } else {
-      this.pageFor = 'undefinedUser';
-      console.log('undefinedUser!');
-    }
+    // this.currentUser.email = this.authService.currentUserEmail;
+    // console.log(this.currentUser.email);
+    // this.getCurrentUserInfo(this.currentUser.email);
   }
-  urlMatcher(url: string) {
-    // this.cdr.markForCheck();
-    return url.includes('main') ? ({consumed: url}) : null;
+
+  // private getCurrentUserInfo(currentUserEmail: string) {
+  //   this.userService.getCurrentUser(currentUserEmail).subscribe((currentUser) => {
+  //     this.currentUser = currentUser;
+  //   })
+  // }
+
+  onLogOut(): void {
+    this.authService.logOut();
+    this.cdr.markForCheck();
   }
 
   changeSiteLanguage(localeCode: string): void {

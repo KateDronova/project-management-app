@@ -6,10 +6,10 @@
   <nav class="wrapper">
     <button (click)="openModalWindow()" (click)="appearSmoothly()">
       {{ "craeteNewColumn" | translate }} <br>+</button>
-    <!-- <app-modal-window (addBoard)="onAddColumn($event)" -->
-    <app-modal-window
+    <app-modal-window (addBoard)="onAddColumn($event)"
       [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
     </app-modal-window>
-    <app-columns-list></app-columns-list>
+    <app-columns-list [columnList]="columnList"></app-columns-list>
   </nav>
 </div>
+<app-confirmation></app-confirmation>

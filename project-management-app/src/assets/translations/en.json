@@ -76,6 +76,9 @@
   "deleteTask":"Delete the Task",
 
   "editProfile":"Edit the Profile",
+  "profileEditing":"Profile editing",
+  "saveChanges":"Save changes",
+  "changesAreSaved":"Changes are saved!",
   "deleteUser":"Delete the User",
   "private":"Private (seen by invited only)",
   "public":"Public (seen by all teams)"

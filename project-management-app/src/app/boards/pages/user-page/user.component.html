@@ -1,6 +1,6 @@
 <div class="wrapperGlobal">
   <header>
-    <h2>{{ userName }}, <br>{{ "yourBoardsLive" | translate }}</h2>
+    <h2>{{ "yourBoardsLive" | translate }}</h2>
     <form action="" [formGroup]="searchGroup">
       <div class="wrapper">
         <button type="button" (click)="onFilterResults(filter.value)">{{ "search" | translate }}</button>

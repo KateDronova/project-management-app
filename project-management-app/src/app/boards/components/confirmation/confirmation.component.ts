@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ElementRef } from '@angular/core';
 import { ConfirmationInterface } from '../../models/confirmation-interface';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { BoardsService } from 'src/app/core/services/boards.service';
+import { UsersService } from 'src/app/core/services/users.service';
 import { Board } from '../../models/board';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -15,7 +16,8 @@ export class ConfirmationComponent implements OnInit {
   boardList: Board[] = []
   filteredBoardList: Board[] = []
 
-  constructor(private confirmService: ConfirmService, private boardsService: BoardsService ) {
+  constructor(private confirmService: ConfirmService, private boardsService: BoardsService,
+    private userService: UsersService, private authService: AuthService ) {
     this.filteredBoardList = this.boardList;
   }
 
@@ -36,11 +38,27 @@ export class ConfirmationComponent implements OnInit {
     })
   }
 
+  onDeleteUser() {
+    this.userService.deleteUser().subscribe(() => {
+      this.authService.logOut();
+    });
+    this.closeConfirmation()
+  }
+
   onDeleteBoard() {
-    // this.boardsService.deleteBoard().
     this.boardsService.deleteBoard().subscribe(() => {
       this.getFilteredBoards('');
     });
+    this.closeConfirmation()
+  }
+
+  onDeleteColumn() {
+    this.boardsService.deleteColumn().subscribe(() => { });
+    this.closeConfirmation()
+  }
+
+  onDeleteTask() {
+    this.boardsService.deleteTask().subscribe(() => { });
     this.closeConfirmation()
   }
  }

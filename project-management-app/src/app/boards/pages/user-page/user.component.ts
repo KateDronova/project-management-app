@@ -19,10 +19,8 @@ export class UserComponent implements OnInit {
   filteredBoardList: Board[] = []
   modalVisibility: boolean = false
   loaded: boolean = false
-  userName: string = 'User'
 
-  constructor(private translate: TranslateService,
-    private boardsService: BoardsService, public route: ActivatedRoute) {
+  constructor( private boardsService: BoardsService, public route: ActivatedRoute) {
     this.filteredBoardList = this.boardList;
   }
 

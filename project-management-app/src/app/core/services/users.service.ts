@@ -20,18 +20,21 @@ export class UsersService {
     return this.httpClient.post<UserInterface>(this.url, item);
   }
 
+  changeUserInfo(item: UserInterface, id: number): Observable<UserInterface> {
+    return this.httpClient.put<UserInterface>(`${this.url}/${id}`, item);
+  }
+
   deleteUser(): Observable<UserInterface> {
     return this.httpClient.delete<UserInterface>(`${this.url}/${this.confirm.idToDelete}`);
   }
 
-
   correctPasswordCheck(emailToMatch: string, passwordToMatch: string): Observable<boolean> {
     return this.getCurrentUser(emailToMatch).pipe(
-      map(user => user && user.password === passwordToMatch),
-      catchError(() => of(false))
+      map(user => user && user.password === passwordToMatch)
     );
   }
-  private getCurrentUser(currentUserEmail: string): Observable<UserInterface> {
+
+  getCurrentUser(currentUserEmail: string): Observable<UserInterface> {
     return this.httpClient.get<UserInterface[]>(`${this.url}?email=${currentUserEmail}`).pipe(
       map(users => users[0])
     );

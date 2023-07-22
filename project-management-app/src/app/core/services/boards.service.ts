@@ -28,28 +28,12 @@ export class BoardsService {
     return this.httpClient.delete<Board>(`${this.url}/${this.confirm.idToDelete}`)
   }
 
-  // filterResults(text: string): void {
-  //   if (!text) {
-  //     this.filteredBoardList = this.boardList;
-  //   }
+  deleteColumn(): Observable<Board> {
+    return this.httpClient.delete<Board>(`${this.url}/${this.confirm.idToDelete}.column`)
+  }
 
-  //   this.filteredBoardList = this.boardList.filter(
-  //     board => board?.description.toLowerCase().includes(text.toLowerCase())
-  //     || board?.title.toLowerCase().includes(text.toLowerCase())
-  //     || board?.id.toString().includes(text)
-  //   );
-  // }
-
-  // getBoards(): Board[] {
-  //   return this.boardList;
-  // }
-
-  // getFilteredBoards(): Board[] {
-  //   return this.filteredBoardList;
-  // }
-
-  // addBoard(item: Board): void {
-  //   this.boardList = [...this.boardList, item];
-  // }
+  deleteTask(): Observable<Board> {
+    return this.httpClient.delete<Board>(`${this.url}/${this.confirm.idToDelete}.column.task`)
+  }
 
 }

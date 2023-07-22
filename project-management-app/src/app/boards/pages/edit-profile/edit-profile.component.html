@@ -1,0 +1,97 @@
+<form #editForm="ngForm" novalidate ngClass="initial" [class.smoothAppear]="loaded">
+  <fieldset>
+
+    <h2>{{ "profileEditing" | translate}}</h2>
+    <h3>{{ currentUser.email }}</h3>
+
+    <div class="wrapper">
+      <label for="name">{{ "name.label" | translate }}</label>
+      <input id="name" type="text"
+      name="name" #name="ngModel"
+      [(ngModel)]="editForm.name" [ngModelOptions]="{ updateOn: 'blur' }"
+      pattern="[а-яА-Яa-zA-Z -]{2,20}" required [value]="currentUser.name"
+      (ngModelChange)="trackChanges('name', $event)">
+    </div>
+    <div translate class="text-danger">
+      <div *ngIf="name.invalid || name.touched">
+        <span translate *ngIf="name.errors?.['required']">
+          requiredErrorMessage
+        </span>
+        <span translate *ngIf="name.errors?.['pattern']">
+          nameErrorMessage
+        </span>
+      </div>
+    </div>
+
+
+    <div class="wrapper">
+      <label for="surname">{{ "surname.label" | translate }}</label>
+      <input id="surname" type="text"
+      name="surname" #surname="ngModel"
+      [(ngModel)]="editForm.surname" [ngModelOptions]="{ updateOn: 'blur' }"
+      pattern="[а-яА-Яa-zA-Z -]{2,20}" required [value]="currentUser.surname"
+      (ngModelChange)="trackChanges('surname', $event)">
+    </div>
+    <div translate class="text-danger">
+      <div *ngIf="name.invalid || name.touched">
+        <span translate *ngIf="surname.errors?.['required']">
+          requiredErrorMessage
+        </span>
+        <span translate *ngIf="surname.errors?.['pattern']">
+          surnameErrorMessage
+        </span>
+      </div>
+    </div>
+
+
+    <div class="wrapper">
+      <label for="password">{{ "password.label" | translate }}</label>
+      <div class="secure">
+        <input id="password" [type]="show ? 'text' : 'password'"
+        name="password" #password="ngModel"
+        [(ngModel)]="editForm.password"
+        minlength="6" required [value]="currentUser.password"
+        (ngModelChange)="trackChanges('password', $event)">
+        <button class="seeThePassword" (click)="togglePassword()"
+        [ngClass]="show ? 'closed' : 'opened'"></button>
+      </div>
+    </div>
+    <div translate class="text-danger">
+      <div *ngIf="name.invalid || name.touched">
+      <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"> -->
+        <span translate *ngIf="password.errors?.['required']">
+          requiredErrorMessage
+        </span>
+        <span translate *ngIf="password.errors?.['minlength']">
+          passwordErrorMessage
+        </span>
+      </div>
+    </div>
+
+
+    <input type="hidden" id="email" [value]="currentUser.email" name="email"
+    [(ngModel)]="editForm.email" #email="ngModel">
+    <input type="hidden" id="password2" [value]="currentUser.password" name="password2"
+    [(ngModel)]="editForm.password2" #password2="ngModel">
+
+
+    <div class="wrapper submitting">
+      <input type="submit" [value]="'saveChanges' | translate"
+      (click)="submitChanges(editForm, currentUser.id)"
+      [disabled]="!editForm.valid" >
+    </div>
+
+    <div class="wrapper submitting">
+      <button type="button" class="deleting" (click)="showConfirmation(confirmTypes.deleteUser, currentUser?.id)">{{ "deleteUser" | translate }}</button>
+      <!-- <input class="deleting" type="button" [value]="'deleteUser' | translate" (click)="showConfirmation(confirmTypes.deleteUser, currentUser?.id)"> -->
+    </div>
+  </fieldset>
+  <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
+</form>
+<div class="overlay" *ngIf="successfulEditing">
+  <div class="modal">
+    <h2>{{ "success" | translate }}</h2>
+    {{ "changesAreSaved" | translate }}
+  </div>
+</div>
+<app-confirmation></app-confirmation>

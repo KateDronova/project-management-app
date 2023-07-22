@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Board } from '../../models/board';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
@@ -9,7 +9,7 @@ import { ConfirmationInterface } from '../../models/confirmation-interface';
   templateUrl: './board-item.component.html',
   styleUrls: ['./board-item.component.scss']
 })
-export class BoardItemComponent implements OnInit{
+export class BoardItemComponent{
   @Input() board: Board | null = null;
 
   confirmTypes = ConfirmationType;
@@ -20,8 +20,4 @@ export class BoardItemComponent implements OnInit{
   showConfirmation(type: ConfirmationType, id: number) {
     this.confirmService.setConfirm({type}, id);
   }
-  ngOnInit(): void {
-
-  }
-
 }
