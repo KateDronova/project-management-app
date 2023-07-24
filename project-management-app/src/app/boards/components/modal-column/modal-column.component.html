@@ -1,0 +1,25 @@
+<div class="overlay">
+  <div class="modal" role="dialog" aria-labelledby="modalTitle"
+  ngClass="initial" [class.smoothAppear]="loaded">
+    <h2 id="modalTitle">{{ "newColumn" | translate }}</h2>
+    <button class="close" aria-label="'close' | translate" (click)="removeModalWindow()">&#10006;</button>
+    <form #columnForm="ngForm" (submit)="onSubmit()" novalidate>
+      <fieldset>
+        <label for="title">{{ "title" | translate }}</label>
+        <textarea rows="3" id="title" type="text" [(ngModel)]="columnName"
+        name="boardName" required #title="ngModel"></textarea>
+        <div translate class="text-danger">
+          <div *ngIf="title.invalid && (title.dirty || title.touched)">
+            <span *ngIf="title?.errors?.['required']">
+              {{ "requiredErrorMessage" | translate }}
+            </span>
+          </div>
+        </div>
+      </fieldset>
+      <div class="submButtons">
+        <button type="button" class="cancel"(click)="removeModalWindow()">{{ "cancel" | translate }}</button>
+        <button type="submit" [disabled]="!columnForm.valid">{{ "continue" | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

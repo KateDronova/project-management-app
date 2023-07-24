@@ -70,10 +70,13 @@
   "cancel":"Отмена",
   "sorryButSmthGoWrong":"К сожалению, что-то пошло не так :C",
 
-  "craeteNewColumn":"Создать новую Колонку",
-  "craeteNewTask":"Создать новую Задачу",
+  "createNewColumn":"Создать новую Колонку",
+  "newColumn":"Новая колонка",
+  "createNewTask":"Создать новую Задачу",
+  "newTask":"Новая Задача",
   "deleteColumn":"Удалить Колонку",
   "deleteTask":"Удалить Задачу",
+  "board":"Доска",
 
   "editProfile":"Редактировать Профиль",
   "profileEditing":"Редактирование Профиля",

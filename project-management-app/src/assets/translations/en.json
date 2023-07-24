@@ -70,10 +70,13 @@
   "cancel":"Cancel",
   "sorryButSmthGoWrong":"Sorry, but something went wrong :C",
 
-  "craeteNewColumn":"Create new Column",
-  "craeteNewTask":"Create new Task",
+  "createNewColumn":"Create new Column",
+  "newColumn":"New Column",
+  "createNewTask":"Create new Task",
+  "newTask":"New Task",
   "deleteColumn":"Delete the Column",
   "deleteTask":"Delete the Task",
+  "board":"Board",
 
   "editProfile":"Edit the Profile",
   "profileEditing":"Profile editing",

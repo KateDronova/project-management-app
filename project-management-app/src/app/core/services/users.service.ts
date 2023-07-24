@@ -40,7 +40,6 @@ export class UsersService {
     );
   }
 
-
   emailExistsCheck(email: string): Observable<boolean> {
     return this.getUsersEmails().pipe(
       map((emails: string[]) => emails.includes(email))

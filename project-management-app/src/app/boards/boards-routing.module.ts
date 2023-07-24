@@ -19,10 +19,11 @@ const routes: Routes = [
   { path: 'login', component: LoginReactiveFormComponent },
   { path: 'main', component: UserComponent,
     canActivate: [authGuardFunction], canMatch: [matchingGuardFunction],
-    // resolve: { user: dataResolver }, data: {  }
   },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'board/:id', component: BoardRouteComponent }
+  { path: 'board/:id', component: BoardRouteComponent,
+    // resolve: { id: dataResolver }
+  }
 ];
 
 @NgModule({

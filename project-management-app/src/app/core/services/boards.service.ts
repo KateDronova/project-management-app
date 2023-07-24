@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Board } from '../../boards/models/board';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ConfirmService } from './confirm.service';
 
 @Injectable({
@@ -20,6 +21,12 @@ export class BoardsService {
     return this.httpClient.get<Board[]>(`${this.url}?q=${text}`)
   }
 
+  getBoardById(boardId: number): Observable<Board> {
+    return this.httpClient.get<Board[]>(`${this.url}?id=${boardId}`).pipe(
+      map(boards => boards[0])
+    );
+  }
+
   addBoard(item: Board): Observable<Board> {
     return this.httpClient.post<Board>(this.url, item)
   }
@@ -27,13 +34,4 @@ export class BoardsService {
   deleteBoard(): Observable<Board> {
     return this.httpClient.delete<Board>(`${this.url}/${this.confirm.idToDelete}`)
   }
-
-  deleteColumn(): Observable<Board> {
-    return this.httpClient.delete<Board>(`${this.url}/${this.confirm.idToDelete}.column`)
-  }
-
-  deleteTask(): Observable<Board> {
-    return this.httpClient.delete<Board>(`${this.url}/${this.confirm.idToDelete}.column.task`)
-  }
-
 }

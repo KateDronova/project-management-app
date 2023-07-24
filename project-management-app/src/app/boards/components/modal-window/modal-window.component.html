@@ -1,10 +1,9 @@
 <div class="overlay">
-  <!-- <div class="modal" role="dialog" aria-labelledby="modalTitle" ngClass="initial" [class.smoothAppear]="loaded"> -->
   <div class="modal" role="dialog" aria-labelledby="modalTitle"
   ngClass="initial" [class.smoothAppear]="loaded">
     <h2 id="modalTitle">{{ "newProject" | translate }}</h2>
     <button class="close" aria-label="'close' | translate" (click)="removeModalWindow()">&#10006;</button>
-    <form #boardForm="ngForm" action="" (submit)="onSubmit()" novalidate>
+    <form #boardForm="ngForm" (submit)="onSubmit()" novalidate>
       <fieldset>
         <label for="background">{{ "background" | translate }}</label>
 

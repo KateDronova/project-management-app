@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BoardsService } from '../../../core/services/boards.service';
@@ -25,21 +24,20 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getFilteredBoards('');
-    // console.log(this.route.snapshot.data)
+    this.onGetFilteredBoards('');
   }
 
   onAddBoard(item: Board) {
     this.boardsService.addBoard(item).subscribe(() => {
-      this.getFilteredBoards('');
+      this.onGetFilteredBoards('');
     });
   }
 
   onFilterResults(text: string) {
-    this.getFilteredBoards(text);
+    this.onGetFilteredBoards(text);
   }
 
-  private getFilteredBoards(text: string) {
+  private onGetFilteredBoards(text: string) {
     this.boardsService.getFilteredBoards(text).subscribe((filteredBoardList) => {
       this.filteredBoardList = filteredBoardList;
     })

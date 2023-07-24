@@ -13,7 +13,7 @@ export class ColumnsListComponent {
   taskList: string[] = []
 
   openModalWindow() {
-
+    this.modalVisibility = true;
   }
 
   appearSmoothly () {
@@ -25,6 +25,4 @@ export class ColumnsListComponent {
     this.taskList.push(item);
     console.log(this.columnList)//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   }
-
-
 }

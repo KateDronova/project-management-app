@@ -9,7 +9,7 @@
       "id": 1
     },
     {
-      "name": "Rose",
+      "name": "Rosita",
       "surname": "Bingley",
       "email": "roza@mail.com",
       "password": "dededed",
@@ -36,7 +36,7 @@
   "boards": [
     {
       "id": 1,
-      "boardTitle": "Super1",
+      "boardTitle": "Super",
       "background": "winter",
       "boardDescription": "Save the planet"
     },
@@ -44,13 +44,82 @@
       "id": 2,
       "boardTitle": "Game",
       "background": "winter",
-      "boardDescription": "Save the world"
+      "boardDescription": "Play chess"
     },
     {
       "id": 3,
       "boardTitle": "Store",
       "background": "sky",
-      "boardDescription": "Save the city"
+      "boardDescription": "Buy the sofa"
+    },
+    {
+      "id": 4,
+      "boardTitle": "qqwqwqw",
+      "background": "sea",
+      "boardDescription": "qwqwq"
+    },
+    {
+      "id": 5,
+      "boardTitle": "sqs",
+      "background": "beach",
+      "boardDescription": "qsqsq"
+    },
+    {
+      "id": 7,
+      "boardTitle": "sSGDFHDFH G GS",
+      "background": "leaves",
+      "boardDescription": "sSsSF"
+    },
+    {
+      "id": 8,
+      "boardTitle": "Fiffo",
+      "background": "",
+      "boardDescription": "Do the job!"
+    },
+    {
+      "id": 9,
+      "boardTitle": "Ice baby",
+      "background": "ice",
+      "boardDescription": "this is it"
+    },
+    {
+      "id": 10,
+      "boardTitle": "Ded Mazai",
+      "background": "sky",
+      "boardDescription": ""
+    }
+  ],
+  "columns": [
+    {
+      "id": 1,
+      "columnTitle": "To do",
+      "boardId": 1
+    },
+    {
+      "id": 2,
+      "columnTitle": "In progress",
+      "boardId": 1
+    },
+    {
+      "id": 3,
+      "columnTitle": "Check List",
+      "boardId": 3
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "taskTitle": "Get info",
+      "taskDescription": "Ask mentors",
+      "columnId": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "authorName": "Clark",
+      "body": "That's an easy part",
+      "taskId": 1
     }
   ]
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { Input, Output, EventEmitter } from '@angular/core';
 
 import { backgrounds } from '../../models/backgrounds';
@@ -30,7 +29,7 @@ export class ModalWindowComponent {
 
   selectedBack?: string
 
-  constructor(private transtate: TranslateService) {}
+  constructor() {}
 
   onSubmit() {
     this.addBoard.emit({

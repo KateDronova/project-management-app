@@ -23,6 +23,7 @@ import { BoardsRoutingModule } from './boards-routing.module';
 import { PasswordsEqualDirective } from './validators/passwords-equal.directive';
 import { EmailExistsDirective } from './validators/user-exists.directive';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { ModalColumnComponent } from './components/modal-column/modal-column.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { EditProfileComponent } from './pages/edit-profile/edit-profile.componen
     TaskItemComponent,
     PasswordsEqualDirective,
     EmailExistsDirective,
-    EditProfileComponent
+    EditProfileComponent,
+    ModalColumnComponent
   ],
   exports: [
     WelcomePageComponent,

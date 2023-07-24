@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+// import { Route, Router } from '@angular/router';
 import { ConfirmationInterface } from '../../models/confirmation-interface';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { BoardsService } from 'src/app/core/services/boards.service';
 import { UsersService } from 'src/app/core/services/users.service';
 import { Board } from '../../models/board';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { ColumnsService } from 'src/app/core/services/columns.service';
+import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
   selector: 'app-confirmation',
@@ -17,7 +20,8 @@ export class ConfirmationComponent implements OnInit {
   filteredBoardList: Board[] = []
 
   constructor(private confirmService: ConfirmService, private boardsService: BoardsService,
-    private userService: UsersService, private authService: AuthService ) {
+    private userService: UsersService, private authService: AuthService, private cdr: ChangeDetectorRef,
+    private columnService: ColumnsService, private taskService: TasksService ) {
     this.filteredBoardList = this.boardList;
   }
 
@@ -34,7 +38,6 @@ export class ConfirmationComponent implements OnInit {
   private getFilteredBoards(text: string) {
     this.boardsService.getFilteredBoards(text).subscribe((filteredBoardList) => {
       this.filteredBoardList = filteredBoardList;
-      console.log(this.filteredBoardList);
     })
   }
 
@@ -49,16 +52,16 @@ export class ConfirmationComponent implements OnInit {
     this.boardsService.deleteBoard().subscribe(() => {
       this.getFilteredBoards('');
     });
-    this.closeConfirmation()
+    this.closeConfirmation();
   }
 
   onDeleteColumn() {
-    this.boardsService.deleteColumn().subscribe(() => { });
+    this.columnService.deleteColumn().subscribe(() => { });
     this.closeConfirmation()
   }
 
   onDeleteTask() {
-    this.boardsService.deleteTask().subscribe(() => { });
+    this.taskService.deleteTask().subscribe(() => { });
     this.closeConfirmation()
   }
  }

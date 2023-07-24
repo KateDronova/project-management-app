@@ -1,14 +1,18 @@
-<div class="wrapperGlobal">
+<div class="wrapperGlobal" style="background-image: url('../../../assets/images/{{background}}.jpg')">
   <header>
-    <h2>Name of Board!</h2>
-    <button type="button" (click)="goBack()">{{ "return" | translate }}</button>
+    <div class="wrapper">
+      <p>{{ 'board' | translate }} №{{ id }}</p>
+      <h2>{{ boardTitle }}</h2>
+      <button class="return" type="button" (click)="goBack()">{{ "return" | translate }}</button>
+    </div>
+    <div><p>{{ boardDescription }}</p></div>
   </header>
   <nav class="wrapper">
     <button (click)="openModalWindow()" (click)="appearSmoothly()">
-      {{ "craeteNewColumn" | translate }} <br>+</button>
-    <app-modal-window (addBoard)="onAddColumn($event)"
+      {{ "createNewColumn" | translate }} <br>+</button>
+    <app-modal-column (addBoard)="onAddColumn($event)" [boardId]="boardId"
       [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
-    </app-modal-window>
+    </app-modal-column>
     <app-columns-list [columnList]="columnList"></app-columns-list>
   </nav>
 </div>
