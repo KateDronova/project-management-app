@@ -7,7 +7,7 @@
       <fieldset>
         <label for="title">{{ "title" | translate }}</label>
         <textarea rows="3" id="title" type="text" [(ngModel)]="columnName"
-        name="boardName" required #title="ngModel"></textarea>
+          name="columnName" required #title="ngModel"></textarea>
         <div translate class="text-danger">
           <div *ngIf="title.invalid && (title.dirty || title.touched)">
             <span *ngIf="title?.errors?.['required']">
@@ -15,6 +15,9 @@
             </span>
           </div>
         </div>
+
+        <input type="hidden" id="boardId" [value]="boardId" name="boardId"
+          [(ngModel)]="columnForm.boardId" #boardId="ngModel">
       </fieldset>
       <div class="submButtons">
         <button type="button" class="cancel"(click)="removeModalWindow()">{{ "cancel" | translate }}</button>

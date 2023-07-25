@@ -1,53 +1,54 @@
 import { Component } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
 
-import { backgrounds } from '../../models/backgrounds';
-import { Board } from '../../models/board';
-import { BoardClass } from '../../models/board-class';
+import { Task } from '../../models/task';
+import { backgrounds2 } from '../../models/backgrounds2';
 
 @Component({
-  selector: 'app-modal-window',
-  templateUrl: './modal-window.component.html',
-  styleUrls: ['./modal-window.component.scss']
+  selector: 'app-modal-task',
+  templateUrl: './modal-task.component.html',
+  styleUrls: ['./modal-task.component.scss']
 })
-export class ModalWindowComponent {
+export class ModalTaskComponent {
   @Input() modalVisibility: boolean = true || false;
   @Input() loaded: boolean = true || false;
+  @Input() columnId: number = 0;
 
   @Output() modalVisibilityChange = new EventEmitter<boolean>;
   @Output() loadedChange = new EventEmitter<boolean>;
-  @Output() addBoard = new EventEmitter<Board>;
+  @Output() addTask = new EventEmitter<Task>;
 
-  boardForm = new BoardClass();
 
   idCounter = 0
-  boardName: string = ''
-  backgroundName: string = ''
+  taskName: string = ''
   descriptionName: string = ''
+  backgroundName: string = ''
+  taskComplete: boolean = false
 
-  backgrounds = [...backgrounds]
-
+  backgrounds = [...backgrounds2]
   selectedBack?: string
 
   constructor() {}
 
-  onSubmit() {
-    this.addBoard.emit({
-      id: this.idCounter,
-      boardTitle: this.boardName,
-      background: this.backgroundName,
-      boardDescription: this?.descriptionName
-    });
-    this.idCounter++;
-    this.boardName = '';
-    this.backgroundName = '';
-    this.descriptionName = '';
-    this.selectedBack = '';
-    this.removeModalWindow()
-  }
-
   onChooseBack(back: string): void {
     this.selectedBack = back;
+  }
+
+  onSubmit() {
+    this.addTask.emit({
+      id: this.idCounter,
+      taskTitle: this.taskName,
+      taskDescription: this.descriptionName,
+      background: this.backgroundName,
+      complete: this.taskComplete,
+      columnId: this.columnId,
+    });
+    this.idCounter++;
+    this.taskName = '';
+    this.descriptionName = '';
+    this.backgroundName = '';
+    this.selectedBack = '';
+    this.removeModalWindow()
   }
 
   removeModalWindow() {

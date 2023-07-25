@@ -8,9 +8,9 @@
     <div><p>{{ boardDescription }}</p></div>
   </header>
   <nav class="wrapper">
-    <button (click)="openModalWindow()" (click)="appearSmoothly()">
+    <button class="creation" (click)="openModalWindow()" (click)="appearSmoothly()">
       {{ "createNewColumn" | translate }} <br>+</button>
-    <app-modal-column (addBoard)="onAddColumn($event)" [boardId]="boardId"
+    <app-modal-column (addColumn)="onAddColumn($event)" [boardId]="id"
       [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
     </app-modal-column>
     <app-columns-list [columnList]="columnList"></app-columns-list>

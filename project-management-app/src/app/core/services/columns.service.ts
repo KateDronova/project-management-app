@@ -16,9 +16,16 @@ export class ColumnsService {
   getColumns(): Observable<Column[]> {
     return this.httpClient.get<Column[]>(this.url)
   }
+  getFilteredColumns(boardId: number): Observable<Column[]> {
+    return this.httpClient.get<Column[]>(`${this.url}?boardId=${boardId}`)
+  }
 
   addColumn(item: Column): Observable<Column> {
     return this.httpClient.post<Column>(this.url, item)
+  }
+
+  updateColumn(item: Column, id: number): Observable<Column> {
+    return this.httpClient.put<Column>(`${this.url}/${id}`, item)
   }
 
   deleteColumn(): Observable<Column> {

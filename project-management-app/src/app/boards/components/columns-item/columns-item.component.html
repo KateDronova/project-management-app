@@ -1,1 +1,29 @@
-<p>columns-item works!</p>
+<div class="column">
+  <div class="editButtons" *ngIf="editing">
+    <button type="submit" (click)="onSave(column?.id)">{{ "save" | translate }}</button>
+    <button class="cancel" type="button" (click)="endEditing()">{{ "cancel" | translate }}</button>
+  </div>
+
+  <form class="box" #columnForm="ngForm" novalidate>
+    <h3 *ngIf="!editing" (click)="startEditing()">{{ column.columnTitle }}</h3>
+
+    <input *ngIf="editing" id="columnTitle" name="columnTitle" type="text"
+    [value]="column.columnTitle" (ngModelChange)="trackChanges('columnTitle', $event)"
+    [ngModelOptions]="{ updateOn: 'blur' }" required
+    #columnTitle="ngModel" [(ngModel)]="column.columnTitle">
+
+    <input type="hidden" id="id" name="id" [value]="column.id"
+    #id="ngModel" [(ngModel)]="column.id">
+    <input type="hidden" id="boardId" name="boardId" [value]="column.boardId"
+    #boardId="ngModel" [(ngModel)]="column.boardId">
+  </form>
+
+  <button (click)="openModalWindow()" (click)="appearSmoothly()">
+    {{ "createNewTask" | translate }} <br>+</button>
+  <app-modal-task (addColumn)="onAddTask($event)" [columnId]="id"
+    [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
+  </app-modal-task>
+  <app-task-list [taskList]="taskList"></app-task-list>
+  <button class="deleting" type="button" (click)="showConfirmation(confirmTypes.deleteColumn, column?.id)">
+    {{ "deleteColumn" | translate }}</button>
+</div>

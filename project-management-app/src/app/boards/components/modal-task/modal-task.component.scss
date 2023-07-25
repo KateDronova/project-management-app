@@ -1,0 +1,47 @@
+form {
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 7px;
+}
+
+.wrapper label {
+  width: 90px;
+  margin-left: auto;
+  position: relative;
+  & span {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    font-size: 2.3rem;
+    color: #222;
+    z-index: 2;
+  }
+  & img {
+    width: 80px;
+    height: 45px;
+    margin: 3px;
+    border: 1px solid #000;
+    z-index: 3;
+    &:hover {
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 1px 1px 3px #000;
+    }
+    &.selected, :active {
+      transition: all 0.3s;
+      box-shadow: 0px 0px 2px #000;
+      opacity: 0.7;
+      z-index: 1;
+    }
+  }
+
+}
+
+textarea {
+  width: 15rem;
+}

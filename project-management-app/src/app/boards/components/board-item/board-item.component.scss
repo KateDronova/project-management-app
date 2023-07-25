@@ -16,7 +16,6 @@
   overflow: hidden;
   border-width: 3px;
   border-style: outset;
-  border-color: buttonborder;
   border-radius: 8px;
   box-shadow: inset 0px 0px 70px 70px var(--dark-sea-color-transparent);
   z-index: 1;
@@ -44,4 +43,7 @@ button {
   padding: 0.2rem 0.4rem;
   font-size: 0.8rem;
   background-color: var(--light-sea-color);
+  &:hover {
+    background-color: var(--cranberry-color);
+  }
 }

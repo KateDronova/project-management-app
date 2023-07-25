@@ -17,8 +17,16 @@ export class TasksService {
     return this.httpClient.get<Task[]>(this.url)
   }
 
+  getFilteredTasks(columnId: number): Observable<Task[]> {
+    return this.httpClient.get<Task[]>(`${this.url}?columnId=${columnId}`)
+  }
+
   addTask(item: Task): Observable<Task> {
     return this.httpClient.post<Task>(this.url, item)
+  }
+
+  updateTask(item: Task, id: number): Observable<Task> {
+    return this.httpClient.put<Task>(`${this.url}/${id}`, item)
   }
 
   deleteTask(): Observable<Task> {

@@ -19,14 +19,13 @@ export class BoardRouteComponent implements OnInit {
 
   loaded: boolean = false
   modalVisibility: boolean = false
-  columnList: string[] = []
+  columnList: Column[] = []
   confirmTypes = ConfirmationType
   confirmation?: ConfirmationInterface
   id: number = 0
   boardTitle: string = ''
   background: string = ''
   boardDescription: string = ''
-  boardId: number = this.id
 
   constructor(private location: Location, private confirmService: ConfirmService,
     private columnService: ColumnsService, private route: ActivatedRoute,
@@ -37,6 +36,7 @@ export class BoardRouteComponent implements OnInit {
       this.id = +params['id'];
     });
     this.getCurrentBoardInfo(this.id);
+    this.getColumnsForSingeBoard(this.id);
   }
 
   private getCurrentBoardInfo(id: number) {
@@ -61,7 +61,19 @@ export class BoardRouteComponent implements OnInit {
   }
 
   onAddColumn(item: Column) {
-    this.columnService.addColumn(item).subscribe(() => {});
-    console.log(this.columnList)
+    this.columnService.addColumn(item).subscribe(() => {
+      this.getColumnsForSingeBoard(this.id);
+    });
+  }
+
+  private getAllColumns() {
+    this.columnService.getColumns().subscribe((columnList) => {
+      this.columnList = columnList;
+    })
+  }
+  private getColumnsForSingeBoard(boardId: number) {
+    this.columnService.getFilteredColumns(boardId).subscribe((columnList) => {
+      this.columnList = columnList;
+    })
   }
 }

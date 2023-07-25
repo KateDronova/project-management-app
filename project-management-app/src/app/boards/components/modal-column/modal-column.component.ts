@@ -29,7 +29,6 @@ export class ModalColumnComponent {
     });
     this.idCounter++;
     this.columnName = '';
-    this.boardId = 0;
     this.removeModalWindow()
   }
 

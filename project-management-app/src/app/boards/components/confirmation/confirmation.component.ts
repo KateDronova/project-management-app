@@ -56,7 +56,9 @@ export class ConfirmationComponent implements OnInit {
   }
 
   onDeleteColumn() {
-    this.columnService.deleteColumn().subscribe(() => { });
+    this.columnService.deleteColumn().subscribe(() => {
+      this.columnService.getColumns();
+    });
     this.closeConfirmation()
   }
 

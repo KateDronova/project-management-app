@@ -81,6 +81,7 @@
   "editProfile":"Edit the Profile",
   "profileEditing":"Profile editing",
   "saveChanges":"Save changes",
+  "save":"Save",
   "changesAreSaved":"Changes are saved!",
   "deleteUser":"Delete the User",
   "private":"Private (seen by invited only)",

@@ -36,45 +36,39 @@
   "boards": [
     {
       "id": 1,
-      "boardTitle": "Super",
+      "boardTitle": "Super powers",
       "background": "winter",
       "boardDescription": "Save the planet"
     },
     {
       "id": 2,
-      "boardTitle": "Game",
+      "boardTitle": "Game over",
       "background": "winter",
       "boardDescription": "Play chess"
     },
     {
       "id": 3,
-      "boardTitle": "Store",
+      "boardTitle": "Store 038",
       "background": "sky",
       "boardDescription": "Buy the sofa"
     },
     {
       "id": 4,
-      "boardTitle": "qqwqwqw",
+      "boardTitle": "Street dance",
       "background": "sea",
-      "boardDescription": "qwqwq"
+      "boardDescription": "to practise"
     },
     {
       "id": 5,
-      "boardTitle": "sqs",
+      "boardTitle": "Sos",
       "background": "beach",
-      "boardDescription": "qsqsq"
+      "boardDescription": "Help the buddy"
     },
     {
       "id": 7,
-      "boardTitle": "sSGDFHDFH G GS",
+      "boardTitle": "So good weather",
       "background": "leaves",
-      "boardDescription": "sSsSF"
-    },
-    {
-      "id": 8,
-      "boardTitle": "Fiffo",
-      "background": "",
-      "boardDescription": "Do the job!"
+      "boardDescription": "check the temp"
     },
     {
       "id": 9,
@@ -92,26 +86,80 @@
   "columns": [
     {
       "id": 1,
-      "columnTitle": "To do",
-      "boardId": 1
-    },
-    {
-      "id": 2,
       "columnTitle": "In progress",
       "boardId": 1
     },
     {
-      "id": 3,
-      "columnTitle": "Check List",
+      "id": 2,
+      "columnTitle": "Check List for products",
       "boardId": 3
+    },
+    {
+      "id": 3,
+      "columnTitle": "T-Rex",
+      "boardId": 7
+    },
+    {
+      "id": 4,
+      "columnTitle": "Super Ded",
+      "boardId": 7
+    },
+    {
+      "id": 5,
+      "columnTitle": "Yellow boots",
+      "boardId": 1
+    },
+    {
+      "id": 7,
+      "columnTitle": "Jazz practice!",
+      "boardId": 4
+    },
+    {
+      "id": 8,
+      "columnTitle": "Green coffee",
+      "boardId": 7
     }
   ],
   "tasks": [
     {
       "id": 1,
-      "taskTitle": "Get info",
-      "taskDescription": "Ask mentors",
+      "taskTitle": "Bomb1",
+      "taskDescription": "defuse the bomb",
+      "background": "green",
+      "complete": false,
       "columnId": 1
+    },
+    {
+      "id": 2,
+      "taskTitle": "Bomb2",
+      "taskDescription": "defuse the bomb",
+      "background": "grey",
+      "complete": false,
+      "columnId": 1
+    },
+    {
+      "id": 3,
+      "taskTitle": "Bomb3",
+      "taskDescription": "defuse the bomb",
+      "background": "berry",
+      "complete": false,
+      "columnId": 1
+    },
+    {
+      "id": 4,
+      "taskTitle": "Bomb4",
+      "taskDescription": "defuse the bomb",
+      "background": "sky-blue",
+      "complete": false,
+      "columnId": 2
+    },
+    {
+      "id": 5,
+      "taskTitle": "Bomb5",
+      "taskDescription": "defuse the bomb",
+      "background": "dark-blue",
+      "complete": false,
+      "columnId": 3
     }
   ],
   "comments": [

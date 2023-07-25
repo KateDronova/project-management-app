@@ -56,7 +56,7 @@ export class EditProfileComponent implements OnInit{
     }
   }
 
-  submitChanges(form: UserInterface, id: number): void {
+  submitChanges(id: number): void {
     const finalFormValues = Object.assign({}, this.currentUser, this.userChangedFormValues);
     this.userService.changeUserInfo(finalFormValues, id).subscribe();
     this.successfulEditing = true;
@@ -66,7 +66,6 @@ export class EditProfileComponent implements OnInit{
       this.router.navigate(['pma/main'])
     }, 3000)
     this.cdr.markForCheck();
-    console.log(this.successfulEditing);
   }
 
   private getCurrentUserInfo(currentUserEmail: string): void {

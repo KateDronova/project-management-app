@@ -77,13 +77,12 @@
 
     <div class="wrapper submitting">
       <input type="submit" [value]="'saveChanges' | translate"
-      (click)="submitChanges(editForm, currentUser.id)"
+      (click)="submitChanges(currentUser.id)"
       [disabled]="!editForm.valid" >
     </div>
 
     <div class="wrapper submitting">
       <button type="button" class="deleting" (click)="showConfirmation(confirmTypes.deleteUser, currentUser?.id)">{{ "deleteUser" | translate }}</button>
-      <!-- <input class="deleting" type="button" [value]="'deleteUser' | translate" (click)="showConfirmation(confirmTypes.deleteUser, currentUser?.id)"> -->
     </div>
   </fieldset>
   <button type="button" (click)="goBack()">{{ "return" | translate }}</button>

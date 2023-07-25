@@ -1,3 +1,1 @@
-<button (click)="openModalWindow()" (click)="appearSmoothly()">
-  {{ "createNewTask" | translate }} <br>+</button>
-<app-columns-item *ngFor="let column of columnList"></app-columns-item>
+<app-columns-item [column]="column" *ngFor="let column of columnList"></app-columns-item>

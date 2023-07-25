@@ -24,6 +24,7 @@ import { PasswordsEqualDirective } from './validators/passwords-equal.directive'
 import { EmailExistsDirective } from './validators/user-exists.directive';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ModalColumnComponent } from './components/modal-column/modal-column.component';
+import { ModalTaskComponent } from './components/modal-task/modal-task.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ModalColumnComponent } from './components/modal-column/modal-column.com
     PasswordsEqualDirective,
     EmailExistsDirective,
     EditProfileComponent,
-    ModalColumnComponent
+    ModalColumnComponent,
+    ModalTaskComponent
   ],
   exports: [
     WelcomePageComponent,
