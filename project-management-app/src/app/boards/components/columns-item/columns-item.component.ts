@@ -57,10 +57,9 @@ export class ColumnsItemComponent implements OnInit {
     this.loaded = true
   }
 
-  onAddTask(item: Task) {
-    this.taskService.addTask(item).subscribe(() => {
+  onAddTask(task: Task) {
+    this.taskService.addTask(task).subscribe(() => {
       this.getTasksForSingeColumn(this.column.id);
-      console.log(this.column.id);
     });
   }
 

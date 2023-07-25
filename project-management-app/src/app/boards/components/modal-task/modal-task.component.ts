@@ -3,6 +3,7 @@ import { Input, Output, EventEmitter } from '@angular/core';
 
 import { Task } from '../../models/task';
 import { backgrounds2 } from '../../models/backgrounds2';
+import { TaskForm } from '../../models/task-form';
 
 @Component({
   selector: 'app-modal-task',
@@ -12,7 +13,7 @@ import { backgrounds2 } from '../../models/backgrounds2';
 export class ModalTaskComponent {
   @Input() modalVisibility: boolean = true || false;
   @Input() loaded: boolean = true || false;
-  @Input() columnId: number = 0;
+  @Input() id: number = 0;
 
   @Output() modalVisibilityChange = new EventEmitter<boolean>;
   @Output() loadedChange = new EventEmitter<boolean>;
@@ -30,10 +31,6 @@ export class ModalTaskComponent {
 
   constructor() {}
 
-  onChooseBack(back: string): void {
-    this.selectedBack = back;
-  }
-
   onSubmit() {
     this.addTask.emit({
       id: this.idCounter,
@@ -41,7 +38,7 @@ export class ModalTaskComponent {
       taskDescription: this.descriptionName,
       background: this.backgroundName,
       complete: this.taskComplete,
-      columnId: this.columnId,
+      columnId: this.id,
     });
     this.idCounter++;
     this.taskName = '';
@@ -49,6 +46,10 @@ export class ModalTaskComponent {
     this.backgroundName = '';
     this.selectedBack = '';
     this.removeModalWindow()
+  }
+
+  onChooseBack(back: string): void {
+    this.selectedBack = back;
   }
 
   removeModalWindow() {

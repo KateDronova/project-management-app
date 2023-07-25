@@ -133,7 +133,7 @@
       "id": 2,
       "taskTitle": "Bomb2",
       "taskDescription": "defuse the bomb",
-      "background": "grey",
+      "background": "sand",
       "complete": false,
       "columnId": 1
     },
@@ -157,17 +157,17 @@
       "id": 5,
       "taskTitle": "Bomb5",
       "taskDescription": "defuse the bomb",
-      "background": "dark-blue",
-      "complete": false,
+      "background": "pale",
+      "complete": true,
       "columnId": 3
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "authorName": "Clark",
-      "body": "That's an easy part",
-      "taskId": 1
+      "id": 6,
+      "taskTitle": "devd",
+      "taskDescription": "ert",
+      "background": "pale",
+      "complete": false,
+      "columnId": 1
     }
   ]
 }

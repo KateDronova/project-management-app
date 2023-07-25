@@ -1,11 +1,11 @@
 .wrapper {
   margin: 10px;
   border-radius: 8px;
+  position: relative;
 }
 
 .taskPreview {
   box-sizing: border-box;
-  width: 200px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;
@@ -31,5 +31,20 @@ button {
   background-color: var(--light-sea-color);
   &:hover {
     background-color: var(--cranberry-color);
+  }
+}
+
+.checkbox {
+  margin-bottom: 5px;
+  & input[type=checkbox] {
+    transform: scale(1.5);
+  }
+}
+
+.completed {
+  background-color: #ccc;
+    box-shadow: inset 0px 170px 70px -40px #777;
+  &:hover {
+    box-shadow: inset 0px 0px 40px #555;
   }
 }

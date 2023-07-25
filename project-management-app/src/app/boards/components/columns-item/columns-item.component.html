@@ -20,7 +20,8 @@
 
   <button (click)="openModalWindow()" (click)="appearSmoothly()">
     {{ "createNewTask" | translate }} <br>+</button>
-  <app-modal-task (addColumn)="onAddTask($event)" [columnId]="id"
+    <!-- <app-modal-task (addTask)="onAddTask($event)" [column.id]="id" -->
+  <app-modal-task (addTask)="onAddTask($event)" [id]="column.id"
     [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
   </app-modal-task>
   <app-task-list [taskList]="taskList"></app-task-list>

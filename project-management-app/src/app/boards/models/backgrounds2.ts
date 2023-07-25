@@ -13,10 +13,10 @@ export const backgrounds2 = [
     value: "dark-blue"
   },
   {
-    id: "grey",
-    src: "../../assets/images/grey.jpg",
-    alt: "grey",
-    value: "grey"
+    id: "sand",
+    src: "../../assets/images/sand.jpg",
+    alt: "sand",
+    value: "sand"
   },
   {
     id: "green",

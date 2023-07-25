@@ -1,6 +1,6 @@
 :root {
   --sea-color: #14dcc4;
-  --berry-color: #a83636;
+  --beach-color: #f4bd70;
   --cranberry-color: #a30505;
   --dark-sea-color: #09657b;
   --dark-sea-color-transparent: #09647b83;
@@ -81,7 +81,6 @@ button, input[type="submit"], input[type="reset"] {
   padding: 1rem;
   max-width: 310px;
   justify-content: space-between;
-  overflow-y: hidden;
 }
 
 @mixin inputting () {

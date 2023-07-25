@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, Output, ChangeDetectorRef, EventEmitter } from '@angular/core';
 import { Task } from '../../models/task';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
@@ -22,6 +22,7 @@ export class TaskItemComponent {
     background: '',
     complete: false
   }
+  @Output() toggleComplete = new EventEmitter();
 
   columnForm = new TaskForm()
   loaded: boolean = false
@@ -32,9 +33,14 @@ export class TaskItemComponent {
   editing: boolean = false
   userChangedTaskValues: FormValues = {}
 
-  constructor(private confirmService: ConfirmService) {}
+  constructor(private confirmService: ConfirmService, private taskService: TasksService) {}
 
   showConfirmation(type: ConfirmationType, id: number) {
     this.confirmService.setConfirm({type}, id);
+  }
+
+  onToggleComplete(task: Task) {
+    task.complete = !task.complete;
+    this.taskService.updateTask(task, task.id).subscribe();
   }
 }

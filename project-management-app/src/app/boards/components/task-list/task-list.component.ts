@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Task } from '../../models/task';
+import { TasksService } from 'src/app/core/services/tasks.service';
 
 @Component({
   selector: 'app-task-list',
@@ -8,4 +9,5 @@ import { Task } from '../../models/task';
 })
 export class TaskListComponent {
   @Input() taskList: Task[] = [];
+
 }
