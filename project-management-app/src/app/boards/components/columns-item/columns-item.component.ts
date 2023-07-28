@@ -20,7 +20,7 @@ export class ColumnsItemComponent implements OnInit {
     columnTitle: '',
     boardId: 0
   }
-
+  columnName: string = ''
   columnForm = new ColumnForm()
   loaded: boolean = false
   modalVisibility: boolean = false
@@ -35,7 +35,7 @@ export class ColumnsItemComponent implements OnInit {
     private cdr: ChangeDetectorRef, private taskService: TasksService) {}
 
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getTasksForSingeColumn(this.column.id);
   }
 
@@ -45,44 +45,55 @@ export class ColumnsItemComponent implements OnInit {
     }
   }
 
-  showConfirmation(type: ConfirmationType, id: number) {
+  showConfirmation(type: ConfirmationType, id: number): void {
     this.confirmService.setConfirm({type}, id);
   }
 
-  openModalWindow() {
+  openModalWindow(): void {
     this.modalVisibility = true;
   }
 
-  appearSmoothly () {
+  appearSmoothly(): void {
     this.loaded = true
   }
 
-  onAddTask(task: Task) {
+  onAddTask(task: Task): void {
     this.taskService.addTask(task).subscribe(() => {
       this.getTasksForSingeColumn(this.column.id);
     });
+    console.log(task);
   }
 
-  private getTasksForSingeColumn(columnId: number) {
+  private getTasksForSingeColumn(columnId: number): void {
     this.taskService.getFilteredTasks(columnId).subscribe((taskList) => {
       this.taskList = taskList;
     })
   }
 
-  onSave(id: number) {
+  private onGetColumnTitle(columnId: number): void {
+    this.columnService.getColumnTitle(columnId).subscribe((columnName) => {
+      this.columnName = columnName;
+    });
+  }
+
+  onSave(id: number): void {
     const finalFormValues = Object.assign({}, this.column, this.userChangedColumnValues);
     this.columnService.updateColumn(finalFormValues, id).subscribe();
     this.cdr.markForCheck();
-    console.log('finalFormValues: ', finalFormValues);
     this.endEditing();
+    this.column.columnTitle = this.columnName;
     this.cdr.markForCheck();
   }
 
   startEditing() {
     this.editing = true;
+    this.onGetColumnTitle(this.column.id);
+    this.cdr.markForCheck();
   }
 
   endEditing() {
     this.editing = false;
+    this.onGetColumnTitle(this.column.id);
+    this.cdr.markForCheck();
   }
 }

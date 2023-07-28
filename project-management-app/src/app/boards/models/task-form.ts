@@ -1,10 +1,10 @@
 export class TaskForm {
-  id: number;
-  taskTitle: string;
-  columnId: number;
-  taskDescription: string;
-  background: string;
+  id: number
+  taskTitle: string
+  taskDescription: string
+  background: string
   complete: boolean
+  columnId: number
 
   constructor() {
     this.id = 0;

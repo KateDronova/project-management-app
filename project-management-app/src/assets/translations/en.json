@@ -41,10 +41,6 @@
   "functionality":"Functionality",
   "youWillBe":"You will be able to work online together with your mates via ",
   "colorfulBoards":"colorful boards",
-  "or":"or",
-  "orderedLists":"ordered lists",
-  "comments":"Comments",
-  "toEachProject":"to each project item are included",
   "aboutTheAuthor":"About the author",
   "thisAppWas":"This app was made with Angular & SCSS.",
   "ekaterinaDronova":"Ekaterina Dronova, a front-end developer from Istanbul created it during really cool heavy online course UpskillMe Front_End from EPAM company collaborated with RS school.",
@@ -78,6 +74,7 @@
   "deleteTask":"Delete the Task",
   "board":"Board",
   "done":"Done",
+  "editTask":"Editing Task",
 
   "editProfile":"Edit the Profile",
   "profileEditing":"Profile editing",

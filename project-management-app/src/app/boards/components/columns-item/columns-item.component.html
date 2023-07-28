@@ -1,6 +1,6 @@
 <div class="column">
   <div class="editButtons" *ngIf="editing">
-    <button type="submit" (click)="onSave(column?.id)">{{ "save" | translate }}</button>
+    <button type="submit" (click)="onSave(column?.id)" [disabled]="columnForm.invalid">{{ "save" | translate }}</button>
     <button class="cancel" type="button" (click)="endEditing()">{{ "cancel" | translate }}</button>
   </div>
 
@@ -8,20 +8,19 @@
     <h3 *ngIf="!editing" (click)="startEditing()">{{ column.columnTitle }}</h3>
 
     <input *ngIf="editing" id="columnTitle" name="columnTitle" type="text"
-    [value]="column.columnTitle" (ngModelChange)="trackChanges('columnTitle', $event)"
-    [ngModelOptions]="{ updateOn: 'blur' }" required
-    #columnTitle="ngModel" [(ngModel)]="column.columnTitle">
+      [value]="columnName" (ngModelChange)="trackChanges('columnTitle', $event)"
+      #columnTitle="ngModel" [(ngModel)]="columnName" required>
 
     <input type="hidden" id="id" name="id" [value]="column.id"
     #id="ngModel" [(ngModel)]="column.id">
+
     <input type="hidden" id="boardId" name="boardId" [value]="column.boardId"
     #boardId="ngModel" [(ngModel)]="column.boardId">
   </form>
 
   <button (click)="openModalWindow()" (click)="appearSmoothly()">
     {{ "createNewTask" | translate }} <br>+</button>
-    <!-- <app-modal-task (addTask)="onAddTask($event)" [column.id]="id" -->
-  <app-modal-task (addTask)="onAddTask($event)" [id]="column.id"
+  <app-modal-task (addTask)="onAddTask($event)" [(id)]="column.id"
     [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
   </app-modal-task>
   <app-task-list [taskList]="taskList"></app-task-list>

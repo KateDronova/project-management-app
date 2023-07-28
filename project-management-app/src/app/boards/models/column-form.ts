@@ -1,6 +1,6 @@
 export class ColumnForm {
-  id: number;
-  columnTitle: string;
+  id: number
+  columnTitle: string
   boardId: number
 
   constructor() {

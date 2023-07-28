@@ -8,8 +8,8 @@
       <label for="name">{{ "name.label" | translate }}</label>
       <input id="name" type="text"
       name="name" #name="ngModel"
-      [(ngModel)]="editForm.name" [ngModelOptions]="{ updateOn: 'blur' }"
       pattern="[а-яА-Яa-zA-Z -]{2,20}" required [value]="currentUser.name"
+      [(ngModel)]="currentUser.name" [ngModelOptions]="{ updateOn: 'blur' }"
       (ngModelChange)="trackChanges('name', $event)">
     </div>
     <div translate class="text-danger">
@@ -27,9 +27,9 @@
     <div class="wrapper">
       <label for="surname">{{ "surname.label" | translate }}</label>
       <input id="surname" type="text"
-      name="surname" #surname="ngModel"
-      [(ngModel)]="editForm.surname" [ngModelOptions]="{ updateOn: 'blur' }"
-      pattern="[а-яА-Яa-zA-Z -]{2,20}" required [value]="currentUser.surname"
+      name="surname" #surname="ngModel" [value]="currentUser.surname"
+      [(ngModel)]="currentUser.surname" [ngModelOptions]="{ updateOn: 'blur' }"
+      pattern="[а-яА-Яa-zA-Z -]{2,20}" required
       (ngModelChange)="trackChanges('surname', $event)">
     </div>
     <div translate class="text-danger">
@@ -49,8 +49,8 @@
       <div class="secure">
         <input id="password" [type]="show ? 'text' : 'password'"
         name="password" #password="ngModel"
-        [(ngModel)]="editForm.password"
         minlength="6" required [value]="currentUser.password"
+        [(ngModel)]="currentUser.password"
         (ngModelChange)="trackChanges('password', $event)">
         <button class="seeThePassword" (click)="togglePassword()"
         [ngClass]="show ? 'closed' : 'opened'"></button>
@@ -58,7 +58,6 @@
     </div>
     <div translate class="text-danger">
       <div *ngIf="name.invalid || name.touched">
-      <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)"> -->
         <span translate *ngIf="password.errors?.['required']">
           requiredErrorMessage
         </span>

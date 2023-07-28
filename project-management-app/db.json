@@ -9,7 +9,7 @@
       "id": 1
     },
     {
-      "name": "Rosita",
+      "name": "Rosa",
       "surname": "Bingley",
       "email": "roza@mail.com",
       "password": "dededed",
@@ -106,7 +106,7 @@
     },
     {
       "id": 5,
-      "columnTitle": "Yellow boots",
+      "columnTitle": "Yellow boots!!!!",
       "boardId": 1
     },
     {
@@ -150,7 +150,7 @@
       "taskTitle": "Bomb4",
       "taskDescription": "defuse the bomb",
       "background": "sky-blue",
-      "complete": false,
+      "complete": true,
       "columnId": 2
     },
     {
@@ -158,7 +158,7 @@
       "taskTitle": "Bomb5",
       "taskDescription": "defuse the bomb",
       "background": "pale",
-      "complete": true,
+      "complete": false,
       "columnId": 3
     },
     {
@@ -168,6 +168,30 @@
       "background": "pale",
       "complete": false,
       "columnId": 1
+    },
+    {
+      "id": 9,
+      "taskTitle": "azaz",
+      "taskDescription": "",
+      "background": "dark-blue",
+      "complete": false,
+      "columnId": 5
+    },
+    {
+      "id": 10,
+      "taskTitle": "sdsds",
+      "taskDescription": "",
+      "background": "sky-blue",
+      "complete": false,
+      "columnId": 2
+    },
+    {
+      "id": 11,
+      "taskTitle": "sxsxs",
+      "taskDescription": "",
+      "background": "sky-blue",
+      "complete": false,
+      "columnId": 4
     }
   ]
 }

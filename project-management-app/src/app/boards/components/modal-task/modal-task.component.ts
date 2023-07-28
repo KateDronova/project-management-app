@@ -19,15 +19,19 @@ export class ModalTaskComponent {
   @Output() loadedChange = new EventEmitter<boolean>;
   @Output() addTask = new EventEmitter<Task>;
 
+  taskForm = new TaskForm()
+  randomBackground: string = ['sky-blue', 'dark-blue', 'sand', 'green', 'pale', 'berry'][
+    Math.floor(Math.random() * 6)
+  ]
 
   idCounter = 0
   taskName: string = ''
   descriptionName: string = ''
-  backgroundName: string = ''
+  backgroundName: string = this.randomBackground
   taskComplete: boolean = false
 
-  backgrounds = [...backgrounds2]
-  selectedBack?: string
+  backgrounds2 = [...backgrounds2]
+  selectedBack: string = ''
 
   constructor() {}
 
@@ -43,9 +47,9 @@ export class ModalTaskComponent {
     this.idCounter++;
     this.taskName = '';
     this.descriptionName = '';
-    this.backgroundName = '';
+    this.backgroundName = this.randomBackground;
     this.selectedBack = '';
-    this.removeModalWindow()
+    this.removeModalWindow();
   }
 
   onChooseBack(back: string): void {

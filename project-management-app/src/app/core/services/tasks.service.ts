@@ -13,12 +13,12 @@ export class TasksService {
 
   constructor( private httpClient: HttpClient, private confirm: ConfirmService ) { }
 
-  getTasks(): Observable<Task[]> {
-    return this.httpClient.get<Task[]>(this.url)
-  }
-
   getFilteredTasks(columnId: number): Observable<Task[]> {
     return this.httpClient.get<Task[]>(`${this.url}?columnId=${columnId}`)
+  }
+
+  getCurrentTask(taskId: number): Observable<Task> {
+    return this.httpClient.get<Task>(`${this.url}/${taskId}`);
   }
 
   addTask(item: Task): Observable<Task> {

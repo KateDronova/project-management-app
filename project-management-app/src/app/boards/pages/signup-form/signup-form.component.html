@@ -12,7 +12,7 @@
       #name="ngModel"
       pattern="[а-яА-Яa-zA-Z -]{2,20}" required>
     </div>
-    <div translate class="text-danger">
+    <div class="text-danger">
       <div *ngIf="name.invalid && (name.dirty || name.touched)">
         <span translate *ngIf="name.errors?.['required']">
           requiredErrorMessage
@@ -33,7 +33,7 @@
       #surname="ngModel"
       pattern="[а-яА-Яa-zA-Z -]{2,20}" required>
     </div>
-    <div translate class="text-danger">
+    <div class="text-danger">
       <div *ngIf="surname.invalid && (surname.dirty || surname.touched)">
         <span translate *ngIf="surname.errors?.['required']">
           requiredErrorMessage
@@ -53,7 +53,7 @@
       [(ngModel)]="signupForm.email" [ngModelOptions]="{ updateOn: 'blur' }"
       #email="ngModel" appEmailExists required>
     </div>
-    <div translate class="text-danger">
+    <div class="text-danger">
       <div *ngIf="email.invalid && (email.dirty || email.touched)">
         <span translate *ngIf="email.errors?.['required']">
           requiredErrorMessage
@@ -80,7 +80,7 @@
         <button class="seeThePassword" (click)="togglePassword()" [ngClass]="show ? 'closed' : 'opened'"></button>
       </div>
     </div>
-    <div translate class="text-danger">
+    <div class="text-danger">
       <div *ngIf="password.invalid && (password.dirty || password.touched)">
         <span translate *ngIf="password.errors?.['required']">
           requiredErrorMessage
@@ -104,7 +104,7 @@
         <button class="seeThePassword" (click)="togglePassword2()" [ngClass]="show2 ? 'closed' : 'opened'"></button>
       </div>
     </div>
-    <div translate class="text-danger">
+    <div class="text-danger">
       <div *ngIf="password2.invalid && (password2.dirty || password2.touched)">
         <span translate *ngIf="password2.errors?.['required']">
           requiredErrorMessage

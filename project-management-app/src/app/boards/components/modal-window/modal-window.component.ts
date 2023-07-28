@@ -26,8 +26,7 @@ export class ModalWindowComponent {
   descriptionName: string = ''
 
   backgrounds = [...backgrounds]
-
-  selectedBack?: string
+  selectedBack: string = ''
 
   constructor() {}
 
