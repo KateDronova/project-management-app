@@ -5,15 +5,18 @@
       <h2>{{ boardTitle }}</h2>
       <button class="return" type="button" (click)="goBack()">{{ "return" | translate }}</button>
     </div>
-    <div><p>{{ boardDescription }}</p></div>
+    <div>
+      <p>{{ boardDescription }}</p>
+    </div>
   </header>
-  <nav class="wrapper">
+  <nav class="wrapper" cdkDropListGroup>
     <button class="creation" (click)="openModalWindow()" (click)="appearSmoothly()">
       {{ "createNewColumn" | translate }} <br>+</button>
-    <app-modal-column (addColumn)="onAddColumn($event)" [boardId]="id"
-      [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
+    <app-modal-column (addColumn)="onAddColumn($event)" [boardId]="id" [(modalVisibility)]="modalVisibility"
+      [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
     </app-modal-column>
-    <app-columns-list [columnList]="columnList"></app-columns-list>
+    <app-columns-list [columnList]="columnList" cdkDropList [cdkDropListData]="columnList"
+      (cdkDropListDropped)="drop($event)"></app-columns-list>
   </nav>
 </div>
 <app-confirmation></app-confirmation>

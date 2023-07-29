@@ -18,6 +18,9 @@
   & h3 {
     color: #000;
   }
+  & p {
+    margin: 0;
+  }
   &:hover {
     cursor: pointer;
     transition:all 0.3s;

@@ -113,6 +113,26 @@
       "id": 8,
       "columnTitle": "Green coffee",
       "boardId": 7
+    },
+    {
+      "id": 9,
+      "columnTitle": "Focus",
+      "boardId": 3
+    },
+    {
+      "id": 10,
+      "columnTitle": "My column 1",
+      "boardId": 7
+    },
+    {
+      "id": 11,
+      "columnTitle": "Mu column 2",
+      "boardId": 7
+    },
+    {
+      "id": 12,
+      "columnTitle": "My column 3",
+      "boardId": 7
     }
   ],
   "tasks": [
@@ -145,7 +165,7 @@
       "taskTitle": "Bomb4",
       "taskDescription": "defuse the bomb",
       "background": "sky-blue",
-      "complete": true,
+      "complete": false,
       "columnId": 2
     },
     {
@@ -173,6 +193,14 @@
       "columnId": 5,
       "title": "dede",
       "description": "dedaw"
+    },
+    {
+      "id": 13,
+      "taskTitle": "Pokus",
+      "taskDescription": "Magician time",
+      "background": "berry",
+      "complete": false,
+      "columnId": 9
     }
   ]
 }

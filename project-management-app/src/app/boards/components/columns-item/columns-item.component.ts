@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectorRef, OnInit } from '@angular/core';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { Column } from '../../models/column';
 import { ColumnForm } from '../../models/column-form';
 import { Task } from '../../models/task';
@@ -98,5 +99,9 @@ export class ColumnsItemComponent implements OnInit {
     this.editing = false;
     this.onGetColumnTitle(this.column.id);
     this.cdr.markForCheck();
+  }
+
+  drop(event: CdkDragDrop<Column[]>): void {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
   }
 }

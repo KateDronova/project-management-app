@@ -1,13 +1,13 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
 import { ConfirmationInterface } from '../../models/confirmation-interface';
 import { BoardsService } from 'src/app/core/services/boards.service';
 import { ColumnsService } from 'src/app/core/services/columns.service';
 import { Column } from 'src/app/boards/models/column';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-board-route',
@@ -70,14 +70,13 @@ export class BoardRouteComponent implements OnInit {
     });
   }
 
-  // private getAllColumns() {
-  //   this.columnService.getColumns().subscribe((columnList) => {
-  //     this.columnList = columnList;
-  //   })
-  // }
   private getColumnsForSingeBoard(boardId: number) {
     this.columnService.getFilteredColumns(boardId).subscribe((columnList) => {
       this.columnList = columnList;
     })
+  }
+
+  drop(event: CdkDragDrop<Column[]>): void {
+    moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
   }
 }

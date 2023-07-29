@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxTranslateModule } from '../translate/translate.module';
+import { CdkDropListGroup, CdkDropList, CdkDrag } from '@angular/cdk/drag-drop'
 
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { HeaderComponent } from '../boards/components/header/header.component';
@@ -69,7 +70,10 @@ import { ModalTaskComponent } from './components/modal-task/modal-task.component
     FormsModule,
     ReactiveFormsModule,
     NgxTranslateModule,
-    BoardsRoutingModule
+    BoardsRoutingModule,
+    CdkDropListGroup,
+    CdkDropList,
+    CdkDrag
   ],
   providers: [
     BoardsService

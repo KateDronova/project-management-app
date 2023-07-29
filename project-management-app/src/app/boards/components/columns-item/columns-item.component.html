@@ -1,4 +1,4 @@
-<div class="column">
+<div class="column" cdkDropListGroup>
   <div class="editButtons" *ngIf="editing">
     <button type="submit" (click)="onSave(column?.id)" [disabled]="columnForm.invalid">{{ "save" | translate }}</button>
     <button class="cancel" type="button" (click)="endEditing()">{{ "cancel" | translate }}</button>
@@ -7,23 +7,22 @@
   <form class="box" #columnForm="ngForm" novalidate>
     <h3 *ngIf="!editing" (click)="startEditing()">{{ column.columnTitle }}</h3>
 
-    <input *ngIf="editing" id="columnTitle" name="columnTitle" type="text"
-      [value]="columnName" (ngModelChange)="trackChanges('columnTitle', $event)"
-      #columnTitle="ngModel" [(ngModel)]="columnName" required>
+    <input *ngIf="editing" id="columnTitle" name="columnTitle" type="text" [value]="columnName"
+      (ngModelChange)="trackChanges('columnTitle', $event)" #columnTitle="ngModel" [(ngModel)]="columnName" required>
 
-    <input type="hidden" id="id" name="id" [value]="column.id"
-    #id="ngModel" [(ngModel)]="column.id">
+    <input type="hidden" id="id" name="id" [value]="column.id" #id="ngModel" [(ngModel)]="column.id">
 
-    <input type="hidden" id="boardId" name="boardId" [value]="column.boardId"
-    #boardId="ngModel" [(ngModel)]="column.boardId">
+    <input type="hidden" id="boardId" name="boardId" [value]="column.boardId" #boardId="ngModel"
+      [(ngModel)]="column.boardId">
   </form>
 
   <button (click)="openModalWindow()" (click)="appearSmoothly()">
     {{ "createNewTask" | translate }} <br>+</button>
-  <app-modal-task (addTask)="onAddTask($event)" [(id)]="column.id"
-    [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
+  <app-modal-task (addTask)="onAddTask($event)" [(id)]="column.id" [(modalVisibility)]="modalVisibility"
+    [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
   </app-modal-task>
-  <app-task-list [taskList]="taskList"></app-task-list>
+  <app-task-list [taskList]="taskList" cdkDropList [cdkDropListData]="taskList"
+    (cdkDropListDropped)="drop($event)"></app-task-list>
   <button class="deleting" type="button" (click)="showConfirmation(confirmTypes.deleteColumn, column?.id)">
     {{ "deleteColumn" | translate }}</button>
 </div>
