@@ -100,11 +100,6 @@
       "boardId": 7
     },
     {
-      "id": 4,
-      "columnTitle": "Super Ded",
-      "boardId": 7
-    },
-    {
       "id": 5,
       "columnTitle": "Yellow boots!!!!",
       "boardId": 1
@@ -162,22 +157,6 @@
       "columnId": 3
     },
     {
-      "id": 6,
-      "taskTitle": "devd",
-      "taskDescription": "ert",
-      "background": "pale",
-      "complete": false,
-      "columnId": 1
-    },
-    {
-      "id": 9,
-      "taskTitle": "azaz",
-      "taskDescription": "",
-      "background": "dark-blue",
-      "complete": false,
-      "columnId": 5
-    },
-    {
       "id": 10,
       "taskTitle": "sdsds",
       "taskDescription": "",
@@ -186,12 +165,14 @@
       "columnId": 2
     },
     {
-      "id": 11,
-      "taskTitle": "sxsxs",
-      "taskDescription": "",
-      "background": "sky-blue",
+      "id": 12,
+      "taskTitle": "dedaw",
+      "taskDescription": "dedaw",
+      "background": "sand",
       "complete": false,
-      "columnId": 4
+      "columnId": 5,
+      "title": "dede",
+      "description": "dedaw"
     }
   ]
 }

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { BoardsService } from '../../../core/services/boards.service';
 import { Board } from '../../models/board';
+import { ConfirmService } from 'src/app/core/services/confirm.service';
 
 
 @Component({
@@ -19,17 +20,24 @@ export class UserComponent implements OnInit {
   modalVisibility: boolean = false
   loaded: boolean = false
 
-  constructor( private boardsService: BoardsService, public route: ActivatedRoute) {
-    this.filteredBoardList = this.boardList;
+  constructor( private boardsService: BoardsService, public route: ActivatedRoute,
+    private confirmService: ConfirmService, private cdr: ChangeDetectorRef) {
+    this.filteredBoardList = this.boardList
   }
 
   ngOnInit(): void {
     this.onGetFilteredBoards('');
+    this.confirmService.notifyOfDeletionChanges$.subscribe(() => {
+      this.onGetFilteredBoards('');
+      this.cdr.markForCheck();
+    })
   }
 
   onAddBoard(item: Board) {
     this.boardsService.addBoard(item).subscribe(() => {
       this.onGetFilteredBoards('');
+      // console.log(item.id);
+      // item.id++;
     });
   }
 

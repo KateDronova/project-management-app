@@ -1,13 +1,19 @@
 <div class="wrapper" style="background-image: url('../../../assets/images/{{task?.background}}.jpg')">
   <div class="taskPreview" [ngClass]="{ completed: task?.complete }">
-    <div style="width: 100%; height: 100%;">
+    <div style="width: 100%; height: 100%;" (click)="openModalWindow()"
+      (click)="appearSmoothly()" (click)="startEditing()">
       <h3>{{ task?.taskTitle | titlecase | slice : 0 : 20}}</h3>
       <p>{{ task?.taskDescription | slice : 0 : 30 }}</p>
     </div>
-    <button type="button" (click)="showConfirmation(confirmTypes.deleteTask, task?.id)">{{ "deleteTask" | translate }}</button>
+    <button type="button" (click)="showConfirmation(confirmTypes.deleteTask, task?.id)">
+      {{ "deleteTask" | translate }}</button>
     <div class="checkbox">
       <label for="completed">{{ 'done' | translate }}</label>
       <input type="checkbox" id="completed" [checked]="task?.complete" (change)="onToggleComplete(task)">
     </div>
   </div>
 </div>
+<!-- <app-modal-task (addTask)="onEditTask($event)" [(id)]="task.id" [(editingTask)]="editingTask" -->
+<app-modal-task (editTask)="onEditTask($event)" [(id)]="task.id" [(task)]="task" [(editingTask)]="editingTask"
+  [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
+</app-modal-task>

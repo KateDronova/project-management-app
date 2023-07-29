@@ -19,12 +19,13 @@ export class ModalWindowComponent {
   @Output() addBoard = new EventEmitter<Board>;
 
   boardForm = new BoardClass();
-
+  randomBackground: string = ['sky', 'sea', 'beach', 'leaves', 'winter', 'ice'][
+    Math.floor(Math.random() * 6)
+  ]
   idCounter = 0
   boardName: string = ''
-  backgroundName: string = ''
+  backgroundName: string = this.randomBackground
   descriptionName: string = ''
-
   backgrounds = [...backgrounds]
   selectedBack: string = ''
 
@@ -39,7 +40,7 @@ export class ModalWindowComponent {
     });
     this.idCounter++;
     this.boardName = '';
-    this.backgroundName = '';
+    this.backgroundName = this.randomBackground;
     this.descriptionName = '';
     this.selectedBack = '';
     this.removeModalWindow()

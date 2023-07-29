@@ -3,7 +3,6 @@ import { Task } from '../../models/task';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
 import { ConfirmationInterface } from '../../models/confirmation-interface';
-import { ColumnsService } from 'src/app/core/services/columns.service';
 import { TasksService } from 'src/app/core/services/tasks.service';
 import { FormValues } from '../../models/form-values';
 import { TaskForm } from '../../models/task-form';
@@ -27,20 +26,49 @@ export class TaskItemComponent {
   columnForm = new TaskForm()
   loaded: boolean = false
   modalVisibility: boolean = false
+  editingTask: boolean = false
+
   taskList: Task[] = []
+
   confirmTypes = ConfirmationType
   confirmation?: ConfirmationInterface
-  editing: boolean = false
   userChangedTaskValues: FormValues = {}
 
-  constructor(private confirmService: ConfirmService, private taskService: TasksService) {}
+  constructor(private confirmService: ConfirmService, private taskService: TasksService,
+    private cdr: ChangeDetectorRef) {}
 
-  showConfirmation(type: ConfirmationType, id: number) {
+  showConfirmation(type: ConfirmationType, id: number): void {
     this.confirmService.setConfirm({type}, id);
   }
 
-  onToggleComplete(task: Task) {
+  onToggleComplete(task: Task): void {
     task.complete = !task.complete;
     this.taskService.updateTask(task, task.id).subscribe();
+  }
+
+  openModalWindow(): void {
+    this.modalVisibility = true;
+  }
+
+  appearSmoothly(): void {
+    this.loaded = true;
+  }
+
+  startEditing(): void {
+    this.editingTask = true;
+    this.cdr.markForCheck();
+  }
+
+  onEditTask(task: Task): void {
+    this.taskService.updateTask(task, task.id).subscribe(() => {
+      this.getTasksForSingeColumn(this.task.columnId);
+      this.cdr.markForCheck();
+    });
+  }
+
+  private getTasksForSingeColumn(columnId: number): void {
+    this.taskService.getFilteredTasks(columnId).subscribe((taskList) => {
+      this.taskList = taskList;
+    })
   }
 }

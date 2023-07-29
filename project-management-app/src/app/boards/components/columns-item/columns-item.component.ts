@@ -37,6 +37,10 @@ export class ColumnsItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTasksForSingeColumn(this.column.id);
+    this.confirmService.notifyOfDeletionChanges$.subscribe(() => {
+      this.getTasksForSingeColumn(this.column.id);
+      this.cdr.markForCheck();
+    })
   }
 
   trackChanges(fieldName: string, value: string): void {
@@ -61,7 +65,15 @@ export class ColumnsItemComponent implements OnInit {
     this.taskService.addTask(task).subscribe(() => {
       this.getTasksForSingeColumn(this.column.id);
     });
-    console.log(task);
+  }
+
+  onSave(id: number): void {
+    const finalFormValues = Object.assign({}, this.column, this.userChangedColumnValues);
+    this.columnService.updateColumn(finalFormValues, id).subscribe();
+    this.cdr.markForCheck();
+    this.endEditing();
+    this.column.columnTitle = this.columnName;
+    this.cdr.markForCheck();
   }
 
   private getTasksForSingeColumn(columnId: number): void {
@@ -74,15 +86,6 @@ export class ColumnsItemComponent implements OnInit {
     this.columnService.getColumnTitle(columnId).subscribe((columnName) => {
       this.columnName = columnName;
     });
-  }
-
-  onSave(id: number): void {
-    const finalFormValues = Object.assign({}, this.column, this.userChangedColumnValues);
-    this.columnService.updateColumn(finalFormValues, id).subscribe();
-    this.cdr.markForCheck();
-    this.endEditing();
-    this.column.columnTitle = this.columnName;
-    this.cdr.markForCheck();
   }
 
   startEditing() {

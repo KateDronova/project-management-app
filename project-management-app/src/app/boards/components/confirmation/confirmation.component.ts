@@ -31,40 +31,44 @@ export class ConfirmationComponent implements OnInit {
     })
   }
 
-  closeConfirmation() {
+  closeConfirmation(): void {
     this.confirmation = undefined
   }
 
-  private getFilteredBoards(text: string) {
+  private getFilteredBoards(text: string): void {
     this.boardsService.getFilteredBoards(text).subscribe((filteredBoardList) => {
       this.filteredBoardList = filteredBoardList;
     })
   }
 
-  onDeleteUser() {
+  onDeleteUser(): void {
     this.userService.deleteUser().subscribe(() => {
       this.authService.logOut();
     });
-    this.closeConfirmation()
+    this.closeConfirmation();
   }
 
-  onDeleteBoard() {
+  onDeleteBoard(): void {
     this.boardsService.deleteBoard().subscribe(() => {
+      this.confirmService.triggerItemListChange();
       this.getFilteredBoards('');
     });
     this.closeConfirmation();
   }
 
-  onDeleteColumn() {
+  onDeleteColumn(): void {
     this.columnService.deleteColumn().subscribe(() => {
+      this.confirmService.triggerItemListChange();
       this.columnService.getColumns();
     });
     this.closeConfirmation()
   }
 
-  onDeleteTask() {
-    this.taskService.deleteTask().subscribe(() => { });
-    this.closeConfirmation()
+  onDeleteTask(): void {
+    this.taskService.deleteTask().subscribe(() => {
+      this.confirmService.triggerItemListChange();
+    });
+    this.closeConfirmation();
   }
  }
 

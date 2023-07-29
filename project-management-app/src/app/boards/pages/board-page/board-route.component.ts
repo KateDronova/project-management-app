@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
@@ -29,7 +29,7 @@ export class BoardRouteComponent implements OnInit {
 
   constructor(private location: Location, private confirmService: ConfirmService,
     private columnService: ColumnsService, private route: ActivatedRoute,
-    private boardService: BoardsService) {}
+    private boardService: BoardsService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -37,6 +37,10 @@ export class BoardRouteComponent implements OnInit {
     });
     this.getCurrentBoardInfo(this.id);
     this.getColumnsForSingeBoard(this.id);
+    this.confirmService.notifyOfDeletionChanges$.subscribe(() => {
+      this.getColumnsForSingeBoard(this.id);
+      this.cdr.markForCheck();
+    })
   }
 
   private getCurrentBoardInfo(id: number) {
@@ -66,11 +70,11 @@ export class BoardRouteComponent implements OnInit {
     });
   }
 
-  private getAllColumns() {
-    this.columnService.getColumns().subscribe((columnList) => {
-      this.columnList = columnList;
-    })
-  }
+  // private getAllColumns() {
+  //   this.columnService.getColumns().subscribe((columnList) => {
+  //     this.columnList = columnList;
+  //   })
+  // }
   private getColumnsForSingeBoard(boardId: number) {
     this.columnService.getFilteredColumns(boardId).subscribe((columnList) => {
       this.columnList = columnList;
