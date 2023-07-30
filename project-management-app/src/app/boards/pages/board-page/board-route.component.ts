@@ -32,6 +32,7 @@ export class BoardRouteComponent implements OnInit {
     private boardService: BoardsService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
+    this.background = 'dark-blue';
     const observable1 = this.route.params;
     const subscription1 = observable1.subscribe(params => {
       this.id = +params['id'];

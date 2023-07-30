@@ -1,4 +1,5 @@
-<div class="wrapperGlobal" style="background-image: url('../../../assets/images/{{background}}.jpg')">
+<!-- <div class="wrapperGlobal" style="background-image: url('../../../assets/images/{{background}}.jpg')"> -->
+<div class="wrapperGlobal" [style.background-image]="'url(../../../assets/images/' + background + '.jpg)'">
   <header>
     <div class="wrapper">
       <p>{{ 'board' | translate }} №{{ id }}</p>

@@ -1,7 +1,3 @@
-.wrapperGlobal {
-
-}
-
 img {
   width: 130px;
   margin: 15px;
@@ -10,4 +6,15 @@ img {
 p {
   margin: 0;
   font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media all and (width < 768px) {
+  div.me {
+    display: flex;
+    column-gap: 20px;
+  }
+  div.wrapperGlobal {
+    margin-bottom: 15px;
+  }
 }
