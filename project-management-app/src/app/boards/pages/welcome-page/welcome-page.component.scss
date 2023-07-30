@@ -5,6 +5,9 @@ section {
   margin-top: 1em;
   position: relative;
 }
+section:first-child {
+  margin-top: 0;
+}
 
 div.content {
   min-height: 120px;
@@ -31,4 +34,27 @@ div.content {
 
 h2, h3 {
   color: var(--middle-sea-color);
+}
+
+@media all and (width < 768px) {
+  section {
+    padding: 0.4em 40vw 0.4rem 2vw;
+  }
+  @each $back in 1, 2, 3 {
+    .welcome#{$back} {
+      width: 35vw;
+    }
+  }
+}
+
+@media all and (width < 500px) {
+  section {
+    padding: 0.4em 2vw 0.4rem 2vw;
+  }
+  @each $back in 1, 2, 3 {
+    .welcome#{$back} {
+      width: 95vw;
+      opacity: 0.15;
+    }
+  }
 }

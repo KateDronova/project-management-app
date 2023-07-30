@@ -10,15 +10,15 @@ import { UsersService } from 'src/app/core/services/users.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  title = 'Project Management app';
-  siteLanguage = 'English';
+  loggedIn: boolean = false
+  title = 'Project Management app'
+  siteLanguage = 'English'
   languageList = [
     { code: 'en', label: 'English' },
     { code: 'ru', label: 'Russian' },
     { code: 'es', label: 'Spainish' },
-  ];
+  ]
   public href: string = window.location.href
-  loggedIn: boolean = this.authService.loggedIn
   currentUser: UserInterface = {
     id: 0,
     name: '',
@@ -27,22 +27,15 @@ export class HeaderComponent implements OnInit {
     password: ''
   }
 
-
   constructor(private translate: TranslateService, private cdr: ChangeDetectorRef,
     private authService: AuthService, private userService: UsersService) {}
 
-
   ngOnInit(): void {
-    // this.currentUser.email = this.authService.currentUserEmail;
-    // console.log(this.currentUser.email);
-    // this.getCurrentUserInfo(this.currentUser.email);
+    this.authService.booleanInfo$.subscribe((value) => {
+      this.loggedIn = value;
+      this.cdr.markForCheck();
+    });
   }
-
-  // private getCurrentUserInfo(currentUserEmail: string) {
-  //   this.userService.getCurrentUser(currentUserEmail).subscribe((currentUser) => {
-  //     this.currentUser = currentUser;
-  //   })
-  // }
 
   onLogOut(): void {
     this.authService.logOut();

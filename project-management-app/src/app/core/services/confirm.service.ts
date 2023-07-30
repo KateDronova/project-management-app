@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ConfirmationInterface } from '../../boards/models/confirmation-interface';
-import { Board } from 'src/app/boards/models/board';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class ConfirmService {
 
   constructor() { }
 
-  triggerItemListChange() {
+  triggerItemListChange(): void {
     this.notifyOfDeletion.next();
   }
 

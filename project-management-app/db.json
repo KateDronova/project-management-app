@@ -9,7 +9,7 @@
       "id": 1
     },
     {
-      "name": "Rosa",
+      "name": "Rosita",
       "surname": "Bingley",
       "email": "roza@mail.com",
       "password": "dededed",
@@ -81,30 +81,6 @@
       "boardTitle": "Ded Mazai",
       "background": "sky",
       "boardDescription": ""
-    },
-    {
-      "id": 11,
-      "boardTitle": "Yep board",
-      "background": "leaves",
-      "boardDescription": "new one"
-    },
-    {
-      "id": 12,
-      "boardTitle": "d",
-      "background": "beach",
-      "boardDescription": ""
-    },
-    {
-      "id": 13,
-      "boardTitle": "dd",
-      "background": "winter",
-      "boardDescription": ""
-    },
-    {
-      "id": 14,
-      "boardTitle": "dsds",
-      "background": "sky",
-      "boardDescription": ""
     }
   ],
   "columns": [
@@ -142,26 +118,6 @@
       "id": 9,
       "columnTitle": "Focus",
       "boardId": 3
-    },
-    {
-      "id": 11,
-      "columnTitle": "Mu column 2",
-      "boardId": 7
-    },
-    {
-      "id": 12,
-      "columnTitle": "My column 3",
-      "boardId": 7
-    },
-    {
-      "id": 13,
-      "columnTitle": "first one",
-      "boardId": 11
-    },
-    {
-      "id": 14,
-      "columnTitle": "s",
-      "boardId": 13
     }
   ],
   "tasks": [
@@ -252,22 +208,6 @@
       "background": "sand",
       "complete": false,
       "columnId": 3
-    },
-    {
-      "id": 15,
-      "taskTitle": "sqs",
-      "taskDescription": "",
-      "background": "sand",
-      "complete": false,
-      "columnId": 8
-    },
-    {
-      "id": 16,
-      "taskTitle": "ee",
-      "taskDescription": "",
-      "background": "dark-blue",
-      "complete": false,
-      "columnId": 14
     }
   ]
 }

@@ -21,9 +21,7 @@ const routes: Routes = [
     canActivate: [authGuardFunction], canMatch: [matchingGuardFunction],
   },
   { path: 'edit-profile', component: EditProfileComponent },
-  { path: 'board/:id', component: BoardRouteComponent,
-    // resolve: { id: dataResolver }
-  }
+  { path: 'board/:id', component: BoardRouteComponent }
 ];
 
 @NgModule({

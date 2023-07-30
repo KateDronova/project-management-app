@@ -12,7 +12,7 @@
   <nav>
     <button (click)="openModalWindow()" (click)="appearSmoothly()">
       {{ "createNewBoard" | translate }} <br>+</button>
-    <app-modal-window (addBoard)="onAddBoard($event)"
+    <app-modal-window *ngIf="modalVisibility" (addBoard)="onAddBoard($event)"
       [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
     </app-modal-window>
     <app-board-list [boardList]="boardList" [filteredBoardList]="filteredBoardList"></app-board-list>

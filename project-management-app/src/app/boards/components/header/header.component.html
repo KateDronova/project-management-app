@@ -1,21 +1,13 @@
 <div class="wrapperGlobal">
   <h1 routerLink="pma">{{title}}</h1>
   <nav>
-    <!-- <button type="button" routerLink="pma/login">
-      &#10140; {{ "login" | translate }}</button>
-    <button type="button" routerLink="pma/signup">
-      {{ "signup" | translate }} &#10009;</button>
-    <button type="button" routerLink="pma/welcome">
-      &#10006; {{ "logout" | translate }}</button>
-    <button type="button" routerLink="pma/main/editProfile">
-      {{ "editProfile" | translate }} &#9998;</button> -->
     <button *ngIf="!loggedIn" type="button" routerLink="pma/login">
       &#10140; {{ "login" | translate }}</button>
     <button *ngIf="!loggedIn" type="button" routerLink="pma/signup">
       {{ "signup" | translate }} &#10009;</button>
-    <button *ngIf="!loggedIn" type="button" routerLink="pma/welcome" (click)="onLogOut()">
+    <button *ngIf="loggedIn" type="button" routerLink="pma/welcome" (click)="onLogOut()">
       &#10006; {{ "logout" | translate }}</button>
-    <button *ngIf="!loggedIn" type="button" routerLink="pma/edit-profile">
+    <button *ngIf="loggedIn" type="button" routerLink="pma/edit-profile">
       {{ "editProfile" | translate }} &#9998;</button>
   </nav>
   <nav>

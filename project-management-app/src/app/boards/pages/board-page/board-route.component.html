@@ -13,7 +13,7 @@
   <nav class="wrapper" cdkDropListGroup>
     <button class="creation" (click)="openModalWindow()" (click)="appearSmoothly()">
       {{ "createNewColumn" | translate }} <br>+</button>
-    <app-modal-column (addColumn)="onAddColumn($event)" [boardId]="id" [(modalVisibility)]="modalVisibility"
+    <app-modal-column *ngIf="modalVisibility" (addColumn)="onAddColumn($event)" [boardId]="id" [(modalVisibility)]="modalVisibility"
       [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
     </app-modal-column>
     <app-columns-list [columnList]="columnList" cdkDropList [cdkDropListData]="columnList"
