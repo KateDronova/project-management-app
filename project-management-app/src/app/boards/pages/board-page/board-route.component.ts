@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
+import { Subscription } from 'rxjs';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
 import { ConfirmationInterface } from '../../models/confirmation-interface';
@@ -15,8 +16,6 @@ import { Column } from 'src/app/boards/models/column';
   styleUrls: ['./board-route.component.scss']
 })
 export class BoardRouteComponent implements OnInit {
-  // board: Board | null = null;
-
   loaded: boolean = false
   modalVisibility: boolean = false
   columnList: Column[] = []
@@ -26,30 +25,36 @@ export class BoardRouteComponent implements OnInit {
   boardTitle: string = ''
   background: string = ''
   boardDescription: string = ''
+  subscriptions: Subscription[] = []
 
   constructor(private location: Location, private confirmService: ConfirmService,
     private columnService: ColumnsService, private route: ActivatedRoute,
     private boardService: BoardsService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    const observable1 = this.route.params;
+    const subscription1 = observable1.subscribe(params => {
       this.id = +params['id'];
     });
     this.getCurrentBoardInfo(this.id);
     this.getColumnsForSingeBoard(this.id);
-    this.confirmService.notifyOfDeletionChanges$.subscribe(() => {
+    const observable2 = this.confirmService.notifyOfDeletionChanges$;
+    const subscription2 = observable2.subscribe(() => {
       this.getColumnsForSingeBoard(this.id);
       this.cdr.markForCheck();
     })
+    this.subscriptions.push(subscription1, subscription2);
   }
 
   private getCurrentBoardInfo(id: number) {
-    this.boardService.getBoardById(id).subscribe((item) => {
+    const observable3 = this.boardService.getBoardById(id);
+    const subscription3 = observable3.subscribe((item) => {
       this.id = item.id;
       this.boardTitle = item.boardTitle;
       this.background = item.background;
       this.boardDescription = item.boardDescription;
     })
+    this.subscriptions.push(subscription3);
   }
 
   goBack() {
@@ -65,15 +70,19 @@ export class BoardRouteComponent implements OnInit {
   }
 
   onAddColumn(item: Column) {
-    this.columnService.addColumn(item).subscribe(() => {
+    const observable4 = this.columnService.addColumn(item);
+    const subscription4 = observable4.subscribe(() => {
       this.getColumnsForSingeBoard(this.id);
     });
+    this.subscriptions.push(subscription4);
   }
 
   private getColumnsForSingeBoard(boardId: number) {
-    this.columnService.getFilteredColumns(boardId).subscribe((columnList) => {
+    const observable5 = this.columnService.getFilteredColumns(boardId);
+    const subscription5 = observable5.subscribe((columnList) => {
       this.columnList = columnList;
     })
+    this.subscriptions.push(subscription5);
   }
 
   drop(event: CdkDragDrop<Column[]>): void {

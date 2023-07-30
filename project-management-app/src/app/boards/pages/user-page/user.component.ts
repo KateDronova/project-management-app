@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { BoardsService } from '../../../core/services/boards.service';
 import { Board } from '../../models/board';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
@@ -19,6 +20,7 @@ export class UserComponent implements OnInit {
   filteredBoardList: Board[] = []
   modalVisibility: boolean = false
   loaded: boolean = false
+  subscriptions: Subscription[] = []
 
   constructor( private boardsService: BoardsService, public route: ActivatedRoute,
     private confirmService: ConfirmService, private cdr: ChangeDetectorRef) {
@@ -27,18 +29,20 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.onGetFilteredBoards('');
-    this.confirmService.notifyOfDeletionChanges$.subscribe(() => {
+    const observable1 = this.confirmService.notifyOfDeletionChanges$;
+    const subscription1 = observable1.subscribe(() => {
       this.onGetFilteredBoards('');
       this.cdr.markForCheck();
     })
+    this.subscriptions.push(subscription1);
   }
 
   onAddBoard(item: Board) {
-    this.boardsService.addBoard(item).subscribe(() => {
+    const observable2 = this.boardsService.addBoard(item);
+    const subscription2 = observable2.subscribe(() => {
       this.onGetFilteredBoards('');
-      // console.log(item.id);
-      // item.id++;
     });
+    this.subscriptions.push(subscription2);
   }
 
   onFilterResults(text: string) {
@@ -46,9 +50,11 @@ export class UserComponent implements OnInit {
   }
 
   private onGetFilteredBoards(text: string) {
-    this.boardsService.getFilteredBoards(text).subscribe((filteredBoardList) => {
+    const observable3 = this.boardsService.getFilteredBoards(text);
+    const subscription3 = observable3.subscribe((filteredBoardList) => {
       this.filteredBoardList = filteredBoardList;
     })
+    this.subscriptions.push(subscription3);
   }
 
   openModalWindow() {
@@ -58,16 +64,4 @@ export class UserComponent implements OnInit {
   appearSmoothly () {
     this.loaded = true
   }
-
-  // filterResults(text: string) {
-  //   if (!text) {
-  //     this.filteredBoardList = this.boardList;
-  //   }
-
-  //   this.filteredBoardList = this.boardList.filter(
-  //     board => board?.description.toLowerCase().includes(text.toLowerCase())
-  //     || board?.title.toLowerCase().includes(text.toLowerCase())
-  //     || board?.id.toString().includes(text)
-  //   );
-  // }
 }

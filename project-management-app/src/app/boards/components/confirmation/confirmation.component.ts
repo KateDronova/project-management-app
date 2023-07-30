@@ -1,5 +1,5 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-// import { Route, Router } from '@angular/router';
+import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ConfirmationInterface } from '../../models/confirmation-interface';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { BoardsService } from 'src/app/core/services/boards.service';
@@ -14,10 +14,11 @@ import { TasksService } from 'src/app/core/services/tasks.service';
   templateUrl: './confirmation.component.html',
   styleUrls: ['./confirmation.component.scss']
 })
-export class ConfirmationComponent implements OnInit {
+export class ConfirmationComponent implements OnInit, OnDestroy {
   confirmation?: ConfirmationInterface;
   boardList: Board[] = []
   filteredBoardList: Board[] = []
+  subscriptions: Subscription[] = []
 
   constructor(private confirmService: ConfirmService, private boardsService: BoardsService,
     private userService: UsersService, private authService: AuthService, private cdr: ChangeDetectorRef,
@@ -26,9 +27,15 @@ export class ConfirmationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.confirmService.getConfirm().subscribe((confirm) => {
+    const observable1 = this.confirmService.getConfirm();
+    const subscription1 = observable1.subscribe((confirm) => {
       this.confirmation = confirm;
-    })
+    });
+    this.subscriptions.push(subscription1);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   closeConfirmation(): void {
@@ -36,39 +43,49 @@ export class ConfirmationComponent implements OnInit {
   }
 
   private getFilteredBoards(text: string): void {
-    this.boardsService.getFilteredBoards(text).subscribe((filteredBoardList) => {
+    const observable2 = this.boardsService.getFilteredBoards(text);
+    const subscription2 = observable2.subscribe((filteredBoardList) => {
       this.filteredBoardList = filteredBoardList;
     })
+    this.subscriptions.push(subscription2);
   }
 
   onDeleteUser(): void {
-    this.userService.deleteUser().subscribe(() => {
+    const observable3 = this.userService.deleteUser();
+    const subscription3 = observable3.subscribe(() => {
       this.authService.logOut();
     });
     this.closeConfirmation();
+    this.subscriptions.push(subscription3);
   }
 
   onDeleteBoard(): void {
-    this.boardsService.deleteBoard().subscribe(() => {
+    const observable4 = this.boardsService.deleteBoard();
+    const subscription4 = observable4.subscribe(() => {
       this.confirmService.triggerItemListChange();
       this.getFilteredBoards('');
     });
     this.closeConfirmation();
+    this.subscriptions.push(subscription4);
   }
 
   onDeleteColumn(): void {
-    this.columnService.deleteColumn().subscribe(() => {
+    const observable5 = this.columnService.deleteColumn();
+    const subscription5 = observable5.subscribe(() => {
       this.confirmService.triggerItemListChange();
       this.columnService.getColumns();
     });
     this.closeConfirmation()
+    this.subscriptions.push(subscription5);
   }
 
   onDeleteTask(): void {
-    this.taskService.deleteTask().subscribe(() => {
+    const observable6 = this.taskService.deleteTask();
+    const subscription6 = observable6.subscribe(() => {
       this.confirmService.triggerItemListChange();
     });
     this.closeConfirmation();
+    this.subscriptions.push(subscription6);
   }
  }
 

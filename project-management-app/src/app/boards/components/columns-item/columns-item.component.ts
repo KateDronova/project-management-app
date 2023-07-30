@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef, OnInit } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, OnInit, OnDestroy } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
 import { Column } from '../../models/column';
 import { ColumnForm } from '../../models/column-form';
@@ -9,13 +9,14 @@ import { ConfirmationInterface } from '../../models/confirmation-interface';
 import { ColumnsService } from 'src/app/core/services/columns.service';
 import { TasksService } from 'src/app/core/services/tasks.service';
 import { FormValues } from '../../models/form-values';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-columns-item',
   templateUrl: './columns-item.component.html',
   styleUrls: ['./columns-item.component.scss']
 })
-export class ColumnsItemComponent implements OnInit {
+export class ColumnsItemComponent implements OnInit, OnDestroy {
   @Input() column: Column = {
     id: 0,
     columnTitle: '',
@@ -30,6 +31,7 @@ export class ColumnsItemComponent implements OnInit {
   confirmation?: ConfirmationInterface
   editing: boolean = false
   userChangedColumnValues: FormValues = {}
+  subscriptions: Subscription[] = [];
 
 
   constructor(private confirmService: ConfirmService, private columnService: ColumnsService,
@@ -38,10 +40,16 @@ export class ColumnsItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTasksForSingeColumn(this.column.id);
-    this.confirmService.notifyOfDeletionChanges$.subscribe(() => {
+    const observable1 = this.confirmService.notifyOfDeletionChanges$;
+    const subscription1 = observable1.subscribe(() => {
       this.getTasksForSingeColumn(this.column.id);
       this.cdr.markForCheck();
     })
+    this.subscriptions.push(subscription1);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   trackChanges(fieldName: string, value: string): void {
@@ -63,30 +71,38 @@ export class ColumnsItemComponent implements OnInit {
   }
 
   onAddTask(task: Task): void {
-    this.taskService.addTask(task).subscribe(() => {
+    const observable2 = this.taskService.addTask(task);
+    const subscription2 = observable2.subscribe(() => {
       this.getTasksForSingeColumn(this.column.id);
     });
+    this.subscriptions.push(subscription2);
   }
 
   onSave(id: number): void {
     const finalFormValues = Object.assign({}, this.column, this.userChangedColumnValues);
-    this.columnService.updateColumn(finalFormValues, id).subscribe();
+    const observable3 = this.columnService.updateColumn(finalFormValues, id);
+    const subscription3 = observable3.subscribe();
     this.cdr.markForCheck();
     this.endEditing();
     this.column.columnTitle = this.columnName;
     this.cdr.markForCheck();
+    this.subscriptions.push(subscription3);
   }
 
   private getTasksForSingeColumn(columnId: number): void {
-    this.taskService.getFilteredTasks(columnId).subscribe((taskList) => {
+    const observable4 = this.taskService.getFilteredTasks(columnId);
+    const subscription4 = observable4.subscribe((taskList) => {
       this.taskList = taskList;
     })
+    this.subscriptions.push(subscription4);
   }
 
   private onGetColumnTitle(columnId: number): void {
-    this.columnService.getColumnTitle(columnId).subscribe((columnName) => {
+    const observable5 = this.columnService.getColumnTitle(columnId);
+    const subscription5 = observable5.subscribe((columnName) => {
       this.columnName = columnName;
     });
+    this.subscriptions.push(subscription5);
   }
 
   startEditing() {

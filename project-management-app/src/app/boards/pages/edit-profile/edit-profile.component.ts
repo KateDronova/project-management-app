@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { SignUpForm } from '../../models/signup';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
@@ -37,6 +38,7 @@ export class EditProfileComponent implements OnInit{
   };
   successfulEditing: boolean = false;
   userChangedFormValues: FormValues = {}
+  subscriptions: Subscription[] = []
 
   constructor(private location: Location, private confirmService: ConfirmService,
     private authService: AuthService, private userService: UsersService,
@@ -59,7 +61,8 @@ export class EditProfileComponent implements OnInit{
 
   submitChanges(id: number): void {
     const finalFormValues = Object.assign({}, this.currentUser, this.userChangedFormValues);
-    this.userService.changeUserInfo(finalFormValues, id).subscribe();
+    const observable1 = this.userService.changeUserInfo(finalFormValues, id);
+    const subscription1 = observable1.subscribe();
     this.successfulEditing = true;
     this.cdr.markForCheck();
     setTimeout(() => {
@@ -67,12 +70,15 @@ export class EditProfileComponent implements OnInit{
       this.router.navigate(['pma/main'])
     }, 3000)
     this.cdr.markForCheck();
+    this.subscriptions.push(subscription1);
   }
 
   private getCurrentUserInfo(currentUserEmail: string): void {
-    this.userService.getCurrentUser(currentUserEmail).subscribe((currentUser) => {
+    const observable2 = this.userService.getCurrentUser(currentUserEmail);
+    const subscription2 = observable2.subscribe((currentUser) => {
       this.currentUser = currentUser;
     })
+    this.subscriptions.push(subscription2);
   }
 
   appearSmoothly = setTimeout(() =>

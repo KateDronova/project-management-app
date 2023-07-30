@@ -81,6 +81,12 @@
       "boardTitle": "Ded Mazai",
       "background": "sky",
       "boardDescription": ""
+    },
+    {
+      "id": 11,
+      "boardTitle": "Yep board",
+      "background": "leaves",
+      "boardDescription": "new one"
     }
   ],
   "columns": [
@@ -120,11 +126,6 @@
       "boardId": 3
     },
     {
-      "id": 10,
-      "columnTitle": "My column 1",
-      "boardId": 7
-    },
-    {
       "id": 11,
       "columnTitle": "Mu column 2",
       "boardId": 7
@@ -133,6 +134,11 @@
       "id": 12,
       "columnTitle": "My column 3",
       "boardId": 7
+    },
+    {
+      "id": 13,
+      "columnTitle": "first one",
+      "boardId": 11
     }
   ],
   "tasks": [
@@ -177,6 +183,14 @@
       "columnId": 3
     },
     {
+      "id": 8,
+      "taskTitle": "Bomb9",
+      "taskDescription": "defuse the bomb",
+      "background": "pale",
+      "complete": false,
+      "columnId": 3
+    },
+    {
       "id": 10,
       "taskTitle": "sdsds",
       "taskDescription": "",
@@ -185,14 +199,20 @@
       "columnId": 2
     },
     {
-      "id": 12,
-      "taskTitle": "dedaw",
-      "taskDescription": "dedaw",
-      "background": "sand",
+      "id": 11,
+      "taskTitle": "sdsds",
+      "taskDescription": "",
+      "background": "sky-blue",
       "complete": false,
-      "columnId": 5,
-      "title": "dede",
-      "description": "dedaw"
+      "columnId": 2
+    },
+    {
+      "id": 12,
+      "taskTitle": "sdsds",
+      "taskDescription": "",
+      "background": "sky-blue",
+      "complete": false,
+      "columnId": 2
     },
     {
       "id": 13,
@@ -201,6 +221,22 @@
       "background": "berry",
       "complete": false,
       "columnId": 9
+    },
+    {
+      "id": 14,
+      "taskTitle": "This day",
+      "taskDescription": "is good day!",
+      "background": "sand",
+      "complete": false,
+      "columnId": 3
+    },
+    {
+      "id": 15,
+      "taskTitle": "sqs",
+      "taskDescription": "",
+      "background": "sand",
+      "complete": false,
+      "columnId": 8
     }
   ]
 }

@@ -1,6 +1,7 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { SignUpForm } from '../../models/signup';
 import { UsersService } from 'src/app/core/services/users.service';
 import { UserInterface } from '../../models/user-interface';
@@ -13,7 +14,6 @@ import { UserInterface } from '../../models/user-interface';
 
 export class SignupFormComponent {
   signupForm = new SignUpForm()
-
   show: boolean = false
   show2: boolean = false
 
@@ -24,6 +24,7 @@ export class SignupFormComponent {
   password: string = ''
 
   successfulRegistration: boolean = false;
+  subscriptions: Subscription[] = []
 
 
   constructor(private location: Location, public route: ActivatedRoute,
@@ -37,7 +38,8 @@ export class SignupFormComponent {
   )
 
   onAddUser(item: UserInterface) {
-    this.userService.addUser(item).subscribe();
+    const observable1 = this.userService.addUser(item);
+    const subscription1 = observable1.subscribe();
     this.successfulRegistration = true;
     this.cdr.markForCheck();
     setTimeout(() => {
@@ -45,6 +47,7 @@ export class SignupFormComponent {
       this.router.navigate(['pma/login'])
     }, 3000)
     this.cdr.markForCheck();
+    this.subscriptions.push(subscription1);
   }
 
   togglePassword() {

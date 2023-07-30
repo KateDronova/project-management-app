@@ -1,4 +1,5 @@
 import { Component, Input, Output, ChangeDetectorRef, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Task } from '../../models/task';
 import { ConfirmService } from '../../../core/services/confirm.service';
 import { ConfirmationType } from '../../models/confirmation-type';
@@ -33,6 +34,7 @@ export class TaskItemComponent {
   confirmTypes = ConfirmationType
   confirmation?: ConfirmationInterface
   userChangedTaskValues: FormValues = {}
+  subscriptions: Subscription[] = []
 
   constructor(private confirmService: ConfirmService, private taskService: TasksService,
     private cdr: ChangeDetectorRef) {}
@@ -43,7 +45,9 @@ export class TaskItemComponent {
 
   onToggleComplete(task: Task): void {
     task.complete = !task.complete;
-    this.taskService.updateTask(task, task.id).subscribe();
+    const observable1 = this.taskService.updateTask(task, task.id);
+    const subscription1 = observable1.subscribe();
+    this.subscriptions.push(subscription1);
   }
 
   openModalWindow(): void {
@@ -60,15 +64,19 @@ export class TaskItemComponent {
   }
 
   onEditTask(task: Task): void {
-    this.taskService.updateTask(task, task.id).subscribe(() => {
+    const observable2 = this.taskService.updateTask(task, task.id);
+    const subscription2 = observable2.subscribe(() => {
       this.getTasksForSingeColumn(this.task.columnId);
       this.cdr.markForCheck();
     });
+    this.subscriptions.push(subscription2);
   }
 
   private getTasksForSingeColumn(columnId: number): void {
-    this.taskService.getFilteredTasks(columnId).subscribe((taskList) => {
+    const observable3 = this.taskService.getFilteredTasks(columnId);
+    const subscription3 = observable3.subscribe((taskList) => {
       this.taskList = taskList;
     })
+    this.subscriptions.push(subscription3);
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { TasksService } from 'src/app/core/services/tasks.service';
 import { Task } from '../../models/task';
@@ -55,6 +56,7 @@ export class ModalTaskComponent implements OnInit {
     columnId: 0
   }
   userChangedColumnValues: FormValues = {}
+  subscriptions: Subscription[] = []
 
   constructor(private taskService: TasksService,private cdr: ChangeDetectorRef) {}
 
@@ -81,7 +83,8 @@ export class ModalTaskComponent implements OnInit {
 
   onEditTask(taskId: number): void {
     const finalFormValues = Object.assign({}, this.currentTask, this.userChangedColumnValues);
-    this.taskService.updateTask(finalFormValues, taskId).subscribe();
+    const observable1 = this.taskService.updateTask(finalFormValues, taskId);
+    const subscription1 = observable1.subscribe();
     console.log(finalFormValues);
     this.cdr.markForCheck();
     this.removeModalWindow();
@@ -97,12 +100,15 @@ export class ModalTaskComponent implements OnInit {
     });
     this.task.taskTitle = this.currentTask.taskTitle;
     this.task.taskDescription = this.currentTask.taskDescription;
+    this.subscriptions.push(subscription1);
   }
 
   private onGetCurrentTask(taskId: number): void {
-    this.taskService.getCurrentTask(taskId).subscribe((currentTask) => {
+    const observable2 = this.taskService.getCurrentTask(taskId);
+    const subscription2 = observable2.subscribe((currentTask) => {
       this.currentTask = currentTask;
     });
+    this.subscriptions.push(subscription2);
   }
 
   trackChanges(fieldName: string, value: string): void {
@@ -126,5 +132,4 @@ export class ModalTaskComponent implements OnInit {
       this.editingTask = false
     )
   }
-
 }
