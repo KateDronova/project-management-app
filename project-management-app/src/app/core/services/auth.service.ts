@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   currentUser: string = ''
-  private booleanInfoSubject = new BehaviorSubject<boolean>(false);
-  booleanInfo$ = this.booleanInfoSubject.asObservable();
+  loggedIn: boolean = localStorage.getItem('currentUser') ? true : false
+  private booleanInfoSubject = new BehaviorSubject<boolean>(this.loggedIn)
+  booleanInfo$ = this.booleanInfoSubject.asObservable()
 
   constructor(private router: Router) {}
 
