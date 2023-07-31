@@ -28,7 +28,6 @@ export class TaskItemComponent {
   loaded: boolean = false
   modalVisibility: boolean = false
   editingTask: boolean = false
-
   taskList: Task[] = []
 
   confirmTypes = ConfirmationType

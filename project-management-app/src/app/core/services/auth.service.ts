@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  currentUserEmail: string = ''
-  private booleanInfoSubject = new BehaviorSubject<boolean>(true);
+  currentUser: string = ''
+  private booleanInfoSubject = new BehaviorSubject<boolean>(false);
   booleanInfo$ = this.booleanInfoSubject.asObservable();
 
   constructor(private router: Router) {}
@@ -16,15 +16,16 @@ export class AuthService {
     this.booleanInfoSubject.next(value);
   }
 
-  logIn(currentUserEmail: string): void {
+  logIn(currentUserEmail: string): void { //comes from Login form
     this.updateLogInInfo(true);
-    this.currentUserEmail = currentUserEmail;
+    this.currentUser = currentUserEmail;
+    localStorage.setItem('currentUser', currentUserEmail);
   }
-
 
   logOut(): void {
     this.updateLogInInfo(false);
-    this.currentUserEmail = '';
+    this.currentUser = '';
+    localStorage.removeItem('currentUser');
     this.router.navigateByUrl('/pma/welcome');
   }
 }

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UrlTree } from '@angular/router';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import {  map } from 'rxjs/operators';
 
 import { UserInterface } from 'src/app/boards/models/user-interface';
 import { ConfirmService } from './confirm.service';
@@ -50,8 +49,4 @@ export class UsersService {
       map(users => users.map(user => user.email))
     )
   }
-
-  // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
-  //   return true;
-  // };
 }

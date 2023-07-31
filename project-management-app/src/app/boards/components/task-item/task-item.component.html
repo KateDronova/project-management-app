@@ -13,6 +13,7 @@
     </div>
   </div>
 </div>
-<app-modal-task (editTask)="onEditTask($event)" [(id)]="task.id" [(task)]="task" [(editingTask)]="editingTask"
-  [(modalVisibility)]="modalVisibility" [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
+<app-modal-task (editTask)="onEditTask($event)" [(id)]="task.id" [(task)]="task"
+  [(editingTask)]="editingTask" [(modalVisibility)]="modalVisibility"
+  [class.visuallyHidden]="!modalVisibility" [(loaded)]="loaded">
 </app-modal-task>

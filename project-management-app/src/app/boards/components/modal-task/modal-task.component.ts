@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
-
 import { TasksService } from 'src/app/core/services/tasks.service';
 import { Task } from '../../models/task';
 import { backgrounds2 } from '../../models/backgrounds2';

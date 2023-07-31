@@ -8,17 +8,14 @@ import { UserComponent } from './pages/user-page/user.component';
 import { BoardRouteComponent } from './pages/board-page/board-route.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { authGuardFunction } from '../guards/auth.guard';
-import { matchingGuardFunction } from '../guards/matching.guard';
-import { dataResolver } from '../resolvers/data.resolver';
 
 const routes: Routes = [
-  // { path: '', redirectTo: 'main', pathMatch: 'full' },
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
   { path: 'welcome', component: WelcomePageComponent},
   { path: 'signup', component: SignupFormComponent },
   { path: 'login', component: LoginReactiveFormComponent },
   { path: 'main', component: UserComponent,
-    canActivate: [authGuardFunction], canMatch: [matchingGuardFunction],
+    canActivate: [authGuardFunction],
   },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'board/:id', component: BoardRouteComponent }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
-
 import { backgrounds } from '../../models/backgrounds';
 import { Board } from '../../models/board';
 import { BoardClass } from '../../models/board-class';

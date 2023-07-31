@@ -2,7 +2,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserInterface } from '../../models/user-interface';
 import { AuthService } from 'src/app/core/services/auth.service';
-import { UsersService } from 'src/app/core/services/users.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +9,6 @@ import { UsersService } from 'src/app/core/services/users.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  loggedIn: boolean = false
   title = 'Project Management app'
   siteLanguage = 'English'
   languageList = [
@@ -26,9 +24,10 @@ export class HeaderComponent implements OnInit {
     email: '',
     password: ''
   }
+  loggedIn: boolean = false
 
   constructor(private translate: TranslateService, private cdr: ChangeDetectorRef,
-    private authService: AuthService, private userService: UsersService) {}
+    private authService: AuthService) {}
 
   ngOnInit(): void {
     this.authService.booleanInfo$.subscribe((value) => {

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
-
 import { Column } from '../../models/column';
 
 @Component({
@@ -16,7 +15,6 @@ export class ModalColumnComponent {
   @Output() modalVisibilityChange = new EventEmitter<boolean>;
   @Output() loadedChange = new EventEmitter<boolean>;
   @Output() addColumn = new EventEmitter<Column>;
-
 
   idCounter = 0
   columnName: string = ''

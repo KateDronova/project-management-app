@@ -8,5 +8,4 @@ import { Column } from '../../models/column';
 })
 export class ColumnsListComponent {
   @Input() columnList: Column[] = [];
-
 }

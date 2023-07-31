@@ -46,7 +46,7 @@ export class EditProfileComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.currentUser.email = this.authService.currentUserEmail;
+    this.currentUser.email = localStorage.getItem('currentUser')!;
     this.getCurrentUserInfo(this.currentUser.email);
     this.cdr.markForCheck();
   }

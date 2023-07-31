@@ -88,4 +88,3 @@ export class ConfirmationComponent implements OnInit, OnDestroy {
     this.subscriptions.push(subscription6);
   }
  }
-

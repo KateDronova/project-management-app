@@ -1,5 +1,5 @@
 <div class="wrapperGlobal">
-  <h1 routerLink="pma">{{title}}</h1>
+  <h1 routerLink="pma/main">{{title}}</h1>
   <nav>
     <button *ngIf="!loggedIn" type="button" routerLink="pma/login">
       &#10140; {{ "login" | translate }}</button>
@@ -12,6 +12,6 @@
   </nav>
   <nav>
     <button type="button" class="{{language.code}}-button" *ngFor="let language of languageList"
-    (click)="changeSiteLanguage(language.code)">{{language.code}}</button>
+      (click)="changeSiteLanguage(language.code)">{{language.code}}</button>
   </nav>
 </div>

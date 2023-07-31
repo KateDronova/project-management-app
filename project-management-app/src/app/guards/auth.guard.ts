@@ -1,16 +1,16 @@
-import { CanActivateFn, UrlTree, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { AuthService } from '../core/services/auth.service';
 
 
-export const authGuardFunction: CanActivateFn = (route: ActivatedRouteSnapshot,
-  state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> => {
-  // const isLoggedIn = UsersService.isLoggedIn(); // Replace with your actual authentication service logic
-  // if (isLoggedIn) {
-  //   // User is authorized, allow activation
-    // return true;
-  // } else {
-    // router.navigate(['/pma/welcome']);
+export const authGuardFunction = (): boolean | Observable<boolean> | Promise<boolean> => {
+  const authService = inject(AuthService);
+  const router = inject(Router);
+
+  if (localStorage.getItem('currentUser')) {
     return true;
-// }
+  }
+  router.navigate(['/pma/welcome']);
+  return false;
 }

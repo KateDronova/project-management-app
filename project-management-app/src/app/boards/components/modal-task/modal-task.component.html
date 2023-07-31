@@ -59,11 +59,13 @@
       </fieldset>
 
       <div class="submButtons">
-        <button type="button" class="cancel"(click)="removeModalWindow()">{{ "cancel" | translate }}</button>
-        <button *ngIf="!editingTask" (click)="onAddTask()" type="submit" [disabled]="!taskForm.valid">{{ "continue" | translate }}</button>
-        <button *ngIf="editingTask" (click)="onEditTask(id)" type="submit" [disabled]="!taskForm.valid">{{ "continue" | translate }}</button>
+        <button type="button" class="cancel"(click)="removeModalWindow()">
+          {{ "cancel" | translate }}</button>
+        <button *ngIf="!editingTask" (click)="onAddTask()" type="submit"
+          [disabled]="!taskForm.valid">{{ "continue" | translate }}</button>
+        <button *ngIf="editingTask" (click)="onEditTask(id)" type="submit"
+          [disabled]="!taskForm.valid">{{ "continue" | translate }}</button>
       </div>
     </form>
   </div>
 </div>
-

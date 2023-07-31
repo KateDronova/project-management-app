@@ -25,6 +25,7 @@ export class SignupFormComponent {
 
   successfulRegistration: boolean = false;
   subscriptions: Subscription[] = []
+  loaded: boolean = false;
 
 
   constructor(private location: Location, public route: ActivatedRoute,
@@ -32,7 +33,6 @@ export class SignupFormComponent {
     private cdr: ChangeDetectorRef) {}
 
 
-  loaded: boolean = false;
   appearSmoothly = setTimeout(() =>
     this.loaded = true, 100
   )
